@@ -1,21 +1,25 @@
 (function () {
-    																																								'use strict';
+	'use strict';
 
-    																																								var $panel = $bundle.filter('.main');
-    																																								var $show = $panel.find('button[command="show"]');
-    																																								var $hide = $panel.find('button[command="hide"]');
+	const show = document.getElementById('show');
+	const hide = document.getElementById('hide');
+	const mainShowing = nodecg.Replicant('mainShowing', {defaultValue: true});
 
-    																																								var mainShowing = nodecg.Replicant('mainShowing', {defaultValue: true})
-        .on('change', function (oldVal, newVal) {
-            																																								$show.prop('disabled', newVal);
-            																																								$hide.prop('disabled', !newVal);
-        });
+	mainShowing.on('change', newVal => {
+		if (newVal) {
+			show.setAttribute('disabled', 'true');
+			hide.removeAttribute('disabled');
+		} else {
+			show.removeAttribute('disabled');
+			hide.setAttribute('disabled', 'true');
+		}
+	});
 
-    																																								$show.click(function () {
-        																																								mainShowing.value = true;
-    });
+	show.addEventListener('click', () => {
+		mainShowing.value = true;
+	});
 
-    																																								$hide.click(function () {
-        																																								mainShowing.value = false;
-    });
+	hide.addEventListener('click', () => {
+		mainShowing.value = false;
+	});
 })();
