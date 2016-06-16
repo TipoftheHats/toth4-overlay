@@ -224,9 +224,9 @@
 			const len = scoreboardNodes.length;
 			for (let i = 0; i < len; i++) {
 				if (newVal) {
-					scoreboardNodes.item(i).show();
+					scoreboardNodes.item(i).style.visibility = 'visible';
 				} else {
-					scoreboardNodes.item(i).hide();
+					scoreboardNodes.item(i).style.visibility = 'hidden';
 				}
 			}
 		});

@@ -37,6 +37,71 @@
         "width": 1920,
         "height": 1080
       }
+    ],
+    "dashboardPanels": [
+      {
+        "name": "brb",
+        "title": "BRB",
+        "width": 2,
+        "file": "brb.html",
+        "headerColor": "#9f9bbd"
+      },
+      {
+        "name": "donations",
+        "title": "Donations",
+        "width": 2,
+        "file": "donations.html",
+        "headerColor": "#9f9bbd"
+      },
+      {
+        "name": "lowerthird",
+        "title": "Lowerthird",
+        "width": 2,
+        "file": "lowerthird.html",
+        "headerColor": "#9f9bbd"
+      }
+    ],
+    "soundCues": [
+      {
+        "name": "image_in",
+        "assignable": false,
+        "defaultFile": "sound/image_in.ogg"
+      },
+      {
+        "name": "image_out",
+        "assignable": false,
+        "defaultFile": "sound/image_out.ogg"
+      },
+      {
+        "name": "lowerthird_in",
+        "assignable": false,
+        "defaultFile": "sound/lowerthird_in.ogg"
+      },
+      {
+        "name": "lowerthird_out",
+        "assignable": false,
+        "defaultFile": "sound/lowerthird_out.ogg"
+      },
+      {
+        "name": "scoreboard_in",
+        "assignable": false,
+        "defaultFile": "sound/scoreboard_in.ogg"
+      },
+      {
+        "name": "scoreboard_out",
+        "assignable": false,
+        "defaultFile": "sound/scoreboard_out.ogg"
+      },
+      {
+        "name": "tweet_in",
+        "assignable": false,
+        "defaultFile": "sound/tweet_in.ogg"
+      },
+      {
+        "name": "tweet_out",
+        "assignable": false,
+        "defaultFile": "sound/tweet_out.ogg"
+      }
     ]
   }
 }

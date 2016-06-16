@@ -1,15 +1,15 @@
+/* eslint-disable camelcase */
 (function () {
-    																																								'use strict';
+	'use strict';
 
-    																																								var $panel = $bundle.filter('.donations');
-    																																								var $test = $panel.find('button[command="test"]');
-    																																								var $amount = $panel.find('input[field="amount"]');
-    																																								var $donor = $panel.find('input[field="donor"]');
+	const test = document.getElementById('send');
+	const amount = document.getElementById('amount');
+	const donor = document.getElementById('donor');
 
-    																																								$test.click(function () {
-        																																								nodecg.sendMessage('donation', {
-            																																								amount: $amount.val(),
-            																																								donor__visiblename: $donor.val()
-        });
-    });
+	test.addEventListener('click', () => {
+		nodecg.sendMessage('donation', {
+			amount: amount.value,
+			donor__visiblename: donor.value
+		});
+	});
 })();

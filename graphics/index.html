@@ -2,16 +2,67 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link href="style/overlay.css" rel="stylesheet">
     <script src="//use.typekit.net/ofl6oue.js"></script>
     <script>try {Typekit.load();} catch (e) {}</script>
-    <link href="app/toth-donation.html" rel="import">
-    <link href="app/toth-lowerthird.html" rel="import">
-    <link href="app/toth-scoreboard.html" rel="import">
-    <link href="app/toth-sponsors.html" rel="import">
-    <link href="app/toth-nowplaying.html" rel="import">
-    <link href="app/toth-tweet.html" rel="import">
-    <link href="app/toth-brb.html" rel="import">
+	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
+    <link href="elements/toth-donation/toth-donation.html" rel="import">
+    <link href="elements/toth-lowerthird/toth-lowerthird.html" rel="import">
+    <link href="elements/toth-scoreboard/toth-scoreboard.html" rel="import">
+    <link href="elements/toth-sponsors/toth-sponsors.html" rel="import">
+    <link href="elements/toth-nowplaying/toth-nowplaying.html" rel="import">
+    <link href="elements/toth-tweet/toth-tweet.html" rel="import">
+    <link href="elements/toth-brb/toth-brb.html" rel="import">
+	<style>
+		body {
+			margin: 0;
+			opacity: 0;
+		}
+
+		#container {
+			position: absolute;
+			width: 1920px;
+			height: 1080px;
+			overflow: hidden;
+			font-family: "proxima-nova";
+		}
+
+		#brb {
+			position: absolute;
+			width: 1920px;
+			height: 980px;
+			top: 50px;
+		}
+
+		#lowerthird {
+			position: absolute;
+			bottom: 0;
+		}
+
+		#donation {
+			position: absolute;
+			top: 25px;
+			left: 25px;
+		}
+
+		#scoreboard {
+			position: absolute;
+			top: 60px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		#lowerthird {
+			position: absolute;
+			top: 805px;
+			right: 88px;
+		}
+
+		#nowPlaying {
+			position: absolute;
+			top: 680px;
+			left: 25px;
+		}
+	</style>
 </head>
 <body>
     <div id="container">
@@ -23,9 +74,6 @@
         <toth-nowplaying id="nowPlaying"></toth-nowplaying>
         <toth-tweet id="tweet"></toth-tweet>
     </div>
-    <script src="components/SoundJS/lib/soundjs-0.6.1.min.js"/>
-    <script src="components/jquery/dist/jquery.min.js"></script>
-    <script src="components/gsap/src/minified/TweenMax.min.js"></script>
 	<script src="app/main.js"></script>
 </body>
 </html>

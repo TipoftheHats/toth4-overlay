@@ -7,20 +7,6 @@
     "faIcon": "fa-globe"
   },
   {
-    "name": "lowerthird",
-    "title": "Lowerthird",
-    "width": 4,
-    "file": "lowerthird.jade",
-    "faIcon": "fa-arrow-circle-left"
-  },
-  {
-    "name": "donations",
-    "title": "Donations",
-    "width": 2,
-    "file": "donations.jade",
-    "faIcon": "fa-usd"
-  },
-  {
     "name": "scoreboard",
     "title": "Scoreboard",
     "width": 4,
@@ -54,12 +40,5 @@
     "width": 4,
     "file": "twitter.jade",
     "faIcon": "fa-twitter"
-  },
-  {
-    "name": "brb",
-    "title": "BRB",
-    "width": 2,
-    "file": "brb.jade",
-    "faIcon": "fa-clock-o"
   }
 ]
