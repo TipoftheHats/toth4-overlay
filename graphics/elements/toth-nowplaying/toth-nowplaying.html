@@ -1,0 +1,88 @@
+<link rel="import" href="../../components/iron-image/iron-image.html">
+
+<dom-module id="toth-nowplaying">
+    <template>
+		<style>
+			:host {
+				display: flex;
+			}
+
+			.fullHeight {
+				height: 80px;
+			}
+
+			.cull {
+				overflow: hidden;
+			}
+
+			.centerFlex {
+				display: flex;
+				align-items: center;
+			}
+
+			.background {
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			#art {
+				width: 80px;
+				background-position: center;
+				background-size: contain;
+				background-color: #D3C9C9;
+				background-image: url("../img/default_album_cover.jpg");
+				transform: translateX(100%);
+			}
+
+			#line {
+				width: 3px;
+				height: 0;
+				background-color: #F47425;
+			}
+
+			#details {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: 0.2em 0.7em;
+				color: #E4E4E4;
+				white-space: nowrap;
+				max-width: 400px;
+				box-sizing: border-box;
+				transform: translateX(-100%);
+			}
+
+			#song {
+				font-size: 32px;
+				line-height: 34px;
+				transform-origin: left;
+				font-family: "proxima-nova-condensed";
+				font-weight: 600;
+			}
+
+			#artist {
+				font-size: 20px;
+				line-height: 22px;
+				transform-origin: left;
+			}
+		</style>
+
+        <div class="cull fullHeight">
+            <iron-image id="art" class="fullHeight" sizing="contain" preload fade src="[[artUrl]]"
+                        placeholder="img/default_album_cover.jpg"></iron-image>
+        </div>
+        <div class="cull fullHeight centerFlex">
+            <div id="line"></div>
+        </div>
+        <div class="cull">
+            <div id="details" class="background fullHeight">
+                <div>
+                    <div id="song"></div>
+                    <div id="artist">[[artist]]</div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+	<script src="toth-nowplaying.js"></script>
+</dom-module>
+

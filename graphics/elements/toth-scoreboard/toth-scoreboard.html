@@ -1,0 +1,148 @@
+<link rel="import" href="../components/polymer/polymer.html">
+
+<dom-module id="toth-scoreboard">
+	<template>
+		<style>
+			:host {
+				display: flex;
+				width: 800px;
+				font-family: "proxima-nova";
+				font-size: 42px;
+				font-weight: 800;
+			}
+
+			.cull {
+				width: 400px;
+				overflow: hidden;
+			}
+
+			.cull:first-child .wrapper {
+				float: right;
+				align-items: flex-end;
+			}
+
+			.cull:first-child .tagWrapper {
+				padding-right: 1.6em;
+				padding-left: 0.12em;
+			}
+
+			.cull:first-child .tag {
+				text-align: left;
+				transform-origin: left;
+			}
+
+			.cull:last-child .wrapper {
+				float: left;
+				align-items: flex-start;
+			}
+
+			.cull:last-child .tagWrapper {
+				padding-right: 0.12em;
+				padding-left: 1.6em;
+			}
+
+			.cull:last-child .tag {
+				text-align: right;
+				transform-origin: left;
+			}
+
+			.cull[team="blu"] .score {
+				background-color: #127fdc;
+			}
+
+			.cull[team="blu"] .line {
+				background-color: #127fdc;
+			}
+
+			.cull[team="red"] .score {
+				background-color: #f53641;
+			}
+
+			.cull[team="red"] .line {
+				background-color: #f53641;
+			}
+
+			.wrapper {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.details {
+				display: flex;
+				height: 1.357em;
+				overflow: hidden;
+			}
+
+			.tagWrapper {
+				max-width: 200px;
+				background-color: #D3C9C9;
+				transform: translateY(100%);
+			}
+
+			.tag {
+				height: 100%;
+				font-size: 1.524em;
+				line-height: 0.96em;
+				text-transform: uppercase;
+			}
+
+			.score {
+				width: 64px;
+				height: 64px;
+				color: #FFFFFF;
+				text-align: center;
+				line-height: 67px;
+				font-size: 71px;
+				font-weight: 600;
+				transform: translateY(100%);
+			}
+
+			.line {
+				width: 0;
+				height: 0.17em;
+				transform-origin: center;
+			}
+
+			#logoWrapper {
+				position: absolute;
+				top: -4px;
+				z-index: 1;
+				transform: translateX(-50%);
+			}
+
+			#logo {
+				height: 72px;
+				transform: scale(0);
+			}
+		</style>
+
+		<div class="cull" team="blu">
+			<div class="wrapper">
+				<div class="details">
+					<div class="score">0</div>
+					<div class="tagWrapper">
+						<div class="tag">BLU</div>
+					</div>
+				</div>
+				<div class="line"></div>
+			</div>
+		</div>
+		<div id="logoWrapper">
+			<img id="logo" src="../img/transparent_logo.png">
+		</div>
+		<div class="cull" team="red">
+			<div class="wrapper">
+				<div class="details">
+					<div class="tagWrapper">
+						<div class="tag">RED</div>
+					</div>
+					<div class="score">0</div>
+				</div>
+				<div class="line"></div>
+			</div>
+		</div>
+	</template>
+
+	<script src="toth-scoreboard.js"></script>
+</dom-module>
+

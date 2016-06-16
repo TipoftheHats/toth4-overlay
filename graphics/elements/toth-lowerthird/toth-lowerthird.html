@@ -1,0 +1,80 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<dom-module id="toth-lowerthird">
+    <template>
+		<style>
+			:host {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				font-size: 42px;
+			}
+
+			#head {
+				display: flex;
+				height: 1.357em;
+				align-items: center;
+				overflow: hidden;
+			}
+
+			#title {
+				display: block;
+				height: 100%;
+				font-family: "proxima-nova-condensed";
+				text-transform: uppercase;
+
+				padding: 0 0.429em;
+				font-size: 1.524em;
+				font-weight: 800;
+				line-height: 67px;
+				background-color: #D3C9C9;
+				transform: translateY(100%);
+				transform-origin: right;
+			}
+
+			#logo {
+				display: block;
+				height: 64px;
+				align-self: flex-start;
+				transform: translateY(100%);
+			}
+
+			#line {
+				height: 0.17em;
+				background-color: #F47425;
+				width: 0;
+				transform-origin: center;
+			}
+
+			#body {
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+
+				overflow: hidden;
+				max-height: 130px;
+				padding: 0.2em 0.5em;
+				color: #E4E4E4;
+				background-color: rgba(0, 0, 0, 0.5);
+				box-sizing: border-box;
+				transform: translateY(-100%);
+				word-break: break-word;
+			}
+
+			#bodyContainer {
+				overflow: hidden;
+			}
+		</style>
+
+        <div id="head">
+            <div id="title">{{titleMsg}}</div>
+            <img id="logo" src="../img/logo.png">
+        </div>
+        <div id="line"></div>
+        <div id="bodyContainer">
+            <div id="body">{{bodyMsg}}</div>
+        </div>
+    </template>
+
+	<script src="toth-lowerthird.js"></script>
+</dom-module>

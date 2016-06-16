@@ -1,0 +1,83 @@
+body { margin: 0 }
+
+#container {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: "proxima-nova";
+    color: #E4E4E4;
+}
+
+#title {
+    position: absolute;
+    top: 13px;
+    left: 904px;
+    font-size: 64px;
+    text-shadow: 0 0 20px #F47425;
+    font-weight: 800;
+}
+
+#teams {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 734px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1.5em 2.5em;
+}
+
+.team {
+    align-self: center;
+}
+
+.team-name {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+#scouts {
+    left: 30px;
+    bottom: 480px;
+    position: absolute;
+}
+
+#utilities {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    height: 1020px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#bottomRow {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 1536px;
+    justify-content: space-between;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.group-row:not(:last-child) {
+    margin-bottom: 0.6em;
+}
+
+toth-dotafortress-card:not(:last-child) {
+    margin-right: 0.6em;
+}

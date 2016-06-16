@@ -1,0 +1,64 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+
+<dom-module id="toth-dotafortress-card">
+    <template>
+		<style>
+			:host {
+				display: flex;
+				position: relative;
+				flex-direction: column;
+				font-size: 12px;
+				width: 10em;
+				overflow: hidden;
+				background-color: #F47425;
+			}
+
+			:host[disabled] {
+				-webkit-filter: brightness(0.3);
+				filter: brightness(0.3);
+			}
+
+			#name {
+				color: black;
+				font-size: 1.8em;
+				font-family: "proxima-nova-condensed";
+				font-weight: 600;
+				text-transform: uppercase;
+				transform: translateY(0.08em);
+				transform-origin: left;
+			}
+
+			#head {
+				display: flex;
+				align-items: center;
+				background-color: #D3C9C9;
+				margin-bottom: 0.2em;
+				padding-left: 0.3em;
+				padding-right: 0.3em;
+			}
+
+			#portrait {
+				width: 100%;
+				border-bottom-right-radius: 5.5em;
+			}
+
+			#classIcon {
+				position: absolute;
+				bottom: 0.14em;
+				right: 0.16em;
+				width: 1.6em;
+				height: 1.6em;
+			}
+		</style>
+
+        <div id="head">
+            <div id="name"></div>
+        </div>
+        <video id="portrait" src="[[portraitUrl]]" poster="[[thumbnailUrl]]" autoplay loop muted></video>
+        <iron-image id="classIcon" sizing="contain" src="[[classIconUrl]]"></iron-image>
+    </template>
+
+	<script src="toth-dotafortress-card.js"></script>
+</dom-module>
+

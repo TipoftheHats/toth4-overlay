@@ -1,0 +1,80 @@
+<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
+
+<dom-module id="toth-brb">
+    <template>
+		<style>
+			:host {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				color: #E4E4E4;
+				opacity: 0;
+			}
+
+			h1 {
+				font-size: 108px;
+				margin: 0;
+			}
+
+			h2 {
+				font-size: 72px;
+				margin: 0;
+			}
+
+			h3 {
+				font-size: 60px;
+				margin: 0;
+			}
+
+			iron-image {
+				width: 600px;
+				height: 250px;
+			}
+
+			.textShadow {
+				text-shadow: 0 0 10px rgba(244,116,37,0.7);
+			}
+
+			#upNext {
+				opacity: 0;
+			}
+
+			#panel-head {
+				padding-left: 24px;
+				font-size: 64px;
+				font-weight: 800;
+				background-color: #D3C9C9;
+				color: black;
+			}
+
+			#panel-body {
+				background: rgba(0,0,0,0.5);
+				padding: 30px 40px;
+			}
+		</style>
+
+        <h1 class="textShadow">Be Right Back!</h1>
+
+        <h2 id="upNext" class="textShadow">Up Next: <span id="event"></span></h2>
+
+        <div id="panel">
+            <div id="panel-head">
+                While you're waiting...
+            </div>
+            <div id="panel-body" class="layout horizontal center">
+                <div class="layout vertical center" style="margin-right: 75px;">
+                    <iron-image sizing="contain" preload fade src="../img/cosi.png"></iron-image>
+                    <h3 class="lightTextShadow" style="color: #F47425;">tipofthehats.org/donate</h3>
+                </div>
+
+                <div class="layout vertical center" style="margin-left: 75px;">
+                    <iron-image sizing="contain" preload fade src="../img/shirt.png"></iron-image>
+                    <h3 class="lightTextShadow">teespring.com/toth2015</h3>
+                </div>
+            </div>
+        </div>
+    </template>
+
+	<script src="toth-brb.js"></script>
+</dom-module>

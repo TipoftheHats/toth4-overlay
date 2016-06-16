@@ -1,0 +1,136 @@
+.toth3-overlay textarea {
+  height: 3em;
+  resize: none;
+}
+.toth3-overlay h4 {
+  margin-bottom: 6px;
+}
+.toth3-overlay button[command="take"] {
+  width: 100%;
+}
+.toth3-overlay .updateResult {
+  position: absolute;
+  left: 1px;
+  top: 100%;
+  transition: top 750ms ease;
+  z-index: 2;
+  pointer-events: none;
+  cursor: default;
+}
+.toth3-overlay .updateResult-show {
+  -webkit-animation: updateResult-show 4s;
+  -moz-animation: updateResult-show 4s;
+  -o-animation: updateResult-show 4s;
+  animation: updateResult-show 4s;
+}
+.toth3-overlay .returnsResult {
+  overflow: hidden;
+}
+.toth3-overlay .color-blu {
+  color: #127fdc;
+}
+.toth3-overlay .color-red {
+  color: #f53641;
+}
+.toth3-overlay .column {
+  width: 100%;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+.toth3-overlay .column:first-of-type {
+  margin-right: 4px;
+  margin-left: 0;
+}
+.toth3-overlay .column:last-of-type {
+  margin-right: 0;
+  margin-left: 4px;
+}
+.toth3-overlay.lowerthird button[command="take"] {
+  height: 60px;
+}
+.toth3-overlay.scoreboard .input-group {
+  margin-bottom: 4px;
+}
+.toth3-overlay.scoreboard .ncg-label {
+  margin-top: 0;
+}
+.toth3-overlay.total .totalDisplay {
+  font-weight: bold;
+  font-size: 200%;
+  text-align: center;
+  width: 100%;
+}
+.toth3-overlay.dotafortress .draft {
+  display: flex;
+}
+.toth3-overlay.dotafortress .draft > .input-group {
+  flex-grow: 1;
+}
+.toth3-overlay.dotafortress .ncg-label,
+.toth3-overlay.dotafortress h3 {
+  margin-top: 0;
+}
+.toth3-overlay.dotafortress select[multiple] {
+  height: 150px;
+}
+.toth3-overlay.dotafortress h3[title] {
+  display: inline-block;
+  border-bottom: 1px dashed black;
+  cursor: help;
+}
+@-webkit-keyframes updateResult-show {
+  0% {
+    top: 100%;
+  }
+  5% {
+    top: 0%;
+  }
+  95% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-moz-keyframes updateResult-show {
+  0% {
+    top: 100%;
+  }
+  5% {
+    top: 0%;
+  }
+  95% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-o-keyframes updateResult-show {
+  0% {
+    top: 100%;
+  }
+  5% {
+    top: 0%;
+  }
+  95% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes updateResult-show {
+  0% {
+    top: 100%;
+  }
+  5% {
+    top: 0%;
+  }
+  95% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}

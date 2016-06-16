@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="style/overlay.css" rel="stylesheet">
+    <script src="//use.typekit.net/ofl6oue.js"></script>
+    <script>try {Typekit.load();} catch (e) {}</script>
+    <link href="app/toth-donation.html" rel="import">
+    <link href="app/toth-lowerthird.html" rel="import">
+    <link href="app/toth-scoreboard.html" rel="import">
+    <link href="app/toth-sponsors.html" rel="import">
+    <link href="app/toth-nowplaying.html" rel="import">
+    <link href="app/toth-tweet.html" rel="import">
+    <link href="app/toth-brb.html" rel="import">
+</head>
+<body>
+    <div id="container">
+        <toth-brb id="brb"></toth-brb>
+        <toth-donation id="donation"></toth-donation>
+        <toth-scoreboard id="scoreboard"></toth-scoreboard>
+        <toth-lowerthird id="lowerthird"></toth-lowerthird>
+        <toth-sponsors id="sponsors"></toth-sponsors>
+        <toth-nowplaying id="nowPlaying"></toth-nowplaying>
+        <toth-tweet id="tweet"></toth-tweet>
+    </div>
+    <script src="components/SoundJS/lib/soundjs-0.6.1.min.js"/>
+    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/gsap/src/minified/TweenMax.min.js"></script>
+	<script src="app/main.js"></script>
+</body>
+</html>

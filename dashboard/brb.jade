@@ -1,0 +1,20 @@
+h4(style="margin-top: 0px;") Preview
+.js-preview
+    .input-group
+        span.input-group-addon Up Next
+        input.js-upNext.form-control(type="text", placeholder="Event")
+
+button.btn.btn-xs.btn-info(type="button" command="take" style="margin-top: 8px;") Take
+
+h4(style="margin-top: 12px;") Program
+.js-program
+    .input-group
+        span.input-group-addon Up Next
+        input.js-upNext.form-control(disabled, type="text", placeholder="Event")
+
+.ncg-btn-group(style="margin-top: 8px;")
+    .btn-group.btn-group-justified
+        .btn-group
+            button.btn.btn-xs.btn-success(type="button" command="show") Show
+        .btn-group
+            button.btn.btn-xs.btn-danger(type="button" command="hide") Hide

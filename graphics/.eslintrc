@@ -1,0 +1,18 @@
+{
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		"nodecg": true,
+		"Polymer": true,
+		"TweenLite": true,
+		"TimelineLite": true,
+		"TimelineMax": true,
+		"Power1": true,
+		"Power2": true,
+		"Power3": true,
+		"Linear": true,
+		"Back": true,
+		"numeral": true
+	}
+}

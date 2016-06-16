@@ -1,0 +1,65 @@
+[
+  {
+    "name": "main",
+    "title": "Master Fade",
+    "width": 2,
+    "file": "main.jade",
+    "faIcon": "fa-globe"
+  },
+  {
+    "name": "lowerthird",
+    "title": "Lowerthird",
+    "width": 4,
+    "file": "lowerthird.jade",
+    "faIcon": "fa-arrow-circle-left"
+  },
+  {
+    "name": "donations",
+    "title": "Donations",
+    "width": 2,
+    "file": "donations.jade",
+    "faIcon": "fa-usd"
+  },
+  {
+    "name": "scoreboard",
+    "title": "Scoreboard",
+    "width": 4,
+    "file": "scoreboard.jade",
+    "faIcon": "fa-flag"
+  },
+  {
+    "name": "nowplaying",
+    "title": "Now Playing",
+    "width": 2,
+    "file": "nowplaying.jade",
+    "faIcon": "fa-music"
+  },
+  {
+    "name": "dotafortress",
+    "title": "Dota Fortress",
+    "width": 3,
+    "file": "dotafortress.jade",
+    "faIcon": "fa-users"
+  },
+  {
+    "name": "total",
+    "title": "Total",
+    "width": 2,
+    "file": "total.jade",
+    "faIcon": "fa-dollar"
+  },
+  {
+    "name": "twitter",
+    "title": "Twitter",
+    "width": 4,
+    "file": "twitter.jade",
+    "faIcon": "fa-twitter"
+  },
+  {
+    "name": "brb",
+    "title": "BRB",
+    "width": 2,
+    "file": "brb.jade",
+    "faIcon": "fa-clock-o"
+  }
+]

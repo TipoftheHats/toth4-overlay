@@ -1,0 +1,141 @@
+@import "../variables.less";
+
+.toth3-overlay {
+    textarea {
+        height: 3em;
+        resize: none;
+    }
+
+    h4 {
+        margin-bottom: 6px;
+    }
+
+    button {
+        &[command="take"] {
+            width: 100%;
+        }
+    }
+
+    .updateResult {
+        position: absolute;
+        left: 1px;
+        top: 100%;
+        transition: top 750ms ease;
+        z-index: 2;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .updateResult-show {
+        -webkit-animation: updateResult-show 4s;
+        -moz-animation:    updateResult-show 4s;
+        -o-animation:      updateResult-show 4s;
+        animation:         updateResult-show 4s;
+    }
+
+    .returnsResult {
+        overflow: hidden;
+    }
+
+    .color-blu {
+        color: @team-blu;
+    }
+
+    .color-red {
+        color: @team-red;
+    }
+
+    .column {
+        width: 100%;
+        margin-right: 4px;
+        margin-left: 4px;
+
+        &:first-of-type {
+            margin-right: 4px;
+            margin-left: 0;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+            margin-left: 4px;
+        }
+    }
+
+    // Panel-specific
+    &.lowerthird {
+        button {
+            &[command="take"] {
+                height: 60px;
+            }
+        }
+    }
+
+    &.scoreboard {
+        .input-group {
+            margin-bottom: 4px;
+        }
+
+        .ncg-label {
+            margin-top: 0;
+        }
+    }
+
+    &.total {
+        .totalDisplay {
+            font-weight: bold;
+            font-size: 200%;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &.dotafortress {
+        .draft {
+            display: flex;
+
+            > .input-group {
+                flex-grow: 1;
+            }
+        }
+
+        .ncg-label,
+        h3 {
+            margin-top: 0;
+        }
+
+        select[multiple] {
+            height: 150px;
+        }
+
+        h3[title] {
+            display: inline-block;
+            border-bottom: 1px dashed black;
+            cursor: help;
+        }
+    }
+}
+
+@-webkit-keyframes updateResult-show {
+    0%   { top: 100%; }
+    5%   { top: 0%; }
+    95%  { top: 0%; }
+    100% { top: 100%; }
+}
+@-moz-keyframes updateResult-show {
+    0%   { top: 100%; }
+    5%   { top: 0%; }
+    95%  { top: 0%; }
+    100% { top: 100%; }
+}
+@-o-keyframes updateResult-show {
+    0%   { top: 100%; }
+    5%   { top: 0%; }
+    95%  { top: 0%; }
+    100% { top: 100%; }
+}
+@keyframes updateResult-show {
+    0%   { top: 100%; }
+    5%   { top: 0%; }
+    95%  { top: 0%; }
+    100% { top: 100%; }
+}
