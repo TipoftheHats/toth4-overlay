@@ -1,75 +1,41 @@
 (function () {
-    																																								'use strict';
+	'use strict';
 
-    																																								var panel = $bundle.filter('.total');
-    																																								var totalDisplay = panel.find('.totalDisplay');
-    																																								var updateGroup = panel.find('.js-update');
-    																																								var updateBtn = updateGroup.find('button');
+	const totalDisplay = document.getElementById('total');
+	const total = nodecg.Replicant('total');
+	total.on('change', newVal => {
+		totalDisplay.innerText = newVal.formatted;
+	});
 
-    																																								var modal = $('#toth3-overlay_editTotal');
-    																																								var saveTotal = modal.find('.js-save');
-    																																								var totalEdit = modal.find('input[name="total"]');
+	const toast = document.getElementById('toast');
+	const update = document.getElementById('update');
+	update.addEventListener('click', () => {
+		update.setAttribute('disabled', 'true');
+		nodecg.sendMessage('updateTotal', (err, updated) => {
+			update.removeAttribute('disabled');
 
-    																																								var autoUpdateOnBtn = panel.find('.js-automaticOn');
-    																																								var autoUpdateOffBtn = panel.find('.js-automaticOff');
+			if (err) {
+				console.error(err.message);
+				toast.text = 'Error updating total. Check console.';
+				toast.show();
+				return;
+			}
 
-    																																								var total = nodecg.Replicant('total')
-        .on('change', function (oldVal, newVal) {
-            																																								totalDisplay.html(newVal.formatted);
-            																																								totalEdit.val(newVal.raw);
-        });
+			if (updated) {
+				console.info(`[${nodecg.bundleName}] Total successfully updated`);
+				toast.text = 'Successfully updated total.';
+				toast.show();
+			} else {
+				console.info(`[${nodecg.bundleName}] Total unchanged, not updated`);
+				toast.text = 'Total unchanged, not updated.';
+				toast.show();
+			}
+		});
+	});
 
-    																																								var autoUpdateTotal = nodecg.Replicant('autoUpdateTotal')
-        .on('change', function (oldVal, newVal) {
-            																																								autoUpdateOnBtn.prop('disabled', newVal);
-            																																								autoUpdateOffBtn.prop('disabled', !newVal);
-        });
-
-    																																								autoUpdateOnBtn.click(function () { autoUpdateTotal.value = true; });
-    																																								autoUpdateOffBtn.click(function () { autoUpdateTotal.value = false; });
-
-    																																								updateBtn.click(function () {
-        																																								var self = this;
-        																																								$(self).prop('disabled', true);
-        																																								nodecg.sendMessage('updateTotal', function (err, updated) {
-            																																								if (err) {
-                																																								console.error(err.message);
-                																																								showUpdateResult(updateGroup, 'danger', 'ERROR! Check console');
-                																																								return;
-            }
-
-            																																								if (updated) {
-                																																								console.info('[toth3-overlay] Total successfully updated');
-                																																								showUpdateResult(updateGroup, 'success', 'Got current total!');
-            } else {
-                																																								console.info('[toth3-overlay] Total unchanged, not updating');
-                																																								showUpdateResult(updateGroup, 'default', 'Total unchanged');
-            }
-
-        });
-    });
-
-    																																								saveTotal.click(function () {
-        																																								var raw = totalEdit.val();
-        																																								total.value = {
-            																																								raw: parseFloat(raw),
-            																																								formatted: window.numeral(raw).format('$0,0')
-        };
-    });
-
-    																																								function showUpdateResult(el, type, msg) {
-        																																								var resultEl = el.find('.updateResult-' + type);
-
-        																																								if (resultEl.hasClass('updateResult-show')) {
-            																																								console.warn('[toth3-overlay] Tried to show multiple update results at once for element:', el);
-            																																								return;
-        }
-
-        																																								var btn = el.find('button');
-        																																								resultEl.html(msg).addClass('updateResult-show');
-        																																								setTimeout(function () {
-            																																								btn.prop('disabled', false);
-            																																								resultEl.removeClass('updateResult-show');
-        }, 4000);
-    }
+	const totalInput = window.top.document.querySelector(`#${nodecg.bundleName}_edit-total iframe`)
+		.contentDocument.getElementById('input');
+	document.getElementById('edit').addEventListener('click', () => {
+		totalInput.value = total.value.raw;
+	});
 })();

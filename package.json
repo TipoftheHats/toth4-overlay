@@ -80,6 +80,30 @@
         "width": 2,
         "file": "now-playing.html",
         "headerColor": "#f47425"
+      },
+      {
+        "name": "total",
+        "title": "Total",
+        "width": 2,
+        "file": "total.html",
+        "headerColor": "#f47425"
+      },
+      {
+        "name": "edit-total",
+        "title": "Edit Total",
+        "width": 2,
+        "dialog": true,
+        "dialogButtons": [
+          {
+            "name": "save",
+            "type": "confirm"
+          },
+          {
+            "name": "cancel",
+            "type": "dismiss"
+          }
+        ],
+        "file": "dialogs/edit-total.html"
       }
     ],
     "soundCues": [
