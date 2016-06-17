@@ -31,6 +31,10 @@
 			_initialized: {
 				type: Boolean,
 				value: false
+			},
+			_showing: {
+				type: Boolean,
+				value: false
 			}
 		},
 
@@ -75,6 +79,12 @@
 		},
 
 		show() {
+			if (this._showing) {
+				return;
+			}
+
+			this._showing = true;
+
 			const lines = this.getElementsByClassName('line');
 			const tagWrappers = this.getElementsByClassName('tagWrapper');
 			const scores = this.getElementsByClassName('score');
@@ -123,6 +133,12 @@
 		},
 
 		hide() {
+			if (!this._showing) {
+				return;
+			}
+
+			this._showing = false;
+
 			const wrappers = this.getElementsByClassName('wrapper');
 			const tagWrappers = this.getElementsByClassName('tagWrapper');
 			const scores = this.getElementsByClassName('score');

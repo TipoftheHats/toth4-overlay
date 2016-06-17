@@ -1,6 +1,8 @@
 (function () {
 	'use strict';
 
+	const total = nodecg.Replicant('total');
+
 	Polymer({
 		is: 'toth-donation',
 		properties: {
@@ -56,15 +58,12 @@
 			});
 		},
 
-		/*
-		 * Lifecycle
-		 */
 		ready() {
 			const self = this;
 			this.tag = 'Total';
 			this.body = this.total;
 
-			nodecg.Replicant('total').on('change', newVal => {
+			total.on('change', newVal => {
 				self._countTo(self.$.total, newVal.raw, {duration: 0.5});
 			});
 
@@ -145,9 +144,6 @@
 			});
 		},
 
-		/*
-		 * Methods
-		 */
 		_countTo(node, number, opts) {
 			opts = opts || {};
 
@@ -202,9 +198,7 @@
 		},
 
 		_truncateString(str) {
-			return str.length > 28 ?
-				`${str.substring(0, 28)}...` :
-				str;
+			return str.length > 28 ? `${str.substring(0, 28)}...` : str;
 		}
 	});
 })();

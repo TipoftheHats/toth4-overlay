@@ -1,6 +1,9 @@
 (function () {
 	'use strict';
 
+	const brbShowing = nodecg.Replicant('brbShowing');
+	const upNext = nodecg.Replicant('upNext');
+
 	Polymer({
 		is: 'toth-brb',
 
@@ -9,14 +12,14 @@
 		ready() {
 			const self = this;
 
-			nodecg.Replicant('brbShowing').on('change', newVal => {
+			brbShowing.on('change', newVal => {
 				TweenLite.to(self, 0.5, {
 					opacity: newVal ? 1 : 0,
 					ease: Power1.easeInOut
 				});
 			});
 
-			nodecg.Replicant('upNext').on('change', newVal => {
+			upNext.on('change', newVal => {
 				TweenLite.to(self.$.upNext, 0.5, {
 					onStart() {
 						if (newVal) {

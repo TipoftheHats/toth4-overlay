@@ -1,6 +1,9 @@
 (function () {
 	'use strict';
 
+	const texts = nodecg.Replicant('texts');
+	const lowerthirdShowing = nodecg.Replicant('lowerthirdShowing');
+
 	Polymer({
 		is: 'toth-lowerthird',
 
@@ -16,6 +19,10 @@
 			absoluteMaxWidth: {
 				type: Number,
 				value: 1240
+			},
+			_showing: {
+				type: Boolean,
+				value: false
 			}
 		},
 
@@ -57,7 +64,28 @@
 			}
 		},
 
+		ready() {
+			texts.on('change', newVal => {
+				this.titleMsg = newVal.title;
+				this.bodyMsg = newVal.body;
+			});
+
+			lowerthirdShowing.on('change', newVal => {
+				if (newVal) {
+					this.show();
+				} else {
+					this.hide();
+				}
+			});
+		},
+
 		show() {
+			if (this._showing) {
+				return;
+			}
+
+			this._showing = true;
+
 			const line = this.$.line;
 			const logo = this.$.logo;
 			const title = this.$.title;
@@ -104,6 +132,12 @@
 		},
 
 		hide() {
+			if (!this._showing) {
+				return;
+			}
+
+			this._showing = false;
+
 			const line = this.$.line;
 			const logo = this.$.logo;
 			const title = this.$.title;
@@ -142,38 +176,4 @@
 			});
 		}
 	});
-
-	/*
-	 * NodeCG bindings
-	 */
-	const lowerthirdNodes = document.getElementsByTagName('toth-lowerthird');
-
-	nodecg.Replicant('texts')
-		.on('change', newVal => {
-			const len = lowerthirdNodes.length;
-			for (let i = 0; i < len; i++) {
-				lowerthirdNodes.item(i).titleMsg = newVal.title;
-				lowerthirdNodes.item(i).bodyMsg = newVal.body;
-			}
-		});
-
-	let initialized = false;
-	nodecg.Replicant('lowerthirdShowing')
-		.on('change', newVal => {
-			if (!initialized) {
-				initialized = true;
-				if (newVal === false) {
-					return;
-				}
-			}
-
-			const len = lowerthirdNodes.length;
-			for (let i = 0; i < len; i++) {
-				if (newVal) {
-					lowerthirdNodes.item(i).show();
-				} else {
-					lowerthirdNodes.item(i).hide();
-				}
-			}
-		});
 })();
