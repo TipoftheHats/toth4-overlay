@@ -1,12 +1,12 @@
 (function () {
 	'use strict';
 
+	const scoreboardShowing = nodecg.Replicant('scoreboardShowing');
+	const scores = nodecg.Replicant('scores');
+
 	Polymer({
 		is: 'toth-scoreboard',
 
-		/*
-		 * Properties
-		 */
 		properties: {
 			redScore: {
 				type: Number,
@@ -34,25 +34,22 @@
 			}
 		},
 
-		/*
-		 * Observers
-		 */
 		redScoreChanged(newVal) {
 			this.changeScore(this.$$('div[team="red"] .score'), newVal);
 		},
+
 		bluScoreChanged(newVal) {
 			this.changeScore(this.$$('div[team="blu"] .score'), newVal);
 		},
+
 		redTagChanged(newVal) {
 			this.changeTag(this.$$('div[team="red"] .tag'), newVal);
 		},
+
 		bluTagChanged(newVal) {
 			this.changeTag(this.$$('div[team="blu"] .tag'), newVal);
 		},
 
-		/*
-		 * Lifecycle
-		 */
 		ready() {
 			TweenLite.set(this.$.logo, {
 				scale: '0',
@@ -60,9 +57,23 @@
 			});
 		},
 
-		/*
-		 * Methods
-		 */
+		attached() {
+			scores.on('change', newVal => {
+				this.redScore = newVal.red.score;
+				this.bluScore = newVal.blu.score;
+				this.redTag = newVal.red.tag;
+				this.bluTag = newVal.blu.tag;
+			});
+
+			scoreboardShowing.on('change', newVal => {
+				if (newVal) {
+					this.show();
+				} else {
+					this.hide();
+				}
+			});
+		},
+
 		show() {
 			const lines = this.getElementsByClassName('line');
 			const tagWrappers = this.getElementsByClassName('tagWrapper');
@@ -183,51 +194,4 @@
 			scoreEl.innerHTML = newValue;
 		}
 	});
-
-	/*
-	 * NodeCG bindings
-	 */
-	const scoreboardNodes = document.getElementsByTagName('toth-scoreboard');
-
-	nodecg.Replicant('scores', {
-		defaultValue: {
-			red: {
-				score: 0,
-				tag: 'RED'
-			},
-			blu: {
-				score: 0,
-				tag: 'BLU'
-			}
-		}
-	})
-		.on('change', newVal => {
-			const len = scoreboardNodes.length;
-			for (let i = 0; i < len; i++) {
-				scoreboardNodes.item(i).redScore = newVal.red.score;
-				scoreboardNodes.item(i).bluScore = newVal.blu.score;
-				scoreboardNodes.item(i).redTag = newVal.red.tag;
-				scoreboardNodes.item(i).bluTag = newVal.blu.tag;
-			}
-		});
-
-	let initialized = false;
-	nodecg.Replicant('scoreboardShowing')
-		.on('change', newVal => {
-			if (!initialized) {
-				initialized = true;
-				if (newVal === false) {
-					return;
-				}
-			}
-
-			const len = scoreboardNodes.length;
-			for (let i = 0; i < len; i++) {
-				if (newVal) {
-					scoreboardNodes.item(i).style.visibility = 'visible';
-				} else {
-					scoreboardNodes.item(i).style.visibility = 'hidden';
-				}
-			}
-		});
 })();

@@ -44,21 +44,35 @@
         "title": "BRB",
         "width": 2,
         "file": "brb.html",
-        "headerColor": "#9f9bbd"
+        "headerColor": "#f47425"
       },
       {
         "name": "donations",
         "title": "Donations",
         "width": 2,
         "file": "donations.html",
-        "headerColor": "#9f9bbd"
+        "headerColor": "#f47425"
       },
       {
         "name": "lowerthird",
         "title": "Lowerthird",
         "width": 2,
         "file": "lowerthird.html",
-        "headerColor": "#9f9bbd"
+        "headerColor": "#f47425"
+      },
+      {
+        "name": "main",
+        "title": "Master Fade",
+        "width": 2,
+        "file": "main.html",
+        "headerColor": "#f47425"
+      },
+      {
+        "name": "scoreboard",
+        "title": "Scoreboard",
+        "width": 2,
+        "file": "scoreboard.html",
+        "headerColor": "#f47425"
       }
     ],
     "soundCues": [

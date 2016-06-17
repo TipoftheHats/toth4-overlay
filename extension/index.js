@@ -1,6 +1,20 @@
 'use strict';
 
 module.exports = function (nodecg) {
+	// Initialize replicants.
+	nodecg.Replicant('scores', {
+		defaultValue: {
+			red: {
+				score: 0,
+				tag: 'RED'
+			},
+			blu: {
+				score: 0,
+				tag: 'BLU'
+			}
+		}
+	});
+
 	try {
 		require('./lowerthird')(nodecg);
 	} catch (e) {

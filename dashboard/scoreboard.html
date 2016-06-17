@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<style is="custom-style">
+		.team {
+			display: flex;
+			flex-direction: column;
+		}
+
+		paper-input[label="Score"] {
+			width: 5em;
+		}
+
+		#divider {
+			margin: 0 7px;
+			width: 1px;
+			flex-shrink: 0;
+			background: black;
+		}
+
+		paper-button {
+			flex: 1;
+			--paper-button: {
+				min-width: 1px;
+			};
+		}
+
+		#buttons {
+			display: flex;
+			margin-top: 8px;
+		}
+
+		#show,
+		#update {
+			margin-left: 0;
+		}
+
+		#swap {
+			margin-right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div style="display: flex;">
+		<div class="team">
+			<div style="color: #127FDC; font-weight: bold;">BLU</div>
+			<div style="display: flex;">
+				<paper-input always-float-label label="Score" type="number" style="margin-right: 8px;"></paper-input>
+				<paper-input always-float-label label="Tag"></paper-input>
+			</div>
+		</div>
+
+		<div id="divider"></div>
+
+		<div class="team">
+			<div style="color: #F53641; font-weight: bold;">RED</div>
+			<div style="display: flex;">
+				<paper-input always-float-label label="Tag"></paper-input>
+				<paper-input always-float-label label="Score" type="number" style="margin-left: 8px;"></paper-input>
+			</div>
+		</div>
+	</div>
+
+	<div id="buttons">
+		<paper-button id="show" class="nodecg-success" raised>Show</paper-button>
+		<paper-button id="update" class="nodecg-info" raised hidden>Update</paper-button>
+		<paper-button id="hide" class="nodecg-danger" raised>Hide</paper-button>
+		<paper-button id="swap" class="nodecg-info" raised>Swap</paper-button>
+	</div>
+
+	<script src="scoreboard.js"></script>
+</body>
+</html>

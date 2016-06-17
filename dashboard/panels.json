@@ -1,12 +1,5 @@
 [
   {
-    "name": "scoreboard",
-    "title": "Scoreboard",
-    "width": 4,
-    "file": "scoreboard.jade",
-    "faIcon": "fa-flag"
-  },
-  {
     "name": "nowplaying",
     "title": "Now Playing",
     "width": 2,

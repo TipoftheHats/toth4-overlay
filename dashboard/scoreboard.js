@@ -1,66 +1,70 @@
 (function () {
-    																																								'use strict';
+	'use strict';
 
-    																																								var $panel = $bundle.filter('.scoreboard');
-    																																								var $take = $panel.find('button[command="take"]');
-    																																								var $show = $panel.find('button[command="show"]');
-    																																								var $hide = $panel.find('button[command="hide"]');
-    																																								var $preview = $panel.find('.js-preview');
-    																																								var $program = $panel.find('.js-program');
+	const show = document.getElementById('show');
+	const update = document.getElementById('update');
+	const hide = document.getElementById('hide');
+	const swap = document.getElementById('swap');
+	const bluScore = document.querySelectorAll('paper-input[label="Score"]')[0];
+	const bluTag = document.querySelectorAll('paper-input[label="Tag"]')[0];
+	const redScore = document.querySelectorAll('paper-input[label="Score"]')[1];
+	const redTag = document.querySelectorAll('paper-input[label="Tag"]')[1];
+	const scoreboardShowing = nodecg.Replicant('scoreboardShowing');
+	const scores = nodecg.Replicant('scores');
 
-    																																								var scores = nodecg.Replicant('scores', {defaultValue: {
-        																																								red: {score: 0, tag: 'RED'},
-        																																								blu: {score: 0, tag: 'BLU'}
-    }})
-        .on('change', function (oldVal, newVal) {
-            																																								if (!newVal) return;
-            																																								$program.find('input[team="red"][field="score"]').val(newVal.red.score);
-            																																								$program.find('input[team="blu"][field="score"]').val(newVal.blu.score);
-            																																								$program.find('input[team="red"][field="tag"]').val(newVal.red.tag);
-            																																								$program.find('input[team="blu"][field="tag"]').val(newVal.blu.tag);
-        });
+	scores.on('change', newVal => {
+		bluScore.value = newVal.blu.score;
+		bluTag.value = newVal.blu.tag;
+		redScore.value = newVal.red.score;
+		redTag.value = newVal.red.tag;
+	});
 
-    																																								var scoreboardShowing = nodecg.Replicant('scoreboardShowing')
-        .on('change', function (oldVal, newVal) {
-            																																								$show.prop('disabled', newVal);
-            																																								$hide.prop('disabled', !newVal);
-        });
+	scoreboardShowing.on('change', newVal => {
+		if (newVal) {
+			show.setAttribute('hidden', 'true');
+			update.removeAttribute('hidden');
+			hide.removeAttribute('disabled');
+		} else {
+			show.removeAttribute('hidden');
+			update.setAttribute('hidden', 'true');
+			hide.setAttribute('disabled', 'true');
+		}
+	});
 
-    																																								$show.click(function () {
-        																																								scoreboardShowing.value = true;
-    });
+	show.addEventListener('click', () => {
+		doUpdate();
+		scoreboardShowing.value = true;
+	});
 
-    																																								$hide.click(function () {
-        																																								scoreboardShowing.value = false;
-    });
+	update.addEventListener('click', doUpdate);
 
-    																																								$take.click(function () {
-        																																								scores.value = {
-            																																								red: {
-                																																								score: $preview.find('input[team="red"][field="score"]').val(),
-                																																								tag: $preview.find('input[team="red"][field="tag"]').val()
-            },
-            																																								blu: {
-                																																								score: $preview.find('input[team="blu"][field="score"]').val(),
-                																																								tag: $preview.find('input[team="blu"][field="tag"]').val()
-            }
-        };
-    });
+	hide.addEventListener('click', () => {
+		scoreboardShowing.value = false;
+	});
 
-    																																								$panel.find('button[command="swap"]').click(function () {
-        																																								var blu = {
-            																																								score: scores.value.red.score,
-            																																								tag: scores.value.red.tag
-        };
+	swap.addEventListener('click', () => {
+		scores.value = {
+			red: {
+				score: scores.value.blu.score,
+				tag: scores.value.blu.tag
+			},
+			blu: {
+				score: scores.value.red.score,
+				tag: scores.value.red.tag
+			}
+		};
+	});
 
-        																																								var red = {
-            																																								score: scores.value.blu.score,
-            																																								tag: scores.value.blu.tag
-        };
-
-        																																								scores.value = {
-            																																								red: red,
-            																																								blu: blu
-        };
-    });
+	function doUpdate() {
+		scores.value = {
+			red: {
+				score: redScore.value,
+				tag: redTag.value
+			},
+			blu: {
+				score: bluScore.value,
+				tag: bluTag.value
+			}
+		};
+	}
 })();

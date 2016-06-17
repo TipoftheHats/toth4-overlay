@@ -27,12 +27,22 @@
 				padding-top: 0;
 			}
 		}
+
+		#show,
+		#update {
+			margin-left: 0;
+		}
+
+		#hide {
+			margin-right: 0;
+		}
 	</style>
 </head>
 <body>
 	<paper-input id="input" label="Up Next" placeholder="Event"></paper-input>
 	<div id="buttons">
 		<paper-button id="show" class="nodecg-success" raised>Show</paper-button>
+		<paper-button id="update" class="nodecg-info" raised hidden>Update</paper-button>
 		<paper-button id="hide" class="nodecg-danger" raised>Hide</paper-button>
 	</div>
 	<script src="brb.js"></script>
