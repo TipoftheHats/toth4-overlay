@@ -58,7 +58,7 @@
 			});
 		},
 
-		ready() {
+		attached() {
 			const self = this;
 			this.tag = 'Total';
 			this.body = this.total;
