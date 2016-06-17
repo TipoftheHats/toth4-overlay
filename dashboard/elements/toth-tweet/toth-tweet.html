@@ -1,0 +1,140 @@
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../time-ago/time-ago.html">
+
+<dom-module id="toth-tweet">
+	<template>
+		<style>
+			:host {
+				@apply(--layout-vertical);
+				margin-bottom: 10px;
+				margin-top: 16px;
+				position: relative;
+			}
+
+			#tweetWrapper {
+				@apply(--layout-horizontal);
+				position: relative;
+			}
+
+			#tweet {
+				@apply(--layout-flex);
+				@apply(--layout-vertical);
+				margin-left: 58px;
+			}
+
+			#avatar {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 48px;
+				height: 48px;
+				border-radius: 3px;
+				margin-top: 5px;
+			}
+
+			#profileLink {
+				word-break: break-word;
+				word-wrap: break-word;
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			#profileLink:hover {
+				text-decoration: none;
+			}
+
+			#profileLink:hover #name {
+				color: #2b7bb9;
+				text-decoration: underline;
+			}
+
+			#name {
+				color: black;
+				font-weight: bold;
+				font-size: 16px;
+			}
+
+			#screenName,
+			#timeAgo {
+				color: #888;
+				font-size: 14px;
+			}
+
+			#tweetLink {
+				padding-left: 5px;
+				float: right;
+			}
+
+			#tweetLink:hover #timeAgo {
+				color: #2b7bb9;
+				text-decoration: underline;
+			}
+
+			#body {
+				height: 100px;
+				overflow-y: auto;
+			}
+
+			#media {
+				position: absolute;
+				bottom: 4px;
+				text-align: center;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: baseline;
+			}
+
+			#media a {
+				font-size: 16px;
+				display: inline-block;
+				margin-bottom: -6px;
+			}
+
+			a {
+				text-transform: none;
+			}
+
+			.link {
+				color: #3FC1F1;
+			}
+
+			.link.orange {
+				color: #F47425;
+			}
+		</style>
+
+		<div id="tweetWrapper">
+			<div id="tweet">
+				<header>
+					<a id="tweetLink" href="[[tweetUrl]]" target="_blank">
+						<time-ago id="timeAgo" datetime="[[createdAt]]"></time-ago>
+					</a>
+
+					<a id="profileLink" href="[[profileUrl]]" target="_blank">
+						<iron-image id="avatar" src="[[avatarUrl]]" sizing="contain" fade></iron-image>
+						<span id="name">[[name]]</span>
+						<span id="screenName">@[[screenName]]</span>
+					</a>
+				</header>
+
+				<div id="body"></div>
+			</div>
+		</div>
+
+		<template is="dom-if" if="[[images.length]]">
+			<div id="media">
+				<b>Tweet has [[images.length]] [[computePhotoOrPhotos(images.length)]]:&nbsp;</b>
+				<template is="dom-repeat" items="[[images]]" as="image">
+					<a class="imageLink" href="[[image]]" target="_blank">[[computeIndexPlusOne(index)]]</a>
+					&nbsp;
+				</template>
+			</div>
+		</template>
+	</template>
+
+	<script src="toth-tweet.js"></script>
+</dom-module>

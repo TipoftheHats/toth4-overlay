@@ -16,6 +16,7 @@
     "numeral": "^1.5.3",
     "q": "^1.4.1",
     "request": "^2.61.0",
+    "twemoji": "^2.0.5",
     "twitter": "^1.2.5"
   },
   "devDependencies": {
@@ -104,6 +105,13 @@
           }
         ],
         "file": "dialogs/edit-total.html"
+      },
+      {
+        "name": "twitter",
+        "title": "Twitter",
+        "width": 3,
+        "file": "twitter.html",
+        "headerColor": "#f47425"
       }
     ],
     "soundCues": [

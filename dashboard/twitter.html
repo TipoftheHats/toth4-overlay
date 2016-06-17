@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<link rel="import" href="elements/toth-tweet/toth-tweet.html">
+	<style is="custom-style">
+		paper-button {
+			flex: 1;
+			min-width: 1px;
+		}
+
+		#url {
+			flex: 1;
+		}
+
+		#load {
+			flex-grow: 0;
+			min-width: 60px;
+		}
+	</style>
+
+	<style>
+		img.emoji {
+			height: 1em;
+			width: 1em;
+			margin: 0 .05em 0 .1em;
+			vertical-align: -0.1em;
+		}
+	</style>
+</head>
+<body>
+	<div style="display: flex;">
+		<paper-input id="url" label="Tweet URL" always-float-label></paper-input>
+		<paper-button id="load" class="nodecg-info" raised style="margin-right: 0;">Load</paper-button>
+	</div>
+
+	<toth-tweet></toth-tweet>
+
+	<div style="display: flex;">
+		<paper-button id="show" class="nodecg-success" raised style="margin-left: 0;">Show</paper-button>
+		<paper-button id="hide" class="nodecg-danger" raised style="margin-right: 0;">Hide</paper-button>
+	</div>
+
+	<div style="display: flex; margin-top: 8px;">
+		<paper-button id="7s" class="nodecg-info" raised data-duration="7" style="margin-left: 0;">7s</paper-button>
+		<paper-button id="15s" class="nodecg-info" raised data-duration="15">15s</paper-button>
+		<paper-button id="30s" class="nodecg-info" raised data-duration="30" style="margin-right: 0;">30s</paper-button>
+	</div>
+
+	<script src="twitter.js"></script>
+</body>
+</html>

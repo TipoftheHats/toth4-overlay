@@ -71,10 +71,6 @@
 			});
 		},
 
-		/*
-		 * Methods
-		 */
-
 		show(artist, song, cover) {
 			if (this.showing) {
 				return;
@@ -83,8 +79,6 @@
 			this._setShowing(true);
 
 			const self = this;
-
-			console.log('nowplaying', artist, song, cover);
 
 			// Prevent first "call" from getting ignored
 			this.tl.to({}, 0.01, {});

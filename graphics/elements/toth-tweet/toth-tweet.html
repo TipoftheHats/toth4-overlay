@@ -92,6 +92,13 @@
 			.cull {
 				overflow: hidden;
 			}
+
+			img.emoji {
+				height: 1em;
+				width: 1em;
+				margin: 0 .05em 0 .1em;
+				vertical-align: -0.1em;
+			}
 		</style>
 
         <div class="cull" style="height: 800px;">
@@ -105,7 +112,7 @@
                     <iron-image id="avatar" sizing="contain" preload fade src="[[avatarUrl]]"></iron-image>
                     <div id="author-details">
                         <div id="name">[[name]]</div>
-                        <div id="screen-name">[[screenName]]</div>
+                        <div id="screen-name">@[[screenName]]</div>
                     </div>
                 </div>
                 <div id="message"></div>
