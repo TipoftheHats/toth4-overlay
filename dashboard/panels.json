@@ -1,12 +1,5 @@
 [
   {
-    "name": "nowplaying",
-    "title": "Now Playing",
-    "width": 2,
-    "file": "nowplaying.jade",
-    "faIcon": "fa-music"
-  },
-  {
     "name": "dotafortress",
     "title": "Dota Fortress",
     "width": 3,

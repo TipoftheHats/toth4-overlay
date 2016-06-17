@@ -1,0 +1,49 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"twitter": {
+			"type": "object",
+			"properties": {
+				"consumerKey": {
+					"type": "string"
+				},
+				"consumerSecret": {
+					"type": "string"
+				},
+				"accessTokenKey": {
+					"type": "string"
+				},
+				"accessTokenSecret": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"consumerKey",
+				"consumerSecret",
+				"accessTokenKey",
+				"accessTokenSecret"
+			]
+		},
+		"lastfm": {
+			"type": "object",
+			"properties": {
+				"apiKey": {
+					"type": "string"
+				},
+				"secret": {
+					"type": "string"
+				},
+				"targetAccount": {
+					"type": "string"
+				}
+			},
+			"description": "Configuration object for Last.fm API, used by nowplaying graphic.",
+			"required": [
+				"apiKey",
+				"secret",
+				"targetAccount"
+			]
+		}
+	}
+}

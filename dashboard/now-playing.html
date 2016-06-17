@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<style is="custom-style">
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#show {
+			margin-top: 8px;
+			margin-left: 0;
+			margin-right: 0;
+			flex: 1;
+		}
+	</style>
+</head>
+<body>
+	<marquee scrollamount="1" scrolldelay="30" truespeed="truespeed">Waiting for data...</marquee>
+	<paper-button id="show" class="nodecg-info" raised>Show for 12 seconds</paper-button>
+	<script src="now-playing.js"></script>
+</body>
+</html>

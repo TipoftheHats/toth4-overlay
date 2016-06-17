@@ -3,28 +3,9 @@
 const LastFmNode = require('lastfm').LastFmNode;
 
 module.exports = function (nodecg) {
-	if (!nodecg.bundleConfig) {
-		nodecg.log.error('cfg/toth3-overlay.json was not found. ' +
-			'This file is where the Last.fm API key and secret are set. ' +
-			'Without those, the "now playing" graphic cannot function.');
-		return;
-	} else if (typeof nodecg.bundleConfig.lastfm === 'undefined') {
-		nodecg.log.error('"lastfm" is not defined in cfg/toth3-overlay.json! ' +
+	if (!nodecg.bundleConfig || typeof nodecg.bundleConfig.lastfm === 'undefined') {
+		nodecg.log.error(`"lastfm" is not defined in cfg/${nodecg.bundleName}.json! ` +
 			'This object contains other properties that are required for the "now playing" graphic to function.');
-		return;
-	} else if (typeof nodecg.bundleConfig.lastfm.apiKey === 'undefined') {
-		nodecg.log.error('lastfm.apiKey is not defined in cfg/toth3-overlay.json! ' +
-			'This key (obtained from your Last.fm developer account) ' +
-			' is required for the "now playing" graphic to function.');
-		return;
-	} else if (typeof nodecg.bundleConfig.lastfm.secret === 'undefined') {
-		nodecg.log.error('lastfm.secret is not defined in cfg/toth3-overlay.json! ' +
-			'This secret (obtained from your Last.fm developer account) ' +
-			'is required for the "now playing" graphic to function.');
-		return;
-	} else if (typeof nodecg.bundleConfig.lastfm.targetAccount === 'undefined') {
-		nodecg.log.error('lastfm.targetAccount is not defined in cfg/toth3-overlay.json! ' +
-			'This is the Last.fm username that you wish to pull "now playing" song data from.');
 		return;
 	}
 
@@ -36,7 +17,7 @@ module.exports = function (nodecg) {
 	const trackStream = lastfm.stream(nodecg.bundleConfig.lastfm.targetAccount);
 	/* eslint-enble camelcase */
 
-	const pulsing = nodecg.Replicant('pulsing', {
+	const pulsing = nodecg.Replicant('nowPlayingPulsing', {
 		defaultValue: false,
 		persistent: false
 	});
@@ -46,7 +27,7 @@ module.exports = function (nodecg) {
 	});
 	let pulseTimeout;
 
-	nodecg.listenFor('np_pulse', pulse);
+	nodecg.listenFor('pulseNowPlaying', pulse);
 	function pulse() {
 		// Don't stack pulses
 		if (pulsing.value) {
@@ -54,10 +35,10 @@ module.exports = function (nodecg) {
 		}
 		pulsing.value = true;
 
-		// Hard-coded 10 second duration
+		// Hard-coded 12 second duration
 		pulseTimeout = setTimeout(() => {
 			pulsing.value = false;
-		}, 10 * 1000);
+		}, 12 * 1000);
 	}
 
 	trackStream.on('nowPlaying', track => {
@@ -81,7 +62,6 @@ module.exports = function (nodecg) {
 
 	trackStream.on('error', () => {
 		// Just ignore it, this lib generates tons of errors.
-		// nodecg.log.error(error.message);
 	});
 
 	trackStream.start();

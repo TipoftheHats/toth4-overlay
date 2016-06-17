@@ -73,6 +73,13 @@
         "width": 2,
         "file": "scoreboard.html",
         "headerColor": "#f47425"
+      },
+      {
+        "name": "now-playing",
+        "title": "Now Playing",
+        "width": 2,
+        "file": "now-playing.html",
+        "headerColor": "#f47425"
       }
     ],
     "soundCues": [

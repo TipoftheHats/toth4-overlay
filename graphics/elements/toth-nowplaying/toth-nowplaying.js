@@ -60,7 +60,7 @@
 		ready() {
 			const self = this;
 			const nowPlaying = nodecg.Replicant('nowPlaying');
-			const pulsing = nodecg.Replicant('pulsing');
+			const pulsing = nodecg.Replicant('nowPlayingPulsing');
 
 			pulsing.on('change', newVal => {
 				if (newVal) {
