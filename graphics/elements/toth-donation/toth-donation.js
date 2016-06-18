@@ -68,11 +68,11 @@
 			});
 
 			nodecg.listenFor('donation', data => {
-				const truncatedName = self._truncateString(data.donor__visiblename);
+				const truncatedName = self._truncateString(data.name);
 
 				// Change tag
 				this.tl.call(() => {
-					this.tag = numeral(data.amount).format('$0,0[.]00');
+					this.tag = data.amount;
 				});
 
 				// Fade out #total

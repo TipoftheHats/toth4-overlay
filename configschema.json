@@ -44,6 +44,22 @@
 				"secret",
 				"targetAccount"
 			]
+		},
+		"scraptf": {
+			"type": "object",
+			"properties": {
+				"apiKey": {
+					"type": "string"
+				},
+				"fundraiserId": {
+					"type": "string"
+				}
+			},
+			"description": "Configuration object for Scrap.tf API, used to poll for new item donatins and update the item fundraising total.",
+			"required": [
+				"apiKey",
+				"fundraiserId"
+			]
 		}
 	}
 }
