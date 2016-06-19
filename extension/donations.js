@@ -67,6 +67,10 @@ module.exports = function (nodecg) {
 			},
 			json: true
 		}).then(response => {
+			if (!response) {
+				return;
+			}
+
 			// latest_donation is zero if the response contains no donations
 			if (response.latest_donation) {
 				latestScrapDonationTime = response.latest_donation;

@@ -1,7 +1,7 @@
 'use strict';
 
-const DONATION_STATS_URL = 'http://tracker.tipofthehats.org/2?json';
 const POLL_INTERVAL = 60 * 1000;
+const Promise = require('bluebird');
 const request = require('request-promise');
 let updateInterval;
 
@@ -44,17 +44,32 @@ module.exports = function (nodecg) {
 	});
 
 	/**
-	 * Updates the "total" replicant with the latest value from the GDQ Tracker API.
+	 * Updates the "total" replicant with the latest value from the GDQ Tracker & Scrap.tf APIs.
 	 * @param {Boolean} [silent=true] - If true, does not print log messages.
 	 * @param {Function} [cb] - The callback to invoke after the total has been updated.
 	 * @returns {undefined}
 	 */
 	function update(silent = true, cb = function () {}) {
-		request({
-			uri: DONATION_STATS_URL,
+		const trackerProimise = request({
+			uri: 'http://tracker.tipofthehats.org/2?json',
 			json: true
 		}).then(response => {
-			const freshTotal = parseFloat(response.agg.amount || 0);
+			return parseFloat(response.agg.amount || 0);
+		});
+
+		const scraptfPromise = request({
+			uri: 'https://scrap.tf/api/fundraisers/getsummary.php',
+			qs: {
+				fundraiser: nodecg.bundleConfig.scraptf.fundraiserId,
+				key: nodecg.bundleConfig.scraptf.apiKey
+			},
+			json: true
+		}).then(response => {
+			return parseFloat(response.donation_total || 0);
+		});
+
+		Promise.join(trackerProimise, scraptfPromise, (trackerTotal, scraptfTotal) => {
+			const freshTotal = trackerTotal + scraptfTotal;
 
 			if (freshTotal === total.value.raw) {
 				if (!silent) {
