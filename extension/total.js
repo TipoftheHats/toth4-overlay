@@ -54,7 +54,11 @@ module.exports = function (nodecg) {
 			uri: 'http://tracker.tipofthehats.org/2?json',
 			json: true
 		}).then(response => {
-			return parseFloat(response.agg.amount || 0);
+			if (!response) {
+				return;
+			}
+
+			return parseFloat(response.agg.amount);
 		});
 
 		const scraptfPromise = request({
@@ -65,7 +69,11 @@ module.exports = function (nodecg) {
 			},
 			json: true
 		}).then(response => {
-			return parseFloat(response.donation_total || 0);
+			if (!response) {
+				return;
+			}
+
+			return parseFloat(response.donation_total);
 		});
 
 		Promise.join(trackerProimise, scraptfPromise, (trackerTotal, scraptfTotal) => {
