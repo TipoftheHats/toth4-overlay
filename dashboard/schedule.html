@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<style>
+		body {
+			display: flex;
+		}
+
+		#inputs {
+			display: flex;
+			flex-direction: column;
+			margin-right: 6px;
+		}
+
+		#take {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		#monitor {
+			display: flex;
+			flex-direction: column;
+			margin-left: 6px;
+		}
+
+		#inputs,
+		#monitor {
+			width: calc(50% - 6px);
+			flex-shrink: 0;
+		}
+
+		#monitor-onNow,
+		#monitor-upNext {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			word-wrap: break-word;
+			overflow-y: hidden;
+		}
+
+		h5 {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="inputs">
+		<paper-input id="onNow" label="On Now" always-float-label></paper-input>
+		<paper-input id="upNext" label="Up Next" always-float-label></paper-input>
+		<paper-button id="take" class="nodecg-info" raised>Take</paper-button>
+	</div>
+
+	<div id="monitor">
+		<div style="height: 50%;">
+			<h5>On Now</h5>
+			<div id="monitor-onNow"></div>
+		</div>
+
+		<div style="height: 50%;">
+			<h5>Up Next</h5>
+			<div id="monitor-upNext"></div>
+		</div>
+	</div>
+
+	<script src="schedule.js"></script>
+</body>
+</html>

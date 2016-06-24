@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.4.1",
+    "deep-equal": "^1.0.1",
     "lastfm": "^0.9.2",
     "q": "^1.4.1",
     "request-promise": "^3.0.0",
@@ -111,6 +112,13 @@
         "title": "Twitter",
         "width": 3,
         "file": "twitter.html",
+        "headerColor": "#f47425"
+      },
+      {
+        "name": "schedule",
+        "title": "Schedule",
+        "width": 4,
+        "file": "schedule.html",
         "headerColor": "#f47425"
       }
     ],

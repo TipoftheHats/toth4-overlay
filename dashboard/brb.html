@@ -3,18 +3,8 @@
 <head>
     <meta charset="UTF-8">
 	<link rel="import" href="components/paper-button/paper-button.html">
-	<link rel="import" href="components/paper-input/paper-input.html">
-	<style is="custom-style">
+	<style>
 		body {
-			display: flex;
-			flex-direction: column;
-		}
-
-		h4 {
-			margin: 0;
-		}
-
-		#buttons {
 			display: flex;
 		}
 
@@ -22,14 +12,7 @@
 			flex: 1;
 		}
 
-		#input {
-			--paper-input-container: {
-				padding-top: 0;
-			}
-		}
-
-		#show,
-		#update {
+		#show {
 			margin-left: 0;
 		}
 
@@ -39,12 +22,8 @@
 	</style>
 </head>
 <body>
-	<paper-input id="input" label="Up Next" placeholder="Event"></paper-input>
-	<div id="buttons">
-		<paper-button id="show" class="nodecg-success" raised>Show</paper-button>
-		<paper-button id="update" class="nodecg-info" raised hidden>Update</paper-button>
-		<paper-button id="hide" class="nodecg-danger" raised>Hide</paper-button>
-	</div>
+	<paper-button id="show" class="nodecg-success" raised>Show</paper-button>
+	<paper-button id="hide" class="nodecg-danger" raised>Hide</paper-button>
 	<script src="brb.js"></script>
 </body>
 </html>

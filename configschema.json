@@ -2,6 +2,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
 	"properties": {
+		"useMockData": {
+			"type": "boolean",
+			"description": "Whether or not to use mock data instead of the real tracker API. If true, pulls from Lange's Dropbox.",
+			"default": false
+		},
 		"twitter": {
 			"type": "object",
 			"properties": {

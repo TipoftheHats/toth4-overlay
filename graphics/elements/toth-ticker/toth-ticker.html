@@ -1,0 +1,126 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<dom-module id="toth-ticker">
+	<template>
+		<style>
+			:host {
+				display: flex;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 57px;
+				width: 100%;
+				box-sizing: border-box;
+				border-top: 3px solid #f47425;
+				background-color: #151515;
+				font-family: 'proxima-nova';
+				color: white;
+				--toth-ticker-content-color: #f47425;
+				white-space: nowrap;
+			}
+
+			#toth-logo {
+				position: relative;
+				padding-left: 9px;
+				padding-right: 15px;
+				bottom: 8px;
+				width: 192px;
+				height: 62px;
+				z-index: 2;
+			}
+
+			#main {
+				display: flex;
+				flex-grow: 1;
+				min-width: 1px;
+				align-items: flex-end;
+			}
+
+			#label {
+				position: relative;
+				top: 8px;
+				height: 55px;
+				padding: 0 21px;
+				background-color: var(--toth-ticker-content-color);
+				text-transform: uppercase;
+				font-size: 49px;
+				font-weight: 800;
+				font-family: 'proxima-nova-condensed';
+				line-height: 50px;
+				transform: translateY(100%);
+				z-index: 1;
+			}
+
+			#label:before {
+				content: '';
+				position: absolute;
+				right: 100%;
+				height: 100%;
+				background-color: #151515;
+				width: 1200px;
+			}
+
+			#body {
+				border-bottom: 4px solid var(--toth-ticker-content-color);
+				padding: 0 16px;
+				height: 43px;
+				display: flex;
+				align-items: center;
+				transform-origin: left;
+				transform: scaleX(0);
+				overflow: hidden;
+			}
+
+			#content {
+				text-shadow: 2.828px 2.828px 0 black;
+				transform-origin: left;
+				font-size: 32px;
+				font-weight: 400;
+				will-change: transform;
+			}
+
+			#content b {
+				font-weight: 700;
+			}
+
+			#total {
+				display: flex;
+				align-items: baseline;
+				height: 100%;
+				background-color: #f47425;
+				padding: 0 14px;
+				flex-shrink: 0;
+				font-weight: 700;
+				margin-left: 24px;
+			}
+
+			#total-currency {
+				font-size: 39px;
+				position: relative;
+				bottom: 5px;
+			}
+
+			#total-amount {
+				position: relative;
+				bottom: 2px;
+				font-size: 48px;
+				font-variant-numeric: tabular-nums;
+				font-feature-settings: "tnum";
+			}
+		</style>
+
+		<img id="toth-logo" src="img/toth-logo.png">
+		<div id="main">
+			<div id="label"></div>
+			<div id="body">
+				<div id="content"></div>
+			</div>
+		</div>
+		<div id="total">
+			<div id="total-currency">$</div>
+			<div id="total-amount"></div>
+		</div>
+	</template>
+
+	<script src="toth-ticker.js"></script>
+</dom-module>
