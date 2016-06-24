@@ -18,7 +18,7 @@
 			},
 			duration: {
 				type: Number,
-				value: 15
+				value: 17
 			},
 			interval: {
 				type: Number,
