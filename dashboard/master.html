@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/nodecg-toggle/nodecg-toggle.html">
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#brb,
+		#fade,
+		#hashtag {
+			display: flex;
+		}
+
+		#brb-show,
+		#fade-in {
+			margin-left: 0;
+		}
+
+		#brb-hide,
+		#fade-out {
+			margin-right: 0;
+		}
+
+		paper-button {
+			flex: 1;
+		}
+
+		h4 {
+			margin: 0;
+		}
+
+		h4:not(:first-of-type) {
+			margin-top: 12px;
+		}
+
+		nodecg-toggle {
+			margin-top: 20px;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h4>Fade</h4>
+	<div id="fade">
+		<paper-button id="fade-in" class="nodecg-success" raised>Fade In</paper-button>
+		<paper-button id="fade-out" class="nodecg-danger" raised>Fade Out</paper-button>
+	</div>
+
+	<h4>BRB</h4>
+	<div id="brb">
+		<paper-button id="brb-show" class="nodecg-success" raised>Show BRB</paper-button>
+		<paper-button id="brb-hide" class="nodecg-danger" raised>Hide BRB</paper-button>
+	</div>
+
+	<nodecg-toggle replicant-name="showHashtag">Show Hashtag</nodecg-toggle>
+
+	<script src="master-brb.js"></script>
+	<script src="master-fade.js"></script>
+</body>
+</html>

@@ -42,10 +42,10 @@
     ],
     "dashboardPanels": [
       {
-        "name": "brb",
-        "title": "BRB",
+        "name": "master",
+        "title": "Master Controls",
         "width": 2,
-        "file": "brb.html",
+        "file": "master.html",
         "headerColor": "#f47425"
       },
       {
@@ -60,13 +60,6 @@
         "title": "Lowerthird",
         "width": 2,
         "file": "lowerthird.html",
-        "headerColor": "#f47425"
-      },
-      {
-        "name": "main",
-        "title": "Master Fade",
-        "width": 2,
-        "file": "main.html",
         "headerColor": "#f47425"
       },
       {

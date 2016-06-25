@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 
-	const show = document.getElementById('show');
-	const hide = document.getElementById('hide');
+	const show = document.getElementById('fade-in');
+	const hide = document.getElementById('fade-out');
 	const mainShowing = nodecg.Replicant('mainShowing', {defaultValue: true});
 
 	mainShowing.on('change', newVal => {
