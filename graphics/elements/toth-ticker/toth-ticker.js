@@ -22,7 +22,7 @@
 			setTimeout(() => {
 				// Start the rotation
 				this.showSchedule();
-			}, 500);
+			}, 1500);
 		},
 
 		totalChanged(newVal) {
@@ -172,7 +172,7 @@
 
 		showWars() {
 			if (wars.value.length <= 0) {
-				this.tl.call(this.showSchedule, null, this);
+				this.tl.call(this.showCTA, null, this);
 				return;
 			}
 
@@ -223,6 +223,27 @@
 			});
 
 			this.exit();
+
+			this.tl.call(this.showCTA, null, this);
+		},
+
+		showCTA() {
+			this.tl.to(this.$.cta, 0.66, {
+				y: '0%',
+				ease: Back.easeOut.config(0.9)
+			});
+
+			this.tl.to(this.$.cta, 1, {
+				y: '-100%',
+				ease: Back.easeInOut.config(0.9)
+			}, `+=${INTERVAL}`);
+
+			this.tl.to(this.$.cta, 0.66, {
+				y: '-200%',
+				ease: Back.easeIn.config(0.9)
+			}, `+=${INTERVAL}`);
+
+			this.tl.set(this.$.cta, {y: '100%'});
 
 			this.tl.call(this.showSchedule, null, this);
 		},

@@ -30,10 +30,12 @@
 			}
 
 			#main {
+				position: relative;
 				display: flex;
 				flex-grow: 1;
 				min-width: 1px;
 				align-items: flex-end;
+				overflow: hidden;
 			}
 
 			#label {
@@ -72,15 +74,31 @@
 			}
 
 			#content {
-				text-shadow: 2.828px 2.828px 0 black;
 				transform-origin: left;
 				font-size: 32px;
 				font-weight: 400;
 				will-change: transform;
+				text-shadow: 2.828px 2.828px 0 black;
 			}
 
 			#content b {
 				font-weight: 700;
+			}
+
+			#cta {
+				position: absolute;
+				height: 55px;
+				width: 100%;
+				text-align: center;
+				font-size: 40px;
+				text-shadow: 2.828px 2.828px 0 black;
+				transform: translateY(100%);
+				left: 0;
+			}
+
+			#cta-1,
+			#cta-2 {
+				height: 100%;
 			}
 
 			#total {
@@ -114,6 +132,17 @@
 			<div id="label"></div>
 			<div id="body">
 				<div id="content"></div>
+			</div>
+			<div id="cta">
+				<div id="cta-1">
+					<span style="color: #f47425;">Tip of the Hats 2016</span>
+					supports
+					<span style="font-weight: 800;">One Step Camp</span>
+				</div>
+
+				<div id="cta-2">
+					Donate now at <span style="color: #f47425; font-weight: 800;">tipofthehats.org/donate</span>
+				</div>
 			</div>
 		</div>
 		<div id="total">
