@@ -77,12 +77,17 @@
 
 		exit() {
 			this.tl.call(() => {
-				TweenLite.to(this.$.label, 1.2, {
+				this.tl.pause();
+				let duration = Math.max(this.$.body.clientWidth / 500, 0.9);
+				duration = Math.min(duration, 1.8);
+				TweenLite.to(this.$.label, duration, {
 					x: this.$.body.clientWidth + 1,
-					ease: Power3.easeInOut
+					ease: Power3.easeInOut,
+					onComplete: function () {
+						this.tl.resume();
+					}.bind(this)
 				});
 			}, null, null, '+=0.01');
-			this.tl.to({}, 1, {});
 
 			this.tl.set(this.$.body, {scaleX: 0});
 			this.tl.set(this.$.content, {y: '100%'});
