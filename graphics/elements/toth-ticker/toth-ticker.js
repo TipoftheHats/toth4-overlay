@@ -77,7 +77,7 @@
 
 		exit() {
 			this.tl.call(() => {
-				TweenLite.to(this.$.label, 1, {
+				TweenLite.to(this.$.label, 1.2, {
 					x: this.$.body.clientWidth + 1,
 					ease: Power3.easeInOut
 				});
