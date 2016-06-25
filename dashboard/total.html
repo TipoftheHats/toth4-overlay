@@ -13,11 +13,17 @@
 		}
 
 		#update {
-			margin-right: 4px;
+			margin-left: 0;
+			flex: 1;
 		}
 
 		#edit {
-			margin-left: 4px;
+			margin-right: 0;
+		}
+
+		nodecg-toggle {
+			margin-top: 20px;
+			margin-bottom: 5px;
 		}
 	</style>
 </head>
@@ -26,7 +32,7 @@
 
 	<h2 id="total">?</h2>
 
-	<div style="display: flex; margin-bottom: 8px;">
+	<div style="display: flex;">
 		<paper-button id="update" class="flex" raised>Force Update</paper-button>
 		<paper-button id="edit" class="nodecg-configure" nodecg-dialog="edit-total" raised>Edit...</paper-button>
 	</div>
