@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
 	<link rel="import" href="components/paper-button/paper-button.html">
 	<link rel="import" href="components/paper-input/paper-input.html">
+	<link rel="import" href="components/vaadin-combo-box/vaadin-combo-box.html">
 	<style is="custom-style">
 		body {
 			display: flex;
 			flex-direction: column;
+			margin-top: 0;
 		}
 
 		paper-input {
@@ -32,10 +34,13 @@
 	</style>
 </head>
 <body>
+	<vaadin-combo-box id="type" label="Type" items='["Cash", "Item"]' value="Cash"></vaadin-combo-box>
+
 	<div id="inputs">
 		<paper-input id="amount" label="Amount" type="number" always-float-label></paper-input>
 		<paper-input id="donor" label="Donor Name" always-float-label></paper-input>
 	</div>
+
 	<paper-button id="send" class="nodecg-info" raised>Send Test Donation</paper-button>
 	<script src="donations.js"></script>
 </body>

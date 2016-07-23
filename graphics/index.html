@@ -5,13 +5,14 @@
     <script src="//use.typekit.net/ofl6oue.js"></script>
     <script>try {Typekit.load();} catch (e) {}</script>
 	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
+	<link href="elements/toth-donation/toth-donation.html" rel="import">
+	<link href="elements/toth-ticker/toth-ticker.html" rel="import">
+    <link href="elements/toth-brb/toth-brb.html" rel="import">
     <link href="elements/toth-lowerthird/toth-lowerthird.html" rel="import">
+    <link href="elements/toth-nowplaying/toth-nowplaying.html" rel="import">
     <link href="elements/toth-scoreboard/toth-scoreboard.html" rel="import">
     <link href="elements/toth-sponsors/toth-sponsors.html" rel="import">
-    <link href="elements/toth-nowplaying/toth-nowplaying.html" rel="import">
     <link href="elements/toth-tweet/toth-tweet.html" rel="import">
-    <link href="elements/toth-brb/toth-brb.html" rel="import">
-	<link href="elements/toth-ticker/toth-ticker.html" rel="import">
 	<style>
 		body {
 			margin: 0;
@@ -24,8 +25,8 @@
 			height: 1080px;
 			overflow: hidden;
 			font-family: "proxima-nova";
-			background: url("http://i.imgur.com/EcIltyp.png");
-			background: url("http://i.imgur.com/ivbkXt1.png");
+			/*background: url("http://i.imgur.com/EcIltyp.png");
+			background: url("http://i.imgur.com/ivbkXt1.png");*/
 		}
 
 		#brb {
@@ -79,6 +80,9 @@
         <toth-sponsors id="sponsors"></toth-sponsors>
         <toth-nowplaying id="nowPlaying"></toth-nowplaying>
         <toth-tweet id="tweet"></toth-tweet>
+		<toth-donation-tier1></toth-donation-tier1>
+		<toth-donation-tier2></toth-donation-tier2>
+		<toth-donation-tier3></toth-donation-tier3>
 		<toth-ticker id="ticker"></toth-ticker>
     </div>
 	<script src="app/main.js"></script>

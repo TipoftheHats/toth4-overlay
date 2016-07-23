@@ -1,0 +1,83 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<dom-module id="toth-donation-tier1">
+    <template>
+		<style>
+			:host {
+				position: absolute;
+				bottom: 65px;
+				right: 0;
+				display: flex;
+				white-space: nowrap;
+				align-items: stretch;
+			}
+
+			#name {
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+
+				/* prep for animation */
+				transform: translateX(100%);
+				visibility: hidden;
+			}
+
+			#name-content {
+				display: flex;
+				align-items: center;
+				background-color: #232323;
+				padding: 0 20px;
+				flex-grow: 1;
+
+				/* prep for animation */
+				transform: translateY(100%);
+			}
+
+			#name-content-text {
+				font-size: 30px;
+				font-weight: 600;
+				color: white;
+			}
+
+			#name-border {
+				height: 5px;
+				width: 100%;
+				background-color: #f47425;
+				z-index: 1;
+			}
+
+			#type-rect {
+				height: 53px;
+				width: 78px;
+				background-color: #f47425;
+
+				/* prep for animation */
+				transform: scaleY(0);
+				transform-origin: bottom center;
+			}
+
+			video {
+				display: none;
+				transform: scale(0.46);
+				position: absolute;
+				bottom: -99px;
+				right: -125px;
+			}
+		</style>
+
+		<div id="name">
+			<div id="name-content">
+				<div id="name-content-text"></div>
+			</div>
+			<div id="name-border"></div>
+		</div>
+
+		<div id="type-rect"></div>
+
+		<video id="giftbox" preload src="img/giftbox.webm"></video>
+		<video id="money" preload src="img/money1.webm"></video>
+    </template>
+
+	<script src="toth-donation-tier1.js"></script>
+</dom-module>
+

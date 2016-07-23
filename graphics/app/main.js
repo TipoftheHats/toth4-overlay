@@ -29,4 +29,9 @@
 			});
 		}
 	});
+
+	nodecg.listenFor('donation', data => {
+		const event = new CustomEvent('donation', {detail: data});
+		window.dispatchEvent(event);
+	});
 })();

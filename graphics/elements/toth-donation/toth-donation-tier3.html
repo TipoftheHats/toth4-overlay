@@ -1,0 +1,138 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<dom-module id="toth-donation-tier3">
+    <template>
+		<style>
+			:host {
+				position: absolute;
+				width: 100%;
+				top: 108px;
+				right: 0;
+				display: flex;
+				white-space: nowrap;
+				align-items: stretch
+			}
+
+			#name {
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+				flex-grow: 1;
+			}
+
+			#name-content {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #232323;
+				padding: 0 20px;
+				flex-grow: 1;
+
+				/* prep for animation */
+				transform: translateY(100%);
+			}
+
+			#name-content-text {
+				font-size: 90px;
+				font-weight: 600;
+				color: white;
+				text-align: center;
+			}
+
+			#borders {
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				display: flex;
+			}
+
+			.border {
+				height: 14px;
+				background-color: #f47425;
+				width: 50%;
+
+				/* prep for animation */
+				transform: scaleX(0);
+			}
+
+			.border.left {
+				transform-origin: left;
+			}
+
+			.border.right {
+				transform-origin: right;
+			}
+
+			.type-rect {
+				width: 192px;
+				height: 146px;
+				background-color: #f47425;
+
+				/* prep for animation */
+				transform: scaleX(0);
+			}
+
+			.type-rect.left {
+				transform-origin: left;
+			}
+
+			.type-rect.right {
+				transform-origin: right;
+			}
+
+			video.left {
+				left: -72px;
+			}
+
+			video.right {
+				right: -72px;
+				transform: scaleX(-1);
+			}
+
+			video {
+				display: none;
+				position: absolute;
+				top: -160px;
+			}
+
+			#cover {
+				position: absolute;
+				width: 100%;
+				height: 254px;
+				bottom: 0;
+				left: 0;
+				background-color: #f47425;
+				transform-origin: bottom center;
+
+				/* prepare for animation */
+				transform: scaleY(0);
+			}
+		</style>
+
+		<div class="type-rect left"></div>
+
+		<div id="name">
+			<div id="name-content">
+				<div id="name-content-text"></div>
+			</div>
+		</div>
+
+		<div id="borders">
+			<div class="border left"></div>
+			<div class="border right"></div>
+		</div>
+
+		<div class="type-rect right"></div>
+
+		<video class="giftbox left" preload src="img/giftbox.webm"></video>
+		<video class="giftbox right" preload src="img/giftbox.webm"></video>
+		<video class="money left" preload src="img/money3.webm"></video>
+		<video class="money right" preload src="img/money3.webm"></video>
+
+		<div id="cover"></div>
+    </template>
+
+	<script src="toth-donation-tier3.js"></script>
+</dom-module>
+

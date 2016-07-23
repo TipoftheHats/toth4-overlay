@@ -4,11 +4,11 @@
     "autosize": "~3.0.6",
     "gsap": "~1.16.1",
     "iron-image": "PolymerElements/iron-image#~1.0.2",
-    "numeral": "~1.5.3",
     "paper-button": "PolymerElements/paper-button#^1.0.12",
     "paper-input": "PolymerElements/paper-input#^1.1.11",
     "nodecg-toast": "NodeCGElements/nodecg-toast#^0.1.2",
     "nodecg-toggle": "NodeCGElements/nodecg-toggle#^0.2.0",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "vaadin-combo-box": "^1.1.1"
   }
 }

@@ -4,6 +4,10 @@
 const request = require('request-promise');
 
 module.exports = function (nodecg) {
+	nodecg.listenFor('testDonation', data => {
+		nodecg.sendMessage('donation', formatDonation(data));
+	});
+
 	if (nodecg.bundleConfig && nodecg.bundleConfig.trackerKey) {
 		const app = require('express')();
 
@@ -14,14 +18,11 @@ module.exports = function (nodecg) {
 				return;
 			}
 
-			nodecg.sendMessage('donation', {
+			nodecg.sendMessage('donation', formatDonation({
 				name: req.body.donor__visiblename,
-				amount: parseFloat(req.body.amount).toLocaleString('en-US', {
-					style: 'currency',
-					currency: 'USD',
-					minimumFractionDigits: 0
-				})
-			});
+				rawAmount: req.body.amount,
+				type: 'cash'
+			}));
 
 			res.sendStatus(200);
 		});
@@ -30,7 +31,7 @@ module.exports = function (nodecg) {
 	} else {
 		nodecg.log.error(`cfg/${nodecg.bundleName}.json is missing the "trackerKey" property.` +
 			'\n\tThis means that we cannot receive new incoming PayPal donations from the tracker,' +
-			'\n\tand that they will not be displayed in the top left corner as a result.' +
+			'\n\tand that donation notifications will not be displayed as a result.' +
 			'\n\tThe total will still be displayed.');
 	}
 
@@ -77,17 +78,38 @@ module.exports = function (nodecg) {
 			}
 
 			response.donations.forEach(donation => {
-				nodecg.sendMessage('donation', {
+				nodecg.sendMessage('donation', formatDonation({
 					name: donation.user.name,
-					amount: parseFloat(donation.cash_value).toLocaleString('en-US', {
-						style: 'currency',
-						currency: 'USD',
-						minimumFractionDigits: 0
-					})
-				});
+					rawAmount: donation.cash_value,
+					type: 'item'
+				}));
 			});
 		}).catch(err => {
 			nodecg.log.error('Failed to fetch Scrap.tf donations:', err);
 		});
+	}
+
+	function formatDonation({name, rawAmount, type}) {
+		// Truncate name to 25 characters
+		name = name.length > 25 ? `${name.substring(0, 24)}…` : name;
+
+		// Format amount
+		let amount = parseFloat(rawAmount).toLocaleString('en-US', {
+			style: 'currency',
+			currency: 'USD',
+			minimumFractionDigits: 2
+		});
+
+		// If a whole dollar, get rid of ce nts
+		if (amount.endsWith('.00')) {
+			amount = amount.substr(0, amount.length - 3);
+		}
+
+		return {
+			name,
+			amount,
+			rawAmount,
+			type
+		};
 	}
 };

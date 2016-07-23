@@ -5,11 +5,13 @@
 	const test = document.getElementById('send');
 	const amount = document.getElementById('amount');
 	const donor = document.getElementById('donor');
+	const type = document.getElementById('type');
 
 	test.addEventListener('click', () => {
-		nodecg.sendMessage('donation', {
-			amount: amount.value,
-			donor__visiblename: donor.value
+		nodecg.sendMessage('testDonation', {
+			rawAmount: amount.value,
+			name: donor.value,
+			type: type.value.toLowerCase()
 		});
 	});
 })();

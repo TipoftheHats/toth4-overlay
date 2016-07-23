@@ -155,6 +155,11 @@
         "name": "tweet_out",
         "assignable": false,
         "defaultFile": "sound/tweet_out.ogg"
+      },
+      {
+        "name": "notification_tier3",
+        "assignable": false,
+        "defaultFile": "sound/notification_tier3.ogg"
       }
     ]
   }

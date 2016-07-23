@@ -12,7 +12,6 @@
 		"Power2": true,
 		"Power3": true,
 		"Linear": true,
-		"Back": true,
-		"numeral": true
+		"Back": true
 	}
 }
