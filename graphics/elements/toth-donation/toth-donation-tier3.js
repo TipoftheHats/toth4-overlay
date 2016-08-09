@@ -34,7 +34,18 @@
 			});
 
 			this.tl.call(() => {
-				this.$['name-content-text'].innerHTML = `${name} <b>${amount}</b>`;
+				this.$['name-content-name'].innerHTML = name;
+				this.$['name-content-amount'].innerHTML = `&nbsp;${amount}`;
+
+				// Shrink name to fit if necessary
+				const nameClientWidth = this.$['name-content-name'].clientWidth;
+				const nameScrollWidth = this.$['name-content-name'].scrollWidth;
+				if (nameScrollWidth > nameClientWidth) {
+					TweenLite.set(this.$['name-content-name'], {scaleX: nameClientWidth / nameScrollWidth});
+				} else {
+					TweenLite.set(this.$['name-content-name'], {scaleX: 1});
+				}
+
 				setTimeout(() => {
 					nodecg.playSound('notification_tier3');
 				}, 0);
@@ -69,6 +80,8 @@
 				y: '0%',
 				ease: Power2.easeInOut
 			}, '-=0.08');
+
+			return;
 
 			// Exit
 			this.tl.to(this.$.cover, 0.511, {

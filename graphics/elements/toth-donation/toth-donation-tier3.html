@@ -21,22 +21,28 @@
 			}
 
 			#name-content {
+				font-size: 90px;
+				font-weight: 600;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				background-color: #232323;
-				padding: 0 20px;
+				padding: 0 0.5em;
 				flex-grow: 1;
+				color: white;
 
 				/* prep for animation */
 				transform: translateY(100%);
 			}
 
-			#name-content-text {
-				font-size: 90px;
-				font-weight: 600;
-				color: white;
-				text-align: center;
+			#name-content-name {
+				flex-shrink: 1;
+				min-width: 0;
+				transform-origin: left;
+			}
+
+			#name-content-amount {
+				font-weight: 700;
 			}
 
 			#borders {
@@ -114,7 +120,8 @@
 
 		<div id="name">
 			<div id="name-content">
-				<div id="name-content-text"></div>
+				<span id="name-content-name"></span>
+				<span id="name-content-amount"></span>
 			</div>
 		</div>
 
