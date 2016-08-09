@@ -1,0 +1,105 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<dom-module id="toth-donation-tier2">
+	<template>
+		<style>
+			:host {
+				position: absolute;
+				height: 150px;
+				bottom: 140px;
+				right: 0;
+				display: flex;
+				white-space: nowrap;
+				overflow: hidden;
+				align-items: flex-end;
+			}
+
+			#name {
+				display: flex;
+				flex-direction: column;
+				height: 82px;
+
+				/* prep for animation */
+				transform: translateX(100%);
+				visibility: hidden;
+				overflow: hidden;
+			}
+
+			#name-content {
+				font-size: 42px;
+				font-weight: 600;
+				display: flex;
+				align-items: center;
+				background-color: #232323;
+				padding: 0 0.5em;
+				flex-grow: 1;
+				color: white;
+
+				/* prep for animation */
+				transform: translateY(100%);
+			}
+
+			#name-content-name {
+				flex-shrink: 1;
+				min-width: 0;
+				transform-origin: left;
+			}
+
+			#name-content-amount {
+				font-weight: 700;
+			}
+			#name-border {
+				height: 6px;
+				width: 100%;
+				background-color: #f47425;
+				z-index: 1;
+			}
+
+			#type-rect {
+				height: 82px;
+				width: 96px;
+				background-color: #f47425;
+
+				/* prep for animation */
+				transform: scaleY(0);
+				transform-origin: bottom center;
+			}
+
+			video {
+				display: none;
+				transform: scale(0.68);
+				position: absolute;
+				bottom: -69px;
+				right: -116px;
+				z-index: 1;
+			}
+
+			#shimmer {
+				background-color: #ffdb35;
+				width: 80px;
+				height: 82px;
+				position: absolute;
+				top: 0;
+				right: -190px;
+				transform: skewX(18deg);
+			}
+		</style>
+
+		<div id="name">
+			<div id="name-content">
+				<span id="name-content-name"></span>
+				<span id="name-content-amount"></span>
+			</div>
+			<div id="name-border"></div>
+			<div id="shimmer"></div>
+		</div>
+
+		<div id="type-rect"></div>
+
+		<video id="giftbox" preload src="img/giftbox.webm"></video>
+		<video id="money" preload src="img/money1.webm"></video>
+	</template>
+
+	<script src="toth-donation-tier2.js"></script>
+</dom-module>
+

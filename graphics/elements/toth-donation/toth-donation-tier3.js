@@ -4,15 +4,8 @@
 	Polymer({
 		is: 'toth-donation-tier3',
 
-		properties: {
-			tl: {
-				type: Object,
-				value: new TimelineLite({autoRemoveChilren: true}),
-				readOnly: true
-			}
-		},
-
 		ready() {
+			this.tl = window.notificationTl;
 			window.addEventListener('donation', e => {
 				this.handleDonation(e.detail);
 			});

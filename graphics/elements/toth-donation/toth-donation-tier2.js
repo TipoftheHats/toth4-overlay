@@ -2,7 +2,7 @@
 	'use strict';
 
 	Polymer({
-		is: 'toth-donation-tier1',
+		is: 'toth-donation-tier2',
 
 		ready() {
 			this.tl = window.notificationTl;
@@ -12,12 +12,13 @@
 		},
 
 		handleDonation({type, name, amount, rawAmount}) {
-			if (rawAmount >= 100) {
+			if (rawAmount < 100 || rawAmount >= 500) {
 				return;
 			}
 
 			this.tl.call(() => {
-				this.$['name-content-text'].innerHTML = `${name} <b>${amount}</b>`;
+				this.$['name-content-name'].innerHTML = name;
+				this.$['name-content-amount'].innerHTML = `&nbsp;${amount}`;
 			});
 
 			this.tl.add('enter');
@@ -47,12 +48,27 @@
 
 			this.tl.to(this.$['name-content'], 0.392, {
 				y: '0%',
-				ease: Power2.easeInOut
+				ease: Power2.easeInOut,
+				onComplete: function () {
+					this.$.name.style.zIndex = 1;
+					this.$['name-content'].style.zIndex = 2;
+					this.$.shimmer.style.zIndex = 1;
+					this.$['name-border'].style.zIndex = 0;
+					this.$.name.style.overflow = 'visible';
+				}.bind(this)
 			}, '-=0.08');
 
+			this.tl.call(() => {
+				const nameWidth = this.$.name.clientWidth;
+				TweenLite.to(this.$.shimmer, 1.5, {
+					x: -190 - nameWidth - 28,
+					ease: Power4.easeInOut
+				});
+			});
+
 			// Exit
-			this.tl.to(this, 0.511, {
-				y: 100,
+			this.tl.to(this, 0.811, {
+				y: 210,
 				ease: Power2.easeIn,
 				onComplete: function () {
 					this.$.giftbox.style.display = 'none';
@@ -65,7 +81,8 @@
 				this,
 				this.$['type-rect'],
 				this.$.name,
-				this.$['name-content']
+				this.$['name-content'],
+				this.$.shimmer
 			], {
 				clearProps: 'all'
 			});
