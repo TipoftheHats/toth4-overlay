@@ -90,8 +90,8 @@ module.exports = function (nodecg) {
 	}
 
 	function formatDonation({name, rawAmount, type}) {
-		// Truncate name to 25 characters
-		name = name.length > 25 ? `${name.substring(0, 24)}…` : name;
+		// Truncate name to 30 characters
+		name = name.length > 30 ? `${name.substring(0, 29)}…` : name;
 
 		// Format amount
 		let amount = parseFloat(rawAmount).toLocaleString('en-US', {
@@ -100,7 +100,7 @@ module.exports = function (nodecg) {
 			minimumFractionDigits: 2
 		});
 
-		// If a whole dollar, get rid of ce nts
+		// If a whole dollar, get rid of cents
 		if (amount.endsWith('.00')) {
 			amount = amount.substr(0, amount.length - 3);
 		}
