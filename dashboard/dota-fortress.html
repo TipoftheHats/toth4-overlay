@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<style>
+		.draft {
+			display: flex;
+		}
+
+		.draft > .input-group {
+			flex-grow: 1;
+		}
+
+		.column {
+			width: 100%;
+			margin-right: 4px;
+			margin-left: 4px;
+		}
+
+		.column:first-of-type {
+			margin-right: 4px;
+			margin-left: 0;
+		}
+
+		.column:last-of-type {
+			margin-right: 0;
+			margin-left: 4px;
+		}
+
+		.label,
+		h3 {
+			margin-top: 0;
+		}
+
+		.label {
+			font-weight: bold;
+		}
+
+		select[multiple] {
+			height: 150px;
+			margin-bottom: 0;
+		}
+
+		h3[title] {
+			display: inline-block;
+			border-bottom: 1px dashed black;
+			cursor: help;
+		}
+
+		select {
+			width: 100%;
+		}
+
+		select {
+			margin-bottom: 4px;
+		}
+
+		.color-red {
+			color: #F53641;
+		}
+
+		.color-blu {
+			color: #127FDC;
+		}
+	</style>
+</head>
+<body>
+	<h3>Draft Players</h3>
+	<div style="display: flex;">
+		<div class="column">
+			<div class="label color-blu">BLU</div>
+			<select data-set="draftable" data-team="blu" data-index="0" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="blu" data-index="1" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="blu" data-index="2" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="blu" data-index="3" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="blu" data-index="4" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="blu" data-index="5" class="draft-picker form-control"></select>
+		</div>
+		<div class="column">
+			<div class="label color-red">RED</div>
+			<select data-set="draftable" data-team="red" data-index="0" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="red" data-index="1" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="red" data-index="2" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="red" data-index="3" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="red" data-index="4" class="draft-picker form-control"></select>
+			<select data-set="draftable" data-team="red" data-index="5" class="draft-picker form-control"></select>
+		</div>
+	</div>
+
+	<div style="display: flex; justify-content: center; margin-top: 8px;">
+		<paper-button command="lock" raised class="nodecg-danger">Lock-in Draft</paper-button>
+	</div>
+
+	<hr/>
+
+	<h3>Ban Players</h3>
+	<div style="display: flex;">
+		<div class="column">
+			<div class="label">AVAILABLE PLAYERS</div>
+		</div>
+		<div class="column">
+			<div style="margin-left: 16px;" class="label">BANNED PLAYERS</div>
+		</div>
+	</div>
+	<div style="display: flex;">
+		<div class="column">
+			<select multiple="multiple" data-set="available" data-id="ban_available" class="form-control"></select>
+		</div>
+		<div style="display: flex; flex-direction: column; justify-content: center; margin-left: 4px; margin-right: 4px;">
+			<button type="button" command="ban" style="margin-bottom: 8px;">></button>
+			<button type="button" command="unban"><</button>
+		</div>
+		<div class="column">
+			<select multiple="multiple" data-set="banned" data-id="ban_banned" class="form-control"></select>
+		</div>
+	</div>
+	<hr/>
+	<h3 title="Picked players are players that have been drafted, played in a game, and have now been removed from the pool to give others a shot.">
+		Picked Players</h3>
+	<div style="display: flex;">
+		<div class="column">
+			<div class="label">AVAILABLE PLAYERS</div>
+		</div>
+		<div class="column">
+			<div style="margin-left: 16px;" class="label">PICKED PLAYERS</div>
+		</div>
+	</div>
+	<div style="display: flex;">
+		<div class="column">
+			<select multiple="multiple" data-set="available" data-id="pick_available" class="form-control"></select>
+		</div>
+		<div style="display: flex; flex-direction: column; justify-content: center; margin-left: 4px; margin-right: 4px;">
+			<button type="button" command="pick" style="margin-bottom: 8px;">></button>
+			<button type="button" command="unpick"><</button>
+		</div>
+		<div class="column">
+			<select multiple="multiple" data-set="picked" data-id="pick_picked" class="form-control"></select>
+		</div>
+	</div>
+
+	<script src="dota-fortress.js"></script>
+</body>
+</html>

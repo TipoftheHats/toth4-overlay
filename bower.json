@@ -9,6 +9,6 @@
     "nodecg-toast": "NodeCGElements/nodecg-toast#^0.1.2",
     "nodecg-toggle": "NodeCGElements/nodecg-toggle#^0.2.0",
     "moment": "^2.13.0",
-    "vaadin-combo-box": "^1.1.1"
+    "vaadin-combo-box": "^1.1.2"
   }
 }

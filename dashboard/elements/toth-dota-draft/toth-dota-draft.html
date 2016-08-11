@@ -1,0 +1,114 @@
+<link rel="import" href="../../vaadin-combo-box/vaadin-combo-box.html">
+
+<dom-module id="toth-dota-draft">
+	<template>
+		<style>
+			.draft {
+				display: flex;
+			}
+
+			.draft > .input-group {
+				flex-grow: 1;
+			}
+
+			.column {
+				width: 100%;
+				margin-right: 4px;
+				margin-left: 4px;
+			}
+
+			.column:first-of-type {
+				margin-right: 4px;
+				margin-left: 0;
+			}
+
+			.column:last-of-type {
+				margin-right: 0;
+				margin-left: 4px;
+			}
+
+			.ncg-label,
+			h3 {
+				margin-top: 0;
+			}
+
+			select[multiple] {
+				height: 150px;
+			}
+
+			h3[title] {
+				display: inline-block;
+				border-bottom: 1px dashed black;
+				cursor: help;
+			}
+		</style>
+
+		<h3>Draft Players</h3>
+		<div style="display: flex;">
+			<div class="column">
+				<div class="ncg-label color-blu">BLU</div>
+				<template is="dom-repeat" items="bluTeam" as="player">
+					<vaadin-combo-box items="[[availablePlayers]]" value="{{player}}" item-label-path="name"></vaadin-combo-box>
+				</template>
+			</div>
+			<div class="column">
+				<div class="ncg-label color-red">RED</div>
+				<template is="dom-repeat" items="redTeam" as="player">
+					<vaadin-combo-box items="[[availablePlayers]]" value="{{player}}" item-label-path="name"></vaadin-combo-box>
+				</template>
+			</div>
+		</div>
+		<div style="margin-top: 8px;" class="btn-group btn-group-justified">
+			<div class="btn-group">
+				<button type="button" command="lock" class="btn btn-xs btn-primary">Lock-in Draft</button>
+			</div>
+		</div>
+		<hr/>
+		<h3>Ban Players</h3>
+		<div style="display: flex;">
+			<div class="column">
+				<div class="ncg-label">AVAILABLE PLAYERS</div>
+			</div>
+			<div class="column">
+				<div style="margin-left: 16px;" class="ncg-label">BANNED PLAYERS</div>
+			</div>
+		</div>
+		<div style="display: flex;">
+			<div class="column">
+				<select multiple="multiple" data-set="available" data-id="ban_available" class="form-control"></select>
+			</div>
+			<div style="display: flex; flex-direction: column; justify-content: center; margin-left: 4px; margin-right: 4px;">
+				<button type="button" command="ban" style="margin-bottom: 8px;" class="btn btn-xs btn-primary">></button>
+				<button type="button" command="unban" class="btn btn-xs btn-primary"><</button>
+			</div>
+			<div class="column">
+				<select multiple="multiple" data-set="banned" data-id="ban_banned" class="form-control"></select>
+			</div>
+		</div>
+		<hr/>
+		<h3 title="Picked players are players that have been drafted, played in a game, and have now been removed from the pool to give others a shot.">
+			Picked Players</h3>
+		<div style="display: flex;">
+			<div class="column">
+				<div class="ncg-label">AVAILABLE PLAYERS</div>
+			</div>
+			<div class="column">
+				<div style="margin-left: 16px;" class="ncg-label">PICKED PLAYERS</div>
+			</div>
+		</div>
+		<div style="display: flex;">
+			<div class="column">
+				<select multiple="multiple" data-set="available" data-id="pick_available" class="form-control"></select>
+			</div>
+			<div style="display: flex; flex-direction: column; justify-content: center; margin-left: 4px; margin-right: 4px;">
+				<button type="button" command="pick" style="margin-bottom: 8px;" class="btn btn-xs btn-primary">></button>
+				<button type="button" command="unpick" class="btn btn-xs btn-primary"><</button>
+			</div>
+			<div class="column">
+				<select multiple="multiple" data-set="picked" data-id="pick_picked" class="form-control"></select>
+			</div>
+		</div>
+	</template>
+
+	<script src="toth-dota-draft.js"></script>
+</dom-module>

@@ -113,6 +113,13 @@
         "width": 4,
         "file": "schedule.html",
         "headerColor": "#f47425"
+      },
+      {
+        "name": "dota-fortress",
+        "title": "Dota Fortress",
+        "width": 4,
+        "file": "dota-fortress.html",
+        "headerColor": "#f47425"
       }
     ],
     "soundCues": [

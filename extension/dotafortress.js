@@ -63,5 +63,11 @@ const _PLAYERS = [
 
 module.exports = function (nodecg) {
 	nodecg.Replicant('df_players', {defaultValue: _PLAYERS, persistent: false});
-	nodecg.Replicant('df_teams', {defaultValue: {red: [], blu: []}, persistent: false});
+	nodecg.Replicant('df_teams', {
+		defaultValue: {
+			red: [],
+			blu: []
+		},
+		persistent: false
+	});
 };
