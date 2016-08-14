@@ -1,0 +1,56 @@
+<link rel="import" href="../../components/paper-checkbox/paper-checkbox.html">
+
+<dom-module id="toth-talkback">
+	<template>
+		<style>
+			:host {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: column;
+				justify-content: center;
+				max-width: 256px;
+			}
+
+			button {
+				width: 64px;
+				height: 64px;
+				border-radius: 8px;
+				border: 2px solid #bfbfbf;
+				font-size: 14px;
+				text-transform: capitalize;
+				margin-right: 12px;
+			}
+
+			button[engaged] {
+				background-color: orange;
+			}
+
+			paper-checkbox {
+				margin-top: 8px;
+				text-transform: capitalize
+			}
+
+			.group {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 8px 0;
+			}
+		</style>
+
+		<template is="dom-repeat" items="[[targets]]" as="target">
+			<div class="group">
+				<button data-target$="[[target.name]]"
+						on-down="talkback"
+						on-up="mute"
+						on-tap="toggle"
+						engaged$="[[target.status]]">
+					To [[target.name]]
+				</button>
+				<paper-checkbox checked="{{target.latch}}" on-tap="checkLatches">Latch</paper-checkbox>
+			</div>
+		</template>
+	</template>
+
+	<script src="toth-talkback.js"></script>
+</dom-module>

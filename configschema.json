@@ -65,6 +65,18 @@
 				"apiKey",
 				"fundraiserId"
 			]
+		},
+		"x32": {
+			"type": "object",
+			"properties": {
+				"address": {
+					"type": "string",
+					"description": "The IP address or hostname of a Behringer X32 digital mixer."
+				}
+			},
+			"required": [
+				"address"
+			]
 		}
 	}
 }

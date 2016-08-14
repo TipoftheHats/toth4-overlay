@@ -14,7 +14,7 @@ module.exports = function (nodecg) {
 			}
 		}
 	});
-	
+
 	nodecg.Replicant('showHashtag', {defaultValue: true});
 
 	try {
@@ -63,6 +63,13 @@ module.exports = function (nodecg) {
 		require('./twitter')(nodecg);
 	} catch (e) {
 		nodecg.log.error('Failed to load "twitter" lib:', e.stack);
+		process.exit(1);
+	}
+
+	try {
+		require('./x32')(nodecg);
+	} catch (e) {
+		nodecg.log.error('Failed to load "x32" lib:', e.stack);
 		process.exit(1);
 	}
 };
