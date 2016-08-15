@@ -46,6 +46,13 @@ module.exports = function (nodecg) {
 	}
 
 	try {
+		require('./completed-challenges')(nodecg);
+	} catch (e) {
+		nodecg.log.error('Failed to load completed-challenges lib:', e.stack);
+		process.exit(1);
+	}
+
+	try {
 		require('./nowplaying')(nodecg);
 	} catch (e) {
 		nodecg.log.error('Failed to load "now playing" lib:', e.stack);

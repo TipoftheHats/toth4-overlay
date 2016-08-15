@@ -180,6 +180,11 @@
         "name": "notification_tier3",
         "assignable": false,
         "defaultFile": "sound/notification_tier3.ogg"
+      },
+      {
+        "name": "challenge_accepted",
+        "assignable": false,
+        "defaultFile": "sound/challenge_accepted.ogg"
       }
     ]
   }

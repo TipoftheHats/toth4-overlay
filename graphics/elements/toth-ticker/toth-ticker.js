@@ -16,6 +16,9 @@
 			this.$['total-amount'].rawValue = 0;
 			TweenLite.set(this.$.content, {y: '100%'});
 			total.on('change', this.totalChanged.bind(this));
+
+			this.challengeAccepted = this.challengeAccepted.bind(this);
+			nodecg.listenFor('challengeAccepted', this.challengeAccepted);
 		},
 
 		attached() {
@@ -251,6 +254,58 @@
 			this.tl.set(this.$.cta, {y: '100%'});
 
 			this.tl.call(this.showSchedule, null, this);
+		},
+
+		challengeAccepted({name, total}) {
+			const tl = new TimelineLite();
+
+			tl.set(this.$['challengeAccepted-circle'], {y: '-50%'});
+
+			tl.add('start');
+
+			tl.to([this.$.label, this.$.body, this.$.cta], 0.33, {
+				opacity: 0,
+				ease: Power1.easeIn
+			}, 'start');
+
+			tl.to(this.$['challengeAccepted-circle'], 1, {
+				onStart: function () {
+					nodecg.playSound('challenge_accepted');
+					this.$['challengeAccepted-text-2'].innerHTML = `${name} - <b>${total}</b>`;
+				}.bind(this),
+				ease: Power4.easeInOut,
+				scale: 1
+			}, 'start');
+
+			tl.add('text', '-=0.5');
+
+			tl.to(this.$['challengeAccepted-text'], 0.4, {
+				y: '0%',
+				ease: Power3.easeOut
+			}, 'text');
+
+			tl.to(this.$['challengeAccepted-text'], 0.88, {
+				y: '-50%',
+				ease: Power3.easeInOut
+			}, 'text+=2.7');
+
+			tl.to(this.$['challengeAccepted-text'], 0.4, {
+				y: '-100%',
+				ease: Power3.easeIn
+			}, `+=3.75`);
+
+			tl.to(this.$['challengeAccepted-circle'], 1, {
+				ease: Power4.easeInOut,
+				scale: 0
+			}, '-=0.1833');
+
+			tl.to([this.$.label, this.$.body, this.$.cta], 0.33, {
+				opacity: 1,
+				ease: Power1.easeIn
+			});
+
+			// Reset
+			tl.set(this.$['challengeAccepted-text'], {y: '50%'});
 		},
 
 		_optionAnim(option, index) {
