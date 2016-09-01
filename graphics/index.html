@@ -14,6 +14,8 @@
     <link href="elements/toth-scoreboard/toth-scoreboard.html" rel="import">
     <link href="elements/toth-sponsors/toth-sponsors.html" rel="import">
     <link href="elements/toth-tweet/toth-tweet.html" rel="import">
+    <link href="elements/toth-nameplate/toth-nameplate.html" rel="import">
+
 	<style>
 		body {
 			margin: 0;
@@ -70,6 +72,10 @@
 			top: 680px;
 			left: 25px;
 		}
+    #nameplate {
+      position: absolute;
+      top: 180px;
+    }
 	</style>
 </head>
 <body>
@@ -84,6 +90,7 @@
 		<toth-donation-tier1></toth-donation-tier1>
 		<toth-donation-tier2></toth-donation-tier2>
 		<toth-donation-tier3></toth-donation-tier3>
+    <toth-nameplate id="nameplate"> </toth-nameplate>
 		<toth-ticker id="ticker"></toth-ticker>
     </div>
 </body>

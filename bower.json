@@ -10,6 +10,9 @@
     "nodecg-toggle": "NodeCGElements/nodecg-toggle#^0.2.0",
     "moment": "^2.13.0",
     "vaadin-combo-box": "^1.1.2",
-    "paper-checkbox": "PolymerElements/paper-checkbox#^1.4.0"
+    "paper-checkbox": "PolymerElements/paper-checkbox#^1.4.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
+    "paper-item": "PolymerElements/paper-item#^1.2.1",
+    "lodash": "^4.15.0",
   }
 }

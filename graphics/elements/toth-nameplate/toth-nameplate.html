@@ -1,0 +1,235 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../../components/nodecg-replicant/nodecg-replicant.html">
+<script src="../../components/lodash/dist/lodash.min.js"></script>
+
+<dom-module id="toth-nameplate">
+	<template>
+		<style>
+			:host {
+				position: absolute;
+			}
+
+			#player-display {}
+
+			#couch {
+				position: absolute;
+				width: 1344px;
+				top: 225px;
+				font-size: 48px;
+				padding-left: 40px;
+			}
+
+			.couch-display-plate {
+				display: inline-block;
+				margin: 10px;
+			}
+
+			#host {
+				display: none;
+			}
+
+			#couch1 h2,
+			#couch2 h2,
+			#couch3 h2 {
+				margin-bottom: 8px;
+			}
+
+			#couch1 span,
+			#couch2 span,
+			#couch3 span {
+				color: white;
+			}
+
+			#couch1 {
+				display: none;
+			}
+
+			#couch2 {
+				display: none;
+			}
+
+			#couch3 {
+				display: none;
+			}
+
+			#bignamebar {
+				position: absolute;
+				top: 300px;
+				display: none;
+			}
+
+			#biginfobar {
+				position: absolute;
+				top: 390px;
+				display: none;
+			}
+
+			#player-display {
+				width: 1920px;
+				position: absolute;
+				top: 300px;
+				font-size: 48px;
+			}
+
+			#top-players {
+				width: 500px;
+				display: inline-block;
+				text-align: center;
+			}
+
+			#bottom-players {
+				width: 500px;
+				float: right;
+				display: inline-block;
+				text-align: center;
+			}
+
+			.littleinfobar {
+				position: relative;
+				z-index: -4;
+				display: none;
+
+			}
+
+			.littlenamebar {
+				position: relative;
+				z-index: -5;
+				display: none;
+
+			}
+
+			.players {
+				margin-top: -230px;
+			}
+
+			#player1 {
+				position: relative;
+				left: 250px;
+				display: none;
+			}
+
+			#player3 {
+				position: relative;
+				right: 250px;
+				display: none;
+
+			}
+
+			#player2 {
+				position: relative;
+				top: 50px;
+				display: none;
+
+			}
+
+			#player4 {
+				position: relative;
+				top: 50px;
+				display: none;
+
+			}
+
+			#player1 h2,
+			#player2 h2,
+			#player3 h2,
+			#player4 h2 {
+				margin-bottom: 10px;
+			}
+			#player1 span,
+			#player2 span,
+			#player3 span,
+			#player4 span {
+				color:white;
+			}
+		</style>
+		<div id="couch-display">
+			<img id="bignamebar" src="./img/bignamebar.png">
+			<img id="biginfobar" src="./img/biginfobar.png">
+
+			<div id="couch">
+				<div class="couch-display-plate" id="couch1">
+					<h2>{{name2}}</h2>
+					<span>{{name2}} </span>
+				</div>
+				<div class="couch-display-plate" id="couch2">
+					<h2>{{name3}}</h2>
+					<span>{{name3}} </span>
+				</div>
+				<div class="couch-display-plate" id="couch3">
+					<h2>{{name4}}</h2>
+					<span>{{name4}}</span>
+				</div>
+			</div>
+			<div id="host">
+				<h2>{{name1}}</h2>
+				<span>{{name1}} </span>
+			</div>
+		</div>
+
+		<div id="player-display">
+			<div id="computers">
+				<div id="top-players">
+					<div class="player-display-plate" id="player1">
+						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<div class="players">
+							<h2>{{player1}}</h2>
+							<span>{{player1}}</span>
+						</div>
+					</div>
+					<div class="player-display-plate" id="player2">
+						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<div class="players">
+							<h2>{{player2}}</h2>
+							<span>{{player2}}</span>
+						</div>
+					</div>
+				</div>
+				<div id="bottom-players">
+					<div class="player-display-plate" id="player3">
+						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<div class="players">
+							<h2>{{player3}}</h2>
+							<span>{{player3}}</span>
+						</div>
+
+					</div>
+					<div class="player-display-plate" id="player4">
+						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<div class="players">
+							<h2>{{player4}}</h2>
+							<span>{{player4}}</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<nodecg-replicant replicant-name="host" value="{{name1}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="couch1" value="{{name2}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="couch2" value="{{name3}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="couch3" value="{{name4}}"></nodecg-replicant>
+
+		<nodecg-replicant replicant-name="hostinfo" value="{{hostinfo}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="info1" value="{{info1}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="info2" value="{{info2}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="info3" value="{{info3}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
+
+		<nodecg-replicant replicant-name="player1" value="{{player1}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="player2" value="{{player2}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="player3" value="{{player3}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="player4" value="{{player4}}"></nodecg-replicant>
+
+		<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
+
+	</template>
+
+	<script src="toth-nameplate.js"></script>
+</dom-module>

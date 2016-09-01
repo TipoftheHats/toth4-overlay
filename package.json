@@ -133,6 +133,13 @@
         "width": 4,
         "file": "dota-fortress.html",
         "headerColor": "#f47425"
+      },
+      {
+        "name": "nameplates",
+        "title": "Nameplates",
+        "width": 4,
+        "file": "nameplate.html",
+        "headerColor": "#f47425"
       }
     ],
     "soundCues": [
