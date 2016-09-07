@@ -132,7 +132,8 @@ module.exports = function (nodecg) {
 						continue;
 					}
 
-					talkbackStatus.value[station][mixbus] = Boolean(valueBytes.readFloatBE((PROD_MIC_CHANNELS[station] - 13) * 4));
+					const s = Boolean(valueBytes.readFloatBE((PROD_MIC_CHANNELS[station] - 1) * 4));
+					talkbackStatus.value[station][mixbus] = s;
 				}
 			}
 		}
@@ -194,8 +195,8 @@ module.exports = function (nodecg) {
 				args: [
 					{type: 's', value: `/${mixbus}MixMutes`},
 					{type: 's', value: `/mix/${MIXBUSES[mixbus]}/on`},
-					{type: 'i', value: 12},
-					{type: 'i', value: 15},
+					{type: 'i', value: 0},
+					{type: 'i', value: 31},
 					{type: 'i', value: 1}
 				]
 			});
