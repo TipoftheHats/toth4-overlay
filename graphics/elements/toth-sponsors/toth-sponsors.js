@@ -8,12 +8,11 @@
 			logoUrls: {
 				type: Array,
 				value: [
-					'url("img/sponsors/ignite.png")',
+					'url("img/sponsors/marketplacetf.png")',
 					'url("img/sponsors/twitch.png")',
-					'url("img/sponsors/backpacktf.png")',
-					'url("img/sponsors/zowie.png")',
 					'url("img/sponsors/ibp.png")',
-					'url("img/sponsors/tf2outpost.png")'
+					'url("img/sponsors/backpacktf.png")',
+					'url("img/sponsors/ignite.png")'
 				]
 			},
 			duration: {
