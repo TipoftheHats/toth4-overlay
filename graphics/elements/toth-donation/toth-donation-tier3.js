@@ -81,8 +81,6 @@
 				ease: Power2.easeInOut
 			}, '-=0.08');
 
-			return;
-
 			// Exit
 			this.tl.to(this.$.cover, 0.511, {
 				scaleY: 1,

@@ -14,6 +14,7 @@
 			},
 			targets: {
 				type: Array,
+				/* eslint-disable object-property-newline */
 				value() {
 					return [
 						{name: 'couch', intent: false, status: false, latch: false},
@@ -22,6 +23,7 @@
 						{name: 'all', intent: false, status: false, latch: false}
 					];
 				}
+				/* eslint-enable object-property-newline */
 			}
 		},
 
