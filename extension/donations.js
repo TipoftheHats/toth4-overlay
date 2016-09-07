@@ -8,28 +8,19 @@ module.exports = function (nodecg) {
 		nodecg.sendMessage('donation', formatDonation(data));
 	});
 
-	if (nodecg.bundleConfig && nodecg.bundleConfig.trackerKey) {
-		const app = require('express')();
-
-		// PayPal donations from the tracker are POSTed to us as they come in, no need to fetch.
-		app.post(`/${nodecg.bundleName}/donation`, (req, res) => {
-			if (req.query.key !== nodecg.bundleConfig.trackerKey) {
-				res.sendStatus(403);
-				return;
-			}
-
-			nodecg.sendMessage('donation', formatDonation({
-				name: req.body.donor__visiblename,
-				rawAmount: req.body.amount,
-				type: 'cash'
-			}));
-
-			res.sendStatus(200);
+	if (nodecg.bundleConfig && nodecg.bundleConfig.donationSocketUrl) {
+		const socket = require('socket.io-client')(nodecg.bundleConfig.donationSocketUrl);
+		socket.on('connect', () => {
+			nodecg.log.info('Connected to cash donation socket', nodecg.bundleConfig.donationSocketUrl);
 		});
-
-		nodecg.mount(app);
+		socket.on('donation', data => {
+			nodecg.sendMessage('donation', formatDonation(data));
+		});
+		socket.on('disconnect', () => {
+			nodecg.log.error('Disconnected from cash donation socket, can not receive cash donations!');
+		});
 	} else {
-		nodecg.log.error(`cfg/${nodecg.bundleName}.json is missing the "trackerKey" property.` +
+		nodecg.log.error(`cfg/${nodecg.bundleName}.json is missing the "donationSocketUr" property.` +
 			'\n\tThis means that we cannot receive new incoming PayPal donations from the tracker,' +
 			'\n\tand that donation notifications will not be displayed as a result.' +
 			'\n\tThe total will still be displayed.');
