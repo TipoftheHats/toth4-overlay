@@ -43,7 +43,7 @@ module.exports = function (nodecg) {
 				'http://tracker.tipofthehats.org/search',
 			qs: {
 				type: 'allbids',
-				feed: 'current',
+				feed: 'open',
 				event: 3
 			},
 			json: true

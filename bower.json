@@ -2,7 +2,7 @@
   "name": "toth3-overlay",
   "dependencies": {
     "autosize": "~3.0.6",
-    "gsap": "~1.16.1",
+    "gsap": "^1.19.0",
     "iron-image": "PolymerElements/iron-image#~1.0.2",
     "paper-button": "PolymerElements/paper-button#^1.0.12",
     "paper-input": "PolymerElements/paper-input#^1.1.11",

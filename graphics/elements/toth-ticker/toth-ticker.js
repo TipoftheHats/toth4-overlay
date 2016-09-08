@@ -14,9 +14,7 @@
 		ready() {
 			this.tl = new TimelineLite({autoRemoveChildren: true});
 			this.$['total-amount'].rawValue = 0;
-			TweenLite.set(this.$.content, {y: '100%'});
-			total.on('change', this.totalChanged.bind(this));
-
+			this.tl.set(this.$.content, {y: '100%'});
 			this.challengeAccepted = this.challengeAccepted.bind(this);
 			nodecg.listenFor('challengeAccepted', this.challengeAccepted);
 		},
@@ -25,6 +23,9 @@
 			setTimeout(() => {
 				// Start the rotation
 				this.showSchedule();
+
+				// Do this on a delay, otherwise it sometimes freaks out and makes #content have zero width.
+				total.on('change', this.totalChanged.bind(this));
 			}, 1500);
 		},
 
@@ -55,6 +56,8 @@
 			const contentWidth = this.$.content.clientWidth;
 			const delta = contentWidth - maxWidth;
 			if (delta > 1) {
+				console.log('contentWidth: %s, maxWidth: %s, delta: %s', contentWidth, maxWidth, delta);
+				console.log('scaling #content to:', maxWidth / contentWidth);
 				TweenLite.set(this.$.content, {scaleX: maxWidth / contentWidth});
 			} else {
 				TweenLite.set(this.$.content, {scaleX: 1});
