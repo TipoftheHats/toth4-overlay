@@ -1,0 +1,97 @@
+<link rel="import" href="../../components/iron-input/iron-input.html">
+<link rel="import" href="../../components/iron-validatable-behavior/iron-validatable-behavior.html">
+<link rel="import" href="time-validator.html">
+
+<dom-module id="time-input-base">
+	<template>
+		<style>
+			:host {
+				display: inline;
+			}
+
+			input[is="iron-input"] {
+				font: inherit;
+				outline: none;
+				box-shadow: none;
+				border: none;
+			}
+		</style>
+
+		<time-validator></time-validator>
+
+		<template is="dom-if" if="{{!noHours}}">
+			<input is="iron-input"
+			       disabled="{{disabled}}"
+			       maxlength="2"
+			       bind-value="{{_hours}}"
+			       size="2"
+			       aria-label="Hours">:
+		</template>
+
+		<!-- The weird indentation here is intentional! It avoids extra spaces being added around the colon. -->
+		<input is="iron-input"
+		       disabled="{{disabled}}"
+		       maxlength="2"
+		       bind-value="{{_minutes}}"
+		       size="2"
+		       aria-label="Minutes">:<input is="iron-input"
+		                                    disabled="{{disabled}}"
+		                                    maxlength="2"
+		                                    bind-value="{{_seconds}}"
+		                                    size="2"
+		                                    aria-label="Seconds">
+	</template>
+
+	<script>
+		Polymer({
+			is: 'time-input-base',
+
+			behaviors: [
+				Polymer.IronValidatableBehavior
+			],
+
+			properties: {
+				value: {
+					notify: true,
+					type: String
+				},
+
+				_hours: {
+					type: Number
+				},
+
+				_minutes: {
+					type: Number
+				},
+
+				_seconds: {
+					type: Number
+				},
+
+				validator: {
+					type: String,
+					value: 'time-validator'
+				},
+
+				noHours: {
+					type: Boolean,
+					value: false
+				},
+
+				disabled: {
+					type: Boolean,
+					reflectToAttribute: true,
+					value: false
+				}
+			},
+
+			observers: [
+				'_computeValue(_hours,_minutes,_seconds)'
+			],
+
+			_computeValue: function(hours, minutes, seconds) {
+				this.value = hours + ':' + minutes + ':' + seconds;
+			}
+		});
+	</script>
+</dom-module>

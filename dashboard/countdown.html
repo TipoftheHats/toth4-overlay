@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="import" href="components/iron-flex-layout/iron-flex-layout-classes.html">
+	<link rel="import" href="components/iron-icons/av-icons.html">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="elements/time-input/time-input.html">
+	<style is="custom-style" include="iron-flex iron-flex-alignment">
+		#countdownTime {
+			margin-top: -16px;
+			--time-input-input-width: 40px;
+			--time-input-font: {
+				font-size: 26px;
+			};
+		}
+
+		paper-button {
+			min-width: 0;
+		}
+	</style>
+</head>
+<body class="layout vertical center">
+	<time-input id="countdownTime" label="Time" always-float-label no-hours></time-input>
+
+	<div class="layout horizontal">
+		<paper-button id="start" class="nodecg-success flex" raised disabled style="margin-left: 0;">
+			<iron-icon icon="av:play-arrow"></iron-icon>
+		</paper-button>
+
+		<paper-button id="stop" class="nodecg-danger flex" raised disabled style="margin-right: 0;">
+			<iron-icon icon="av:stop"></iron-icon>
+		</paper-button>
+	</div>
+
+	<script src="countdown.js"></script>
+</body>
+</html>

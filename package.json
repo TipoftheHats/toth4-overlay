@@ -51,6 +51,11 @@
         "width": 1280,
         "height": 720,
         "singleInstance": true
+      },
+      {
+        "file": "countdown.html",
+        "width": 1920,
+        "height": 1080
       }
     ],
     "dashboardPanels": [
@@ -132,6 +137,13 @@
         "title": "Dota Fortress",
         "width": 4,
         "file": "dota-fortress.html",
+        "headerColor": "#f47425"
+      },
+      {
+        "name": "countdown",
+        "title": "Countdown",
+        "width": 1,
+        "file": "countdown.html",
         "headerColor": "#f47425"
       }
     ],

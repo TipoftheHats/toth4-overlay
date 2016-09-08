@@ -10,6 +10,9 @@
     "nodecg-toggle": "NodeCGElements/nodecg-toggle#^0.2.0",
     "moment": "^2.13.0",
     "vaadin-combo-box": "^1.1.2",
-    "paper-checkbox": "PolymerElements/paper-checkbox#^1.4.0"
+    "paper-checkbox": "PolymerElements/paper-checkbox#^1.4.0",
+    "iron-input": "PolymerElements/iron-input#^1.0.10",
+    "iron-validatable-behavior": "PolymerElements/iron-validatable-behavior#^1.1.1",
+    "iron-validator-behavior": "PolymerElements/iron-validator-behavior#^1.0.1"
   }
 }
