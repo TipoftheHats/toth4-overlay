@@ -1,4 +1,4 @@
-(function () {
+(function() {
 	'use strict';
 	Polymer({
 		is: 'toth-nameplate',
@@ -7,6 +7,11 @@
 			this.initialized = false;
 			nodecg.Replicant('couchVisible').on('change', this.visibleCouch.bind(this));
 			nodecg.Replicant('playerVisible').on('change', this.visiblePlayers.bind(this));
+			nodecg.Replicant('couch1').on('change', this.hideNames.bind(this));
+			nodecg.Replicant('couch2').on('change', this.hideNames.bind(this));
+			nodecg.Replicant('couch3').on('change', this.hideNames.bind(this));
+			nodecg.Replicant('couch4').on('change', this.hideNames.bind(this));
+
 		},
 		visibleCouch(newVal, oldVal) {
 			if (_.isNil(oldVal) && this.initialized) {
@@ -14,59 +19,78 @@
 			}
 			this.initialized = true;
 			if (!oldVal && newVal) {
-				if (this.name1) {
-					TweenLite.to('#couch1', 0.5, {
-						display: 'inline-block'
-					});
-				}
+				console.log(this.name1);
+				console.log(this.name2);
+				console.log(this.name3);
 				if (this.name2) {
-					TweenLite.to('#couch2', 0.5, {
-						display: 'inline-block'
+					TweenLite.to('#couch1', 0.5, {
+						width: '400px',
+						opacity: 1
 					});
 				}
 				if (this.name3) {
-					TweenLite.to('#couch3', 0.5, {
-						display: 'inline-block'
+					TweenLite.to('#couch2', 0.5, {
+						width: '400px',
+						opacity: 1
+
 					});
 				}
 				if (this.name4) {
-					TweenLite.to('#couch1', 0.5, {
-						display: 'inline-block'
+					TweenLite.to('#couch3', 0.5, {
+						width: '400px',
+						opacity: 1
+
+
 					});
 				}
-				TweenLite.to('#bignamebar', 0.5, {
-					display: 'inline-block'
-				});
-				TweenLite.to('#biginfobar', 0.5, {
-					display: 'inline-block'
-				});
+				const t1 = new TimelineLite();
+				if (this.name2 && this.name3 && this.name4) {
+					t1.to('#bignamebar', 0.4, {left: 0}, 0);
+					t1.to('#orangeline1', 0.4, {left: -1}, 0.2);
+					t1.to('#biginfobar', 0.3, {left: 0}, 0.7);
+					t1.to('#orangeline2', 0.3, {left: -7}, 0.9);
+				} else if ((this.name2 && this.name3 && !this.name4) || (this.name2 && !this.name3 && this.name4) || (!this.name2 && this.name3 && this.name4)) {
+					t1.to('#bignamebar', 0.4, {left: -400}, 0);
+					t1.to('#orangeline1', 0.4, {left: -401}, 0.2);
+					t1.to('#biginfobar', 0.3, {left: -400}, 0.7);
+					t1.to('#orangeline2', 0.3, {left: -407}, 0.9);
+				} else if ((this.name2 && !this.name3 && !this.name4) || (!this.name2 && this.name3 && !this.name4) || (!this.name2 && !this.name3 && this.name4)) {
+					t1.to('#bignamebar', 0.4, {left: -800}, 0);
+					t1.to('#orangeline1', 0.4, {left: -801}, 0.2);
+					t1.to('#biginfobar', 0.3, {left: -800}, 0.7);
+					t1.to('#orangeline2', 0.3, {left: -807}, 0.9);
+				}
+
+
+				// TweenLite.to('#bignamebar', 0.5, {display: 'inline-block', left: 0}, 1);
+				// TweenLite.to('#biginfobar', 0.5, {display: 'inline-block', left: 0}, 4);
 			} else if (oldVal && !newVal) {
-				if (this.name1) {
-					TweenLite.to('#couch1', 0.5, {
-						display: 'none'
-					});
-				}
 				if (this.name2) {
-					TweenLite.to('#couch2', 0.5, {
-						display: 'none'
+					TweenLite.to('#couch1', 0.5, {
+						opacity: 0,
+						width: '0'
+
 					});
 				}
 				if (this.name3) {
-					TweenLite.to('#couch3', 0.5, {
-						display: 'none'
+					TweenLite.to('#couch2', 0.5, {
+						opacity: 0,
+						width: '0'
+
 					});
 				}
 				if (this.name4) {
-					TweenLite.to('#couch1', 0.5, {
-						display: 'none'
+					TweenLite.to('#couch3', 0.5, {
+						opacity: 0,
+						width: '0'
+
 					});
 				}
-				TweenLite.to('#bignamebar', 0.5, {
-					display: 'none'
-				});
-				TweenLite.to('#biginfobar', 0.5, {
-					display: 'none'
-				});
+				const t1 = new TimelineLite();
+				t1.to('#bignamebar', 0.3, {left: -1400}, 0.5);
+				t1.to('#orangeline1', 0.3, {left: -1400}, 0.4);
+				t1.to('#biginfobar', 0.3, {left: -1400}, 0.1);
+				t1.to('#orangeline2', 0.3, {left: -1400}, 0);
 			}
 		},
 		visiblePlayers(newVal, oldVal) {
@@ -103,26 +127,19 @@
 					display: 'inline-block'
 				});
 			} else if (oldVal && !newVal) {
-				if (this.name1) {
-					TweenLite.to('#player1', 0.5, {
-						display: 'none'
-					});
-				}
-				if (this.name2) {
-					TweenLite.to('#player2', 0.5, {
-						display: 'none'
-					});
-				}
-				if (this.name3) {
-					TweenLite.to('#player3', 0.5, {
-						display: 'none'
-					});
-				}
-				if (this.name4) {
-					TweenLite.to('#player4', 0.5, {
-						display: 'none'
-					});
-				}
+				TweenLite.to('#player1', 0.5, {
+					display: 'none'
+				});
+
+				TweenLite.to('#player2', 0.5, {
+					display: 'none'
+				});
+				TweenLite.to('#player3', 0.5, {
+					display: 'none'
+				});
+				TweenLite.to('#player4', 0.5, {
+					display: 'none'
+				});
 				TweenLite.to('#littleinfobar', 0.5, {
 					display: 'none'
 				});
@@ -131,5 +148,27 @@
 				});
 			}
 		}
+		/**	hideNames() {
+					console.log('name1' + this.name2);
+					console.log('name2' + this.name3);
+					console.log('name3' + this.name4);
+
+					if (this.name2 === '') {
+						TweenLite.to('#couch1', 0.5, {
+							width: '0'
+						});
+					}
+					if (this.name3 === '') {
+						TweenLite.to('#couch2', 0.5, {
+							width: '0'
+						});
+					}
+					if (this.name4 === '') {
+						TweenLite.to('#couch3', 0.5, {
+							width: '0'
+						});
+					}
+
+				} */
 	});
 })();

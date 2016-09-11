@@ -11,7 +11,10 @@
 				position: absolute;
 			}
 
-			#player-display {}
+			#player-display {
+				overflow:hidden;
+
+			}
 
 			#couch {
 				position: absolute;
@@ -19,6 +22,8 @@
 				top: 225px;
 				font-size: 48px;
 				padding-left: 40px;
+				overflow:hidden;
+
 			}
 
 			.couch-display-plate {
@@ -43,34 +48,47 @@
 			}
 
 			#couch1 {
-				display: none;
+				opacity:0
 			}
 
 			#couch2 {
-				display: none;
+				opacity:0
+
 			}
 
 			#couch3 {
-				display: none;
+				opacity:0
+
 			}
 
 			#bignamebar {
 				position: absolute;
 				top: 300px;
-				display: none;
+				left:-1400px;
 			}
 
 			#biginfobar {
 				position: absolute;
-				top: 390px;
-				display: none;
+				top: 387px;
+				left:-1400px;
+
 			}
+			#orangeline1 {
+				position:absolute;
+				top:379px;
+left:-1400px;			}
+			#orangeline2 {
+				position:absolute;
+				top:444px;
+left:-1400px;			}
 
 			#player-display {
 				width: 1920px;
 				position: absolute;
 				top: 300px;
 				font-size: 48px;
+				overflow:hidden;
+
 			}
 
 			#top-players {
@@ -146,7 +164,9 @@
 		</style>
 		<div id="couch-display">
 			<img id="bignamebar" src="./img/bignamebar.png">
+			<img id="orangeline1" src="./img/bigorangeline.png">
 			<img id="biginfobar" src="./img/biginfobar.png">
+			<img id="orangeline2" src="./img/bigskinnyorangeline.png">
 
 			<div id="couch">
 				<div class="couch-display-plate" id="couch1">
