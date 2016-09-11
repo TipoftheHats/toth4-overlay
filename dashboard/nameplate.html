@@ -15,7 +15,6 @@
 	<link rel="import" href="components/nodecg-replicant/nodecg-replicant.html">
 
 </head>
-
 <body>
 
 	<dom-module id="nameplate-control">
@@ -50,31 +49,31 @@
 			<h4> Couch Nameplates </h4>
 			<div class="horizontal layout">
 				<div class="flex talent-dropdown">
-					<vaadin-combo-box id="host" is="dom-repeat" id="type" label="Host" on-value-changed="valueChanged" items="{{namedata.talent}}" value="{{name1}}" item-label-path="name" item-value-path="name">
+					<vaadin-combo-box id="host" is="dom-repeat" id="type" disabled="{{visible}}" label="Host" on-value-changed="valueChanged" items="{{namedata.talent}}" value="{{name1}}" item-label-path="name" item-value-path="name">
 						<paper-item> {{item}} </paper-item>
 					</vaadin-combo-box>
-					<vaadin-combo-box id="couch1" is="dom-repeat" id="type" label="Left" items="[[namedata.talent]]" value="{{name2}}" item-label-path="name" item-value-path="name">
+					<vaadin-combo-box id="couch1" is="dom-repeat" id="type" disabled="{{visible}}" label="Left" items="[[namedata.talent]]" value="{{name2}}" item-label-path="name" item-value-path="name">
 						<paper-item> [[item]] </paper-item>
 					</vaadin-combo-box>
-					<vaadin-combo-box id="couch2" is="dom-repeat" id="type" label="Middle" items="[[namedata.talent]]" value="{{name3}}" item-label-path="name" item-value-path="name">
+					<vaadin-combo-box id="couch2" is="dom-repeat" id="type" disabled="{{visible}}" label="Middle" items="[[namedata.talent]]" value="{{name3}}" item-label-path="name" item-value-path="name">
 						<paper-item> [[item]] </paper-item>
 					</vaadin-combo-box>
-					<vaadin-combo-box id="couch3" is="dom-repeat" id="type" label="Right" items="[[namedata.talent]]" value="{{name4}}" item-label-path="name" item-value-path="name">
+					<vaadin-combo-box id="couch3" is="dom-repeat" id="type" disabled="{{visible}}" label="Right" items="[[namedata.talent]]" value="{{name4}}" item-label-path="name" item-value-path="name">
 						<paper-item> [[item]] </paper-item>
 					</vaadin-combo-box>
 
 				</div>
 				<div class="flex-2 names">
-					<paper-input id="hostname" label="name" value="{{name1}}" always-float-label>{{name1}}</paper-input>
-					<paper-input id="couchname1" label="name" value="{{name2}}" always-float-label>{{name2}}</paper-input>
-					<paper-input id="couchname2" label="name" value="{{name3}}" always-float-label>{{name3}}</paper-input>
-					<paper-input id="couchname3" label="name" value="{{name4}}" always-float-label>{{name4}}</paper-input>
+					<paper-input id="hostname" disabled="{{visible}}" label="name" value="{{name1}}" always-float-label>{{name1}}</paper-input>
+					<paper-input id="couchname1" disabled="{{visible}}" label="name" value="{{name2}}" always-float-label>{{name2}}</paper-input>
+					<paper-input id="couchname2" disabled="{{visible}}" label="name" value="{{name3}}" always-float-label>{{name3}}</paper-input>
+					<paper-input id="couchname3" disabled="{{visible}}" label="name" value="{{name4}}" always-float-label>{{name4}}</paper-input>
 				</div>
 				<div class="flex-2 infos">
-					<paper-input id="hostinfo" label="info" value="" always-float-label></paper-input>
-					<paper-input id="couchinfo1" label="info" value="" always-float-label></paper-input>
-					<paper-input id="couchinfo2" label="info" value="" always-float-label></paper-input>
-					<paper-input id="couchinfo3" label="info" value="" always-float-label></paper-input>
+					<paper-input id="hostinfo" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+					<paper-input id="couchinfo1" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+					<paper-input id="couchinfo2" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+					<paper-input id="couchinfo3" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
 				</div>
 			</div>
 
@@ -135,8 +134,6 @@
 
 			<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
 			<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
-
-
 		</template>
 
 		<script>
