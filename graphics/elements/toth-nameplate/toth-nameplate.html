@@ -12,8 +12,7 @@
 			}
 
 			#player-display {
-				overflow:hidden;
-
+				overflow: hidden;
 			}
 
 			#couch {
@@ -22,8 +21,7 @@
 				top: 225px;
 				font-size: 48px;
 				padding-left: 40px;
-				overflow:hidden;
-
+				overflow: hidden;
 			}
 
 			.couch-display-plate {
@@ -32,7 +30,6 @@
 			}
 
 			#host {
-				display: none;
 			}
 
 			#couch1 h2,
@@ -48,47 +45,82 @@
 			}
 
 			#couch1 {
-				opacity:0
+				opacity: 0
 			}
 
 			#couch2 {
-				opacity:0
-
+				opacity: 0
 			}
 
 			#couch3 {
-				opacity:0
-
+				opacity: 0
 			}
 
 			#bignamebar {
 				position: absolute;
 				top: 300px;
-				left:-1400px;
+				left: -1400px;
 			}
 
 			#biginfobar {
 				position: absolute;
 				top: 387px;
-				left:-1400px;
-
+				left: -1400px;
+			}
+			#hostnamebar {
+				position:absolute;
+				top:300px;
+				right:-2920px;
+			}
+			#host {
+				position:absolute;
+				width: 300px;
+				font-size: 48px;
+				left:1550px;
+				top:225px;
+				margin:10px;
+				opacity:0;
+			}
+			#host h2 {
+				margin-bottom:8px;
+			}
+			#host span {
+				color:white;
+			}
+			#hostinfobar {
+				position: absolute;
+				top: 387px;
+				right:-2920px;
 			}
 			#orangeline1 {
-				position:absolute;
-				top:379px;
-left:-1400px;			}
+				position: absolute;
+				top: 379px;
+				left: -1400px;
+			}
+
 			#orangeline2 {
-				position:absolute;
-				top:444px;
-left:-1400px;			}
+				position: absolute;
+				top: 444px;
+				left: -1400px;
+			}
+			#orangehostline1 {
+				position: absolute;
+				top: 379px;
+				right:-2920px;
+			}
+
+			#orangehostline2 {
+				position: absolute;
+				top: 444px;
+				right:-2920px;
+			}
 
 			#player-display {
 				width: 1920px;
 				position: absolute;
 				top: 300px;
 				font-size: 48px;
-				overflow:hidden;
-
+				overflow: hidden;
 			}
 
 			#top-players {
@@ -108,14 +140,12 @@ left:-1400px;			}
 				position: relative;
 				z-index: -4;
 				display: none;
-
 			}
 
 			.littlenamebar {
 				position: relative;
 				z-index: -5;
 				display: none;
-
 			}
 
 			.players {
@@ -132,21 +162,18 @@ left:-1400px;			}
 				position: relative;
 				right: 250px;
 				display: none;
-
 			}
 
 			#player2 {
 				position: relative;
 				top: 50px;
 				display: none;
-
 			}
 
 			#player4 {
 				position: relative;
 				top: 50px;
 				display: none;
-
 			}
 
 			#player1 h2,
@@ -155,11 +182,12 @@ left:-1400px;			}
 			#player4 h2 {
 				margin-bottom: 10px;
 			}
+
 			#player1 span,
 			#player2 span,
 			#player3 span,
 			#player4 span {
-				color:white;
+				color: white;
 			}
 		</style>
 		<div id="couch-display">
@@ -182,7 +210,13 @@ left:-1400px;			}
 					<span>{{name4}}</span>
 				</div>
 			</div>
+			<img id="hostnamebar" src="./img/hostnamebar.png">
+			<img id="orangehostline1" src="./img/hostorangebar1.png">
+			<img id="hostinfobar" src="./img/hostinfobar.png">
+			<img id="orangehostline2" src="./img/hostorangebar2.png">
+
 			<div id="host">
+
 				<h2>{{name1}}</h2>
 				<span>{{name1}} </span>
 			</div>

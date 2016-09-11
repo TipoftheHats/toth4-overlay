@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict';
 	Polymer({
 		is: 'toth-nameplate',
@@ -11,7 +11,6 @@
 			nodecg.Replicant('couch2').on('change', this.hideNames.bind(this));
 			nodecg.Replicant('couch3').on('change', this.hideNames.bind(this));
 			nodecg.Replicant('couch4').on('change', this.hideNames.bind(this));
-
 		},
 		visibleCouch(newVal, oldVal) {
 			if (_.isNil(oldVal) && this.initialized) {
@@ -22,6 +21,7 @@
 				console.log(this.name1);
 				console.log(this.name2);
 				console.log(this.name3);
+				// couch potatoes
 				if (this.name2) {
 					TweenLite.to('#couch1', 0.5, {
 						width: '400px',
@@ -39,8 +39,13 @@
 					TweenLite.to('#couch3', 0.5, {
 						width: '400px',
 						opacity: 1
-
-
+					});
+				}
+					// host
+				if (this.name1) {
+					TweenLite.to('#host', 0.5, {
+						width: '400px',
+						opacity: 1
 					});
 				}
 				const t1 = new TimelineLite();
@@ -60,27 +65,35 @@
 					t1.to('#biginfobar', 0.3, {left: -800}, 0.7);
 					t1.to('#orangeline2', 0.3, {left: -807}, 0.9);
 				}
-
-
-				// TweenLite.to('#bignamebar', 0.5, {display: 'inline-block', left: 0}, 1);
-				// TweenLite.to('#biginfobar', 0.5, {display: 'inline-block', left: 0}, 4);
+				if (this.name1) {
+					t1.to('#hostnamebar', 0.4, {right: -1920}, 0);
+					t1.to('#orangehostline1', 0.4, {right: -1920}, 0.2);
+					t1.to('#hostinfobar', 0.3, {right: -1920}, 0.7);
+					t1.to('#orangehostline2', 0.3, {right: -1920}, 0.9);
+				}
 			} else if (oldVal && !newVal) {
 				if (this.name2) {
-					TweenLite.to('#couch1', 0.5, {
+					TweenLite.to('#couch1', 0.1, {
 						opacity: 0,
 						width: '0'
 
 					});
 				}
 				if (this.name3) {
-					TweenLite.to('#couch2', 0.5, {
+					TweenLite.to('#couch2', 0.1, {
 						opacity: 0,
 						width: '0'
 
 					});
 				}
 				if (this.name4) {
-					TweenLite.to('#couch3', 0.5, {
+					TweenLite.to('#couch3', 0.1, {
+						opacity: 0,
+						width: '0'
+					});
+				}
+				if (this.name1) {
+					TweenLite.to('#host', 0.1, {
 						opacity: 0,
 						width: '0'
 
@@ -91,6 +104,10 @@
 				t1.to('#orangeline1', 0.3, {left: -1400}, 0.4);
 				t1.to('#biginfobar', 0.3, {left: -1400}, 0.1);
 				t1.to('#orangeline2', 0.3, {left: -1400}, 0);
+				t1.to('#hostnamebar', 0.4, {right: -2920}, 0);
+				t1.to('#orangehostline1', 0.4, {right: -2920}, 0.2);
+				t1.to('#hostinfobar', 0.3, {right: -2920}, 0.7);
+				t1.to('#orangehostline2', 0.3, {right: -2920}, 0.9);
 			}
 		},
 		visiblePlayers(newVal, oldVal) {
@@ -148,27 +165,5 @@
 				});
 			}
 		}
-		/**	hideNames() {
-					console.log('name1' + this.name2);
-					console.log('name2' + this.name3);
-					console.log('name3' + this.name4);
-
-					if (this.name2 === '') {
-						TweenLite.to('#couch1', 0.5, {
-							width: '0'
-						});
-					}
-					if (this.name3 === '') {
-						TweenLite.to('#couch2', 0.5, {
-							width: '0'
-						});
-					}
-					if (this.name4 === '') {
-						TweenLite.to('#couch3', 0.5, {
-							width: '0'
-						});
-					}
-
-				} */
 	});
 })();
