@@ -11,10 +11,6 @@
 				position: absolute;
 			}
 
-			#player-display {
-				overflow: hidden;
-			}
-
 			#couch {
 				position: absolute;
 				width: 1344px;
@@ -23,21 +19,15 @@
 				padding-left: 40px;
 				overflow: hidden;
 			}
-
 			.couch-display-plate {
 				display: inline-block;
 				margin: 10px;
 			}
-
-			#host {
-			}
-
 			#couch1 h2,
 			#couch2 h2,
 			#couch3 h2 {
 				margin-bottom: 8px;
 			}
-
 			#couch1 span,
 			#couch2 span,
 			#couch3 span {
@@ -47,11 +37,9 @@
 			#couch1 {
 				opacity: 0
 			}
-
 			#couch2 {
 				opacity: 0
 			}
-
 			#couch3 {
 				opacity: 0
 			}
@@ -114,7 +102,9 @@
 				top: 444px;
 				right:-2920px;
 			}
-
+			#computers {
+				height:400px;
+			}
 			#player-display {
 				width: 1920px;
 				position: absolute;
@@ -140,6 +130,7 @@
 				position: relative;
 				z-index: -4;
 				display: none;
+				top: -64px;
 			}
 
 			.littlenamebar {
@@ -147,9 +138,17 @@
 				z-index: -5;
 				display: none;
 			}
+     .playerorange1 {
+			 position: relative;
+			 top:-50px;
 
+		 }
+		 .playerorange2 {
+			 position: relative;
+			 top:-120px;
+		 }
 			.players {
-				margin-top: -230px;
+				margin-top: -350px;
 			}
 
 			#player1 {
@@ -166,14 +165,15 @@
 
 			#player2 {
 				position: relative;
-				top: 50px;
 				display: none;
+				margin-top: 30px;
 			}
 
 			#player4 {
 				position: relative;
-				top: 50px;
 				display: none;
+				margin-top: 30px;
+
 			}
 
 			#player1 h2,
@@ -227,7 +227,10 @@
 				<div id="top-players">
 					<div class="player-display-plate" id="player1">
 						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="playerorange1" src="./img/playerorange1.png">
 						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<img class="playerorange2" src="./img/playerorange2.png">
+
 						<div class="players">
 							<h2>{{player1}}</h2>
 							<span>{{player1}}</span>
@@ -235,7 +238,9 @@
 					</div>
 					<div class="player-display-plate" id="player2">
 						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="playerorange1" src="./img/playerorange1.png">
 						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<img class="playerorange2" src="./img/playerorange2.png">
 						<div class="players">
 							<h2>{{player2}}</h2>
 							<span>{{player2}}</span>
@@ -245,7 +250,9 @@
 				<div id="bottom-players">
 					<div class="player-display-plate" id="player3">
 						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="playerorange1" src="./img/playerorange1.png">
 						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<img class="playerorange2" src="./img/playerorange2.png">
 						<div class="players">
 							<h2>{{player3}}</h2>
 							<span>{{player3}}</span>
@@ -254,7 +261,9 @@
 					</div>
 					<div class="player-display-plate" id="player4">
 						<img class="littlenamebar" src="./img/littlenamebar.png">
+						<img class="playerorange1" src="./img/playerorange1.png">
 						<img class="littleinfobar" src="./img/littleinfobar.png">
+						<img class="playerorange2" src="./img/playerorange2.png">
 						<div class="players">
 							<h2>{{player4}}</h2>
 							<span>{{player4}}</span>
