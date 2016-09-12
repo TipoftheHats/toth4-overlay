@@ -7,10 +7,6 @@
 			this.initialized = false;
 			nodecg.Replicant('couchVisible').on('change', this.visibleCouch.bind(this));
 			nodecg.Replicant('playerVisible').on('change', this.visiblePlayers.bind(this));
-			nodecg.Replicant('couch1').on('change', this.hideNames.bind(this));
-			nodecg.Replicant('couch2').on('change', this.hideNames.bind(this));
-			nodecg.Replicant('couch3').on('change', this.hideNames.bind(this));
-			nodecg.Replicant('couch4').on('change', this.hideNames.bind(this));
 		},
 		visibleCouch(newVal, oldVal) {
 			if (_.isNil(oldVal) && this.initialized) {

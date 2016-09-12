@@ -199,15 +199,15 @@
 			<div id="couch">
 				<div class="couch-display-plate" id="couch1">
 					<h2>{{name2}}</h2>
-					<span>{{name2}} </span>
+					<span>{{info2}} </span>
 				</div>
 				<div class="couch-display-plate" id="couch2">
 					<h2>{{name3}}</h2>
-					<span>{{name3}} </span>
+					<span>{{info3}} </span>
 				</div>
 				<div class="couch-display-plate" id="couch3">
 					<h2>{{name4}}</h2>
-					<span>{{name4}}</span>
+					<span>{{info4}}</span>
 				</div>
 			</div>
 			<img id="hostnamebar" src="./img/hostnamebar.png">
@@ -218,7 +218,7 @@
 			<div id="host">
 
 				<h2>{{name1}}</h2>
-				<span>{{name1}} </span>
+				<span>{{info1}} </span>
 			</div>
 		</div>
 
@@ -233,7 +233,7 @@
 
 						<div class="players">
 							<h2>{{player1}}</h2>
-							<span>{{player1}}</span>
+							<span>{{playerInfo1}}</span>
 						</div>
 					</div>
 					<div class="player-display-plate" id="player2">
@@ -243,7 +243,7 @@
 						<img class="playerorange2" src="./img/playerorange2.png">
 						<div class="players">
 							<h2>{{player2}}</h2>
-							<span>{{player2}}</span>
+							<span>{{playerInfo2}}</span>
 						</div>
 					</div>
 				</div>
@@ -255,7 +255,7 @@
 						<img class="playerorange2" src="./img/playerorange2.png">
 						<div class="players">
 							<h2>{{player3}}</h2>
-							<span>{{player3}}</span>
+							<span>{{playerInfo3}}</span>
 						</div>
 
 					</div>
@@ -266,7 +266,7 @@
 						<img class="playerorange2" src="./img/playerorange2.png">
 						<div class="players">
 							<h2>{{player4}}</h2>
-							<span>{{player4}}</span>
+							<span>{{playerInfo4}}</span>
 						</div>
 
 					</div>
@@ -279,16 +279,22 @@
 		<nodecg-replicant replicant-name="couch2" value="{{name3}}"></nodecg-replicant>
 		<nodecg-replicant replicant-name="couch3" value="{{name4}}"></nodecg-replicant>
 
-		<nodecg-replicant replicant-name="hostinfo" value="{{hostinfo}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="info1" value="{{info1}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="info2" value="{{info2}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="info3" value="{{info3}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="hostinfo" value="{{info1}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="info1" value="{{info2}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="info2" value="{{info3}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="info3" value="{{info4}}"></nodecg-replicant>
+
 		<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
 
 		<nodecg-replicant replicant-name="player1" value="{{player1}}"></nodecg-replicant>
 		<nodecg-replicant replicant-name="player2" value="{{player2}}"></nodecg-replicant>
 		<nodecg-replicant replicant-name="player3" value="{{player3}}"></nodecg-replicant>
 		<nodecg-replicant replicant-name="player4" value="{{player4}}"></nodecg-replicant>
+
+		<nodecg-replicant replicant-name="playerInfo1" value="{{playerInfo1}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="playerInfo2" value="{{playerInfo2}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="playerInfo3" value="{{playerInfo3}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="playerInfo4" value="{{playerInfo4}}"></nodecg-replicant>
 
 		<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
 
