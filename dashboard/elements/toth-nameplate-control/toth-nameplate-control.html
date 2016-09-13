@@ -28,15 +28,6 @@
 			<div class="flex talent-dropdown">
 				<vaadin-combo-box
 						disabled="[[couchVisible]]"
-						label="Host"
-						items="[[talentRoster]]"
-						on-selected-item-changed="_handleSelectedItemChanged"
-						item-label-path="name"
-				        data-slot="host"
-				></vaadin-combo-box>
-
-				<vaadin-combo-box
-						disabled="[[couchVisible]]"
 						label="Left"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -61,20 +52,29 @@
 						item-label-path="name"
 				        data-slot="couch3"
 				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						disabled="[[couchVisible]]"
+						label="Host"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+						item-label-path="name"
+						data-slot="host"
+				></vaadin-combo-box>
 			</div>
 
 			<div class="flex-2 names">
-				<paper-input disabled="[[couchVisible]]" label="Name" value="{{host.name}}" always-float-label></paper-input>
 				<paper-input disabled="[[couchVisible]]" label="Name" value="{{couch1.name}}" always-float-label></paper-input>
 				<paper-input disabled="[[couchVisible]]" label="Name" value="{{couch2.name}}" always-float-label></paper-input>
 				<paper-input disabled="[[couchVisible]]" label="Name" value="{{couch3.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Name" value="{{host.name}}" always-float-label></paper-input>
 			</div>
 
 			<div class="flex-2 infos">
-				<paper-input disabled="[[couchVisible]]" label="Info" value="{{host.info}}" always-float-label></paper-input>
 				<paper-input disabled="[[couchVisible]]" label="Info" value="{{couch1.info}}" always-float-label></paper-input>
 				<paper-input disabled="[[couchVisible]]" label="Info" value="{{couch2.info}}" always-float-label></paper-input>
 				<paper-input disabled="[[couchVisible]]" label="Info" value="{{couch3.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Info" value="{{host.info}}" always-float-label></paper-input>
 			</div>
 		</div>
 

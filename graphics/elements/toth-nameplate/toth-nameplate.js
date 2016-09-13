@@ -12,6 +12,11 @@
 	const couchVisible = nodecg.Replicant('couchVisible');
 	const playerVisible = nodecg.Replicant('playerVisible');
 
+	const MAX_HOST_NAME_WIDTH = 425;
+	const MAX_HOST_INFO_WIDTH = 375;
+	const MAX_COUCH_NAME_WIDTH = 368;
+	const MAX_COUCH_INFO_WIDTH = 342;
+
 	Polymer({
 		is: 'toth-nameplate',
 
@@ -143,7 +148,28 @@
 
 		couchVisibleChanged(newVal) {
 			if (newVal) {
-				this.tl.add('couchEnter');
+				this.tl.add('couchEnter', '+=0.1');
+
+				if (this.couch1) {
+					this.tl.call(() => {
+						this.setAndFitText(this.$['couch1-name'], this.couch1.name, MAX_COUCH_NAME_WIDTH);
+						this.setAndFitText(this.$['couch1-info'], this.couch1.info, MAX_COUCH_INFO_WIDTH);
+					}, null, null, 'couchEnter');
+				}
+
+				if (this.couch2) {
+					this.tl.call(() => {
+						this.setAndFitText(this.$['couch2-name'], this.couch2.name, MAX_COUCH_NAME_WIDTH);
+						this.setAndFitText(this.$['couch2-info'], this.couch2.info, MAX_COUCH_INFO_WIDTH);
+					}, null, null, 'couchEnter');
+				}
+
+				if (this.couch3) {
+					this.tl.call(() => {
+						this.setAndFitText(this.$['couch3-name'], this.couch3.name, MAX_COUCH_NAME_WIDTH);
+						this.setAndFitText(this.$['couch3-info'], this.couch3.info, MAX_COUCH_INFO_WIDTH);
+					}, null, null, 'couchEnter');
+				}
 
 				if (this.couch1 || this.couch2 || this.couch3) {
 					this.tl.to(this.$.couch, 1, {
@@ -154,6 +180,11 @@
 				}
 
 				if (this.host) {
+					this.tl.call(() => {
+						this.setAndFitText(this.$$('#host .name-content'), this.host.name, MAX_HOST_NAME_WIDTH);
+						this.setAndFitText(this.$$('#host .info-content'), this.host.info, MAX_HOST_INFO_WIDTH);
+					}, null, null, 'couchEnter');
+
 					this.tl.to(this.$.host, 1, {
 						y: 0,
 						opacity: 1,
@@ -203,6 +234,16 @@
 				], 0.5, {
 					opacity: 0
 				});
+			}
+		},
+
+		setAndFitText(node, newString, maxWidth) {
+			node.innerText = newString;
+			const clientWidth = node.scrollWidth;
+			if (clientWidth > maxWidth) {
+				TweenLite.set(node, {scaleX: maxWidth / clientWidth});
+			} else {
+				TweenLite.set(node, {scaleX: 1});
 			}
 		}
 	});

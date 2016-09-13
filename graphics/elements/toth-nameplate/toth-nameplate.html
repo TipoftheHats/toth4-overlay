@@ -40,6 +40,7 @@
 				font-weight: 800;
 				font-size: 80px;
 				text-transform: uppercase;
+				transform-origin: left;
 			}
 
 			.info {
@@ -57,6 +58,7 @@
 				font-family: 'proxima-nova';
 				font-size: 32px;
 				font-weight: 400;
+				transform-origin: left;
 			}
 
 			/*
@@ -67,6 +69,9 @@
 				position: absolute;
 				top: 561px;
 				left: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: baseline;
 
 				/* Prep for animation */
 				transform: translateY(300px);
@@ -74,13 +79,14 @@
 			}
 
 			#couch-names {
-				width: 1342px;
+				/*width: 1342px;*/
 				justify-content: flex-start;
 				padding: 0;
+				padding-right: 80px;
 			}
 
 			#couch-infos {
-				width: 1266px;  /* 422 * 3, the width of each couch column */
+				/*width: 1266px;  /* 422 * 3, the width of each couch column */
 				justify-content: flex-start;
 				padding: 0;
 			}
@@ -92,8 +98,9 @@
 				font-family: 'proxima-nova-condensed';
 				font-weight: 800;
 				text-transform: uppercase;
-				padding-left: 80px;
+				margin-left: 80px;
 				box-sizing: border-box;
+				transform-origin: left;
 			}
 
 			.couch-info {
@@ -101,12 +108,13 @@
 				font-family: 'proxima-nova';
 				font-size: 32px;
 				font-weight: 400;
-				padding-left: 80px;
+				margin-left: 80px;
 				box-sizing: border-box;
+				transform-origin: left;
 			}
 
 			.couch-column {
-				width: 422px;
+				width: 342px;
 			}
 
 			#host {
@@ -124,6 +132,7 @@
 
 			#host .name {
 				width: 465px;
+				justify-content: flex-start;
 			}
 
 			#host .info {
@@ -151,6 +160,11 @@
 				width: 418px;
 			}
 
+			.player .name-content,
+			.player .info-content {
+				transform-origin: center;
+			}
+
 			#player1 {
 				top: 560px;
 				left: 35px;
@@ -174,45 +188,25 @@
 
 		<div id="couch">
 			<div id="couch-names" class="name">
-				<template is="dom-if" if="[[couch1]]">
-					<div id="couch1-name" class="couch-name couch-column">{{couch1.name}}</div>
-				</template>
-
-				<template is="dom-if" if="[[couch2]]">
-					<div id="couch2-name" class="couch-name couch-column">{{couch2.name}}</div>
-				</template>
-
-				<template is="dom-if" if="[[couch3]]">
-					<div id="couch3-name" class="couch-name couch-column">{{couch3.name}}</div>
-				</template>
+				<div id="couch1-name" class="couch-name couch-column" hidden="[[!couch1]]"></div>
+				<div id="couch2-name" class="couch-name couch-column" hidden="[[!couch2]]"></div>
+				<div id="couch3-name" class="couch-name couch-column" hidden="[[!couch3]]"></div>
 			</div>
 
 			<div id="couch-infos" class="info">
-				<template is="dom-if" if="[[couch1]]">
-					<div id="couch1-info" class="couch-info couch-column">{{couch1.info}}</div>
-				</template>
-
-				<template is="dom-if" if="[[couch1]]">
-					<div id="couch2-info" class="couch-info couch-column">{{couch2.info}}</div>
-				</template>
-
-				<template is="dom-if" if="[[couch1]]">
-					<div id="couch3-info" class="couch-info couch-column">{{couch3.info}}</div>
-				</template>
+				<div id="couch1-info" class="couch-info couch-column" hidden="[[!couch1]]"></div>
+				<div id="couch2-info" class="couch-info couch-column" hidden="[[!couch2]]"></div>
+				<div id="couch3-info" class="couch-info couch-column" hidden="[[!couch3]]"></div>
 			</div>
 		</div>
 
 		<div id="host">
 			<div class="name">
-				<div class="name-content">
-					{{host.name}}
-				</div>
+				<div class="name-content"></div>
 			</div>
 
 			<div class="info">
-				<div class="info-content">
-					{{host.info}}
-				</div>
+				<div class="info-content"></div>
 			</div>
 		</div>
 
