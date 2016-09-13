@@ -1,0 +1,164 @@
+<link rel="import" href="../../components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../components/nodecg-replicant/nodecg-replicant.html">
+<link rel="import" href="../../components/paper-button/paper-button.html">
+<link rel="import" href="../../components/paper-input/paper-input.html">
+<link rel="import" href="../../components/paper-item/paper-item.html">
+<link rel="import" href="../../components/vaadin-combo-box/vaadin-combo-box.html">
+
+<dom-module id="toth-nameplate-control">
+	<template>
+		<style include="iron-flex iron-flex-alignment">
+			.talent-dropdown {
+				padding: 0 4px;
+			}
+
+			.names {
+				padding: 0 4px;
+			}
+
+			.infos {
+				padding: 0 4px;
+			}
+		</style>
+
+		<iron-ajax auto url="nameplate.json" handle-as="json" last-response="{{talentRoster}}"></iron-ajax>
+
+		<div class="horizontal layout">
+			<div class="flex talent-dropdown">
+				<vaadin-combo-box
+						id="host"
+						disabled="[[visible]]"
+						label="Host"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+						item-label-path="name"
+				        data-slot="host"
+				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						id="couch1"
+						disabled="[[visible]]"
+						label="Left"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+						item-label-path="name"
+				        data-slot="couch1"
+				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						id="couch2"
+						disabled="[[visible]]"
+						label="Middle"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+						item-label-path="name"
+				        data-slot="couch2"
+				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						id="couch3"
+						disabled="[[visible]]"
+						label="Right"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+						item-label-path="name"
+				        data-slot="couch3"
+				></vaadin-combo-box>
+			</div>
+
+			<div class="flex-2 names">
+				<paper-input disabled="[[visible]]" label="name" value="{{host.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[visible]]" label="name" value="{{couch1.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[visible]]" label="name" value="{{couch2.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[visible]]" label="name" value="{{couch3.name}}" always-float-label></paper-input>
+			</div>
+
+			<div class="flex-2 infos">
+				<paper-input disabled="[[visible]]" label="info" value="{{host.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[visible]]" label="info" value="{{couch1.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[visible]]" label="info" value="{{couch2.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[visible]]" label="info" value="{{couch3.info}}" always-float-label></paper-input>
+			</div>
+		</div>
+
+		<div class="horizontal layout">
+			<paper-button raised on-tap="showOverlay" disabled="{{visible}}" class="nodecg-success flex">
+				Show Couch
+			</paper-button>
+
+			<paper-button raised on-tap="hideOverlay" disabled="{{!visible}}" class="nodecg-danger flex">
+				Hide Couch
+			</paper-button>
+		</div>
+
+		<div class="horizontal layout">
+			<div class="flex players-dropdown">
+				<vaadin-combo-box
+						id="topleft"
+						label="Top Left"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+						item-label-path="name"
+				        data-slot="player1"
+				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						id="bottomleft"
+						label="Bottom Left"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+	                    item-label-path="name"
+				        data-slot="player2"
+				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						id="topright"
+						label="Top Right"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+	                    item-label-path="name"
+				        data-slot="player3"
+				></vaadin-combo-box>
+
+				<vaadin-combo-box
+						id="bottomright"
+						label="Bottom Right"
+						items="[[talentRoster]]"
+						on-selected-item-changed="_handleSelectedItemChanged"
+                        item-label-path="name"
+				        data-slot="player4"
+				></vaadin-combo-box>
+			</div>
+
+			<div class="flex-2 names">
+				<paper-input label="name" value="{{player1.name}}" always-float-label></paper-input>
+				<paper-input label="name" value="{{player2.name}}" always-float-label></paper-input>
+				<paper-input label="name" value="{{player3.name}}" always-float-label></paper-input>
+				<paper-input label="name" value="{{player4.name}}" always-float-label></paper-input>
+			</div>
+
+			<div class="flex-2 infos">
+				<paper-input label="info" value="{{player1.info}}" always-float-label></paper-input>
+				<paper-input label="info" value="{{player2.info}}" always-float-label></paper-input>
+				<paper-input label="info" value="{{player3.info}}" always-float-label></paper-input>
+				<paper-input label="info" value="{{player4.info}}" always-float-label></paper-input>
+			</div>
+		</div>
+
+		<div class="horizontal layout">
+			<paper-button raised on-tap="showPlayers" disabled="{{playersVisible}}" class="nodecg-success flex">
+				Show Couch
+			</paper-button>
+
+			<paper-button raised on-tap="hidePlayers" disabled="{{!playersVisible}}" class="nodecg-danger flex">
+				Hide Couch
+			</paper-button>
+		</div>
+
+		<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
+	</template>
+
+	<script src="toth-nameplate-control.js"></script>
+</dom-module>
