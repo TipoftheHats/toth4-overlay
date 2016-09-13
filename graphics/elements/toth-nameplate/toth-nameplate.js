@@ -16,6 +16,8 @@
 	const MAX_HOST_INFO_WIDTH = 375;
 	const MAX_COUCH_NAME_WIDTH = 368;
 	const MAX_COUCH_INFO_WIDTH = 342;
+	const MAX_PLAYER_NAME_WIDTH = 428;
+	const MAX_PLAYER_INFO_WIDTH = 378;
 
 	Polymer({
 		is: 'toth-nameplate',
@@ -202,31 +204,53 @@
 
 		playersVisibleChanged(newVal) {
 			if (newVal) {
+				this.tl.add('playersEnter');
+
 				if (this.player1) {
-					TweenLite.to('#player1', 0.5, {
+					this.tl.call(() => {
+						this.setAndFitText(this.$$('#player1 .name-content'), this.player1.name, MAX_PLAYER_NAME_WIDTH);
+						this.setAndFitText(this.$$('#player1 .info-content'), this.player1.info, MAX_PLAYER_INFO_WIDTH);
+					}, null, null, 'playersEnter');
+
+					this.tl.to('#player1', 0.5, {
 						opacity: 1
-					});
+					}, 'playersEnter');
 				}
 
 				if (this.player2) {
-					TweenLite.to('#player2', 0.5, {
+					this.tl.call(() => {
+						this.setAndFitText(this.$$('#player2 .name-content'), this.player2.name, MAX_PLAYER_NAME_WIDTH);
+						this.setAndFitText(this.$$('#player2 .info-content'), this.player2.info, MAX_PLAYER_INFO_WIDTH);
+					}, null, null, 'playersEnter');
+
+					this.tl.to('#player2', 0.5, {
 						opacity: 1
-					});
+					}, 'playersEnter');
 				}
 
 				if (this.player3) {
-					TweenLite.to('#player3', 0.5, {
+					this.tl.call(() => {
+						this.setAndFitText(this.$$('#player3 .name-content'), this.player3.name, MAX_PLAYER_NAME_WIDTH);
+						this.setAndFitText(this.$$('#player3 .info-content'), this.player3.info, MAX_PLAYER_INFO_WIDTH);
+					}, null, null, 'playersEnter');
+
+					this.tl.to('#player3', 0.5, {
 						opacity: 1
-					});
+					}, 'playersEnter');
 				}
 
 				if (this.player4) {
-					TweenLite.to('#player4', 0.5, {
+					this.tl.call(() => {
+						this.setAndFitText(this.$$('#player4 .name-content'), this.player4.name, MAX_PLAYER_NAME_WIDTH);
+						this.setAndFitText(this.$$('#player4 .info-content'), this.player4.info, MAX_PLAYER_INFO_WIDTH);
+					}, null, null, 'playersEnter');
+
+					this.tl.to('#player4', 0.5, {
 						opacity: 1
-					});
+					}, 'playersEnter');
 				}
 			} else {
-				TweenLite.to([
+				this.tl.to([
 					'#player1',
 					'#player2',
 					'#player3',
