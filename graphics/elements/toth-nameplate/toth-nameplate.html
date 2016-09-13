@@ -19,6 +19,10 @@
 				padding-left: 40px;
 				overflow: hidden;
 			}
+			#couch-display {
+				position:relative;
+				top:300px;
+			}
 			.couch-display-plate {
 				display: inline-block;
 				margin: 10px;
@@ -32,6 +36,8 @@
 			#couch2 span,
 			#couch3 span {
 				color: white;
+				position:relative;
+				top:-5px;
 			}
 
 			#couch1 {
@@ -74,6 +80,8 @@
 			}
 			#host span {
 				color:white;
+				position:relative;
+				top:-5px;
 			}
 			#hostinfobar {
 				position: absolute;
@@ -88,7 +96,7 @@
 
 			#orangeline2 {
 				position: absolute;
-				top: 444px;
+				top: 442px;
 				left: -1400px;
 			}
 			#orangehostline1 {
@@ -99,7 +107,7 @@
 
 			#orangehostline2 {
 				position: absolute;
-				top: 444px;
+				top: 442px;
 				right:-2920px;
 			}
 			#computers {
@@ -129,14 +137,17 @@
 			.littleinfobar {
 				position: relative;
 				z-index: -4;
-				display: none;
+				display: 'inline-block';
 				top: -64px;
+				opacity: 0;
 			}
 
 			.littlenamebar {
 				position: relative;
 				z-index: -5;
-				display: none;
+				display: 'inline-block';
+				opacity: 0;
+
 			}
      .playerorange1 {
 			 position: relative;
@@ -145,34 +156,47 @@
 		 }
 		 .playerorange2 {
 			 position: relative;
-			 top:-120px;
+			 top:-122px;
 		 }
 			.players {
-				margin-top: -350px;
+				position:relative;
+				top: -350px;
 			}
 
 			#player1 {
 				position: relative;
 				left: 250px;
-				display: none;
+				display: 'inline-block';
+				opacity: 0;
+				top:150px;
+
 			}
 
 			#player3 {
 				position: relative;
 				right: 250px;
-				display: none;
+				display: 'inline-block';
+				opacity: 0;
+				top:150px;
+
 			}
 
 			#player2 {
 				position: relative;
-				display: none;
+				display: 'inline-block'
 				margin-top: 30px;
+				opacity: 0;
+				top:-150px;
+
 			}
 
 			#player4 {
 				position: relative;
-				display: none;
+				display: 'inline-block'
 				margin-top: 30px;
+				opacity: 0;
+				top:-150px;
+
 
 			}
 
@@ -181,6 +205,8 @@
 			#player3 h2,
 			#player4 h2 {
 				margin-bottom: 10px;
+				position:relative;
+				top:5px;
 			}
 
 			#player1 span,
@@ -188,6 +214,8 @@
 			#player3 span,
 			#player4 span {
 				color: white;
+				position:relative;
+				top:-5px;
 			}
 		</style>
 		<div id="couch-display">

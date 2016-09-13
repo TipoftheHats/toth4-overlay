@@ -114,44 +114,44 @@
 			if (!oldVal && newVal) {
 				if (this.player1) {
 					TweenLite.to('#player1', 0.5, {
-						display: 'inline-block'
+						opacity: 1
 					});
 				}
 				if (this.player2) {
 					TweenLite.to('#player2', 0.5, {
-						display: 'inline-block'
+						opacity: 1
 					});
 				}
 				if (this.player3) {
 					TweenLite.to('#player3', 0.5, {
-						display: 'inline-block'
+						opacity: 1
 					});
 				}
 				if (this.player4) {
 					TweenLite.to('#player4', 0.5, {
-						display: 'inline-block'
+						opacity: 1
 					});
 				}
 
 				TweenLite.to('.littleinfobar', 0.5, {
-					display: 'inline-block'
+					opacity: 1
 				});
 				TweenLite.to('.littlenamebar', 0.5, {
-					display: 'inline-block'
+					opacity: 1
 				});
 			} else if (oldVal && !newVal) {
 				TweenLite.to('#player1', 0.5, {
-					display: 'none'
+					opacity: 0
 				});
 
 				TweenLite.to('#player2', 0.5, {
-					display: 'none'
+					opacity: 0
 				});
 				TweenLite.to('#player3', 0.5, {
-					display: 'none'
+					opacity: 0
 				});
 				TweenLite.to('#player4', 0.5, {
-					display: 'none'
+					opacity: 0
 				});
 				TweenLite.to('#littleinfobar', 0.5, {
 					display: 'none'
