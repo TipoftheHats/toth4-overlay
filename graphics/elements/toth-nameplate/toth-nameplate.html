@@ -1,6 +1,5 @@
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../components/iron-image/iron-image.html">
-<link rel="import" href="../../components/nodecg-replicant/nodecg-replicant.html">
 
 <dom-module id="toth-nameplate">
 	<template>
@@ -236,16 +235,16 @@
 
 			<div id="couch">
 				<div class="couch-display-plate" id="couch1">
-					<h2>{{name2.name}}</h2>
-					<span>{{name2.info}} </span>
+					<h2>{{couch1.name}}</h2>
+					<span>{{couch1.info}} </span>
 				</div>
 				<div class="couch-display-plate" id="couch2">
-					<h2>{{name3.name}}</h2>
-					<span>{{name3.info}} </span>
+					<h2>{{couch2.name}}</h2>
+					<span>{{couch2.info}} </span>
 				</div>
 				<div class="couch-display-plate" id="couch3">
-					<h2>{{name4.name}}</h2>
-					<span>{{name4.info}}</span>
+					<h2>{{couch3.name}}</h2>
+					<span>{{couch3.info}}</span>
 				</div>
 			</div>
 
@@ -255,8 +254,8 @@
 			<img id="orangehostline2" src="./img/hostorangebar2.png">
 
 			<div id="host">
-				<h2>{{name1.name}}</h2>
-				<span>{{name1.info}} </span>
+				<h2>{{host.name}}</h2>
+				<span>{{host.info}} </span>
 			</div>
 		</div>
 
@@ -311,19 +310,6 @@
 				</div>
 			</div>
 		</div>
-
-		<nodecg-replicant replicant-name="host" value="{{name1}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="couch1" value="{{name2}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="couch2" value="{{name3}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="couch3" value="{{name4}}"></nodecg-replicant>
-
-		<nodecg-replicant replicant-name="player1" value="{{player1}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="player2" value="{{player2}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="player3" value="{{player3}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="player4" value="{{player4}}"></nodecg-replicant>
-
-		<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
-		<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
 	</template>
 
 	<script src="toth-nameplate.js"></script>
