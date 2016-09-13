@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="import" href="components/polymer/polymer.html">
+
+	<link rel="import" href="components/iron-flex-layout/iron-flex-layout-classes.html">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/vaadin-combo-box/vaadin-combo-box.html">
+	<link rel="import" href="components/iron-ajax/iron-ajax.html">
+	<link rel="import" href="components/paper-item/paper-item.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<link rel="import" href="components/nodecg-replicant/nodecg-replicant.html">
+
+</head>
+<body>
+
+	<dom-module id="nameplate-control">
+		<template>
+
+			<style is="custom-style" include="iron-flex">
+				#hide-overlay,
+				#hide-players {
+					background-color: var(--paper-red-500);
+				}
+
+				#show-overlay,
+				#show-players {
+					background-color: var(--paper-green-500);
+				}
+
+				.talent-dropdown {
+					padding: 2px;
+				}
+
+				.names {
+					padding: 2px;
+				}
+
+				.infos {
+					padding: 2px;
+				}
+			</style>
+			<iron-ajax auto url="nameplate.json" handle-as="json" last-response="{{namedata}}"> </iron-ajax>
+			<iron-ajax auto url="nameplate.json" handle-as="json" last-response="{{namedata2}}"> </iron-ajax>
+
+			<h4> Couch Nameplates </h4>
+			<div class="horizontal layout">
+				<div class="flex talent-dropdown">
+					<vaadin-combo-box id="host" is="dom-repeat" id="type" disabled="{{visible}}" label="Host" on-value-changed="valueChanged" items="{{namedata.talent}}" value="{{name1}}" item-label-path="name" item-value-path="name">
+						<paper-item> {{item}} </paper-item>
+					</vaadin-combo-box>
+					<vaadin-combo-box id="couch1" is="dom-repeat" id="type" disabled="{{visible}}" label="Left" items="[[namedata.talent]]" value="{{name2}}" item-label-path="name" item-value-path="name">
+						<paper-item> [[item]] </paper-item>
+					</vaadin-combo-box>
+					<vaadin-combo-box id="couch2" is="dom-repeat" id="type" disabled="{{visible}}" label="Middle" items="[[namedata.talent]]" value="{{name3}}" item-label-path="name" item-value-path="name">
+						<paper-item> [[item]] </paper-item>
+					</vaadin-combo-box>
+					<vaadin-combo-box id="couch3" is="dom-repeat" id="type" disabled="{{visible}}" label="Right" items="[[namedata.talent]]" value="{{name4}}" item-label-path="name" item-value-path="name">
+						<paper-item> [[item]] </paper-item>
+					</vaadin-combo-box>
+
+				</div>
+				<div class="flex-2 names">
+					<paper-input id="hostname" disabled="{{visible}}" label="name" value="{{name1}}" always-float-label>{{name1}}</paper-input>
+					<paper-input id="couchname1" disabled="{{visible}}" label="name" value="{{name2}}" always-float-label>{{name2}}</paper-input>
+					<paper-input id="couchname2" disabled="{{visible}}" label="name" value="{{name3}}" always-float-label>{{name3}}</paper-input>
+					<paper-input id="couchname3" disabled="{{visible}}" label="name" value="{{name4}}" always-float-label>{{name4}}</paper-input>
+				</div>
+				<div class="flex-2 infos">
+					<paper-input id="hostinfo" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+					<paper-input id="couchinfo1" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+					<paper-input id="couchinfo2" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+					<paper-input id="couchinfo3" disabled="{{visible}}" label="info" value="" always-float-label></paper-input>
+				</div>
+			</div>
+
+			<div class="horizontal layout">
+				<paper-button raised on-tap="hideOverlay" disabled="{{!visible}}" class="flex" id="hide-overlay">Hide Couch</paper-button>
+				<paper-button raised on-tap="showOverlay" disabled="{{visible}}" class="flex" id="show-overlay">Show Couch</paper-button>
+			</div>
+			<div class="horizontal layout">
+
+				<div class="flex players-dropdown">
+					<vaadin-combo-box id="topleft" is="dom-repeat" id="type" label="Top Left" items="{{namedata2.talent}}" value="{{player1}}" item-label-path="name" item-value-path="name">
+						<paper-item> {{item}} </paper-item>
+					</vaadin-combo-box>
+					<vaadin-combo-box id="bottomleft" is="dom-repeat" id="type" label="Bottom Left" items="[[namedata2.talent]]" value="{{player2}}" item-label-path="name" item-value-path="name">
+						<paper-item> [[item]] </paper-item>
+					</vaadin-combo-box>
+					<vaadin-combo-box id="topright" is="dom-repeat" id="type" label="Top Right" items="[[namedata2.talent]]" value="{{player3}}" item-label-path="name" item-value-path="name">
+						<paper-item> [[item]] </paper-item>
+					</vaadin-combo-box>
+					<vaadin-combo-box id="bottomright" is="dom-repeat" id="type" label="Bottom Right" items="[[namedata2.talent]]" value="{{player4}}" item-label-path="name" item-value-path="name">
+						<paper-item> [[item]] </paper-item>
+					</vaadin-combo-box>
+
+				</div>
+				<div class="flex-2 player-names">
+					<paper-input id="playername1" label="name" value="{{player1}}" always-float-label>{{player1}}</paper-input>
+					<paper-input id="playername2" label="name" value="{{player2}}" always-float-label>{{player2}}</paper-input>
+					<paper-input id="playername3" label="name" value="{{player3}}" always-float-label>{{player3}}</paper-input>
+					<paper-input id="playername4" label="name" value="{{player4}}" always-float-label>{{player4}}</paper-input>
+				</div>
+				<div class="flex-2 player-infos">
+					<paper-input id="playerinfo1" label="info" value="" always-float-label></paper-input>
+					<paper-input id="playerinfo1" label="info" value="" always-float-label></paper-input>
+					<paper-input id="playerinfo1" label="info" value="" always-float-label></paper-input>
+					<paper-input id="playerinfo1" label="info" value="" always-float-label></paper-input>
+				</div>
+			</div>
+			<div class="horizontal layout">
+				<paper-button raised on-tap="hidePlayers" disabled="{{!playersVisible}}" class="flex" id="hide-players">Hide Couch</paper-button>
+				<paper-button raised on-tap="showPlayers" disabled="{{playersVisible}}" class="flex" id="show-players">Show Couch</paper-button>
+			</div>
+			</div>
+
+			<nodecg-replicant replicant-name="host" value="{{name1}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="couch1" value="{{name2}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="couch2" value="{{name3}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="couch3" value="{{name4}}"></nodecg-replicant>
+
+			<nodecg-replicant replicant-name="hostinfo" value="asdf"></nodecg-replicant>
+			<nodecg-replicant replicant-name="info1" value="fdas"></nodecg-replicant>
+			<nodecg-replicant replicant-name="info2" value="asdf"></nodecg-replicant>
+			<nodecg-replicant replicant-name="info3" value="dfdfdf"></nodecg-replicant>
+
+			<nodecg-replicant replicant-name="player1" value="{{player1}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="player2" value="{{player2}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="player3" value="{{player3}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="player4" value="{{player4}}"></nodecg-replicant>
+
+			<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
+			<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
+		</template>
+
+		<script>
+			Polymer({
+
+				is: 'nameplate-control',
+				ready: function() {
+
+				},
+				hideOverlay() {
+					this.visible = false;
+				},
+				showOverlay() {
+					this.visible = true;
+					this.playersVisible = false;
+
+				},
+				hidePlayers() {
+					this.playersVisible = false;
+				},
+				showPlayers() {
+					this.visible = false;
+					this.playersVisible = true;
+				},
+				valueChanged: function(event) {
+					console.log(event.detail.value);
+				}
+
+			});
+		</script>
+	</dom-module>
+	<nameplate-control></nameplate-control>
+</body>
+
+</html>

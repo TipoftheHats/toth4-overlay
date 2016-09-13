@@ -13,6 +13,9 @@
     "paper-checkbox": "PolymerElements/paper-checkbox#^1.4.0",
     "iron-input": "PolymerElements/iron-input#^1.0.10",
     "iron-validatable-behavior": "PolymerElements/iron-validatable-behavior#^1.1.1",
-    "iron-validator-behavior": "PolymerElements/iron-validator-behavior#^1.0.1"
+    "iron-validator-behavior": "PolymerElements/iron-validator-behavior#^1.0.1",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
+    "paper-item": "PolymerElements/paper-item#^1.2.1",
+    "lodash": "^4.15.0"
   }
 }

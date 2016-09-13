@@ -145,6 +145,13 @@
         "width": 1,
         "file": "countdown.html",
         "headerColor": "#f47425"
+      },
+      {
+        "name": "nameplates",
+        "title": "Nameplates",
+        "width": 4,
+        "file": "nameplate.html",
+        "headerColor": "#f47425"
       }
     ],
     "soundCues": [
