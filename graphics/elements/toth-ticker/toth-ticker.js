@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	const INTERVAL = 2;
+	const INTERVAL = 10;
 	const challenges = nodecg.Replicant('challenges');
 	const wars = nodecg.Replicant('wars');
 	const onNow = nodecg.Replicant('onNow');
