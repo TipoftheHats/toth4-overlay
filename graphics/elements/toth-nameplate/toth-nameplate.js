@@ -213,7 +213,9 @@
 					}, null, null, 'playersEnter');
 
 					this.tl.to('#player1', 0.5, {
-						opacity: 1
+						opacity: 1,
+						x: 0,
+						ease: Power2.easeOut
 					}, 'playersEnter');
 				}
 
@@ -224,7 +226,9 @@
 					}, null, null, 'playersEnter');
 
 					this.tl.to('#player2', 0.5, {
-						opacity: 1
+						opacity: 1,
+						x: 0,
+						ease: Power2.easeOut
 					}, 'playersEnter');
 				}
 
@@ -235,7 +239,9 @@
 					}, null, null, 'playersEnter');
 
 					this.tl.to('#player3', 0.5, {
-						opacity: 1
+						opacity: 1,
+						x: 0,
+						ease: Power2.easeOut
 					}, 'playersEnter');
 				}
 
@@ -246,18 +252,31 @@
 					}, null, null, 'playersEnter');
 
 					this.tl.to('#player4', 0.5, {
-						opacity: 1
+						opacity: 1,
+						x: 0,
+						ease: Power2.easeOut
 					}, 'playersEnter');
 				}
 			} else {
+				this.tl.add('playersExit');
+
 				this.tl.to([
 					'#player1',
+					'#player3'
+				], 0.5, {
+					opacity: 0,
+					x: -25,
+					ease: Power2.easeIn
+				}, 'playersExit');
+
+				this.tl.to([
 					'#player2',
-					'#player3',
 					'#player4'
 				], 0.5, {
-					opacity: 0
-				});
+					opacity: 0,
+					x: 25,
+					ease: Power2.easeIn
+				}, 'playersExit');
 			}
 		},
 
