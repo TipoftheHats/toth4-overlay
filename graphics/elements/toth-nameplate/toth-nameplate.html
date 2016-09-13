@@ -67,6 +67,10 @@
 				position: absolute;
 				top: 561px;
 				left: 0;
+
+				/* Prep for animation */
+				transform: translateY(300px);
+				opacity: 0;
 			}
 
 			#couch-names {
@@ -105,18 +109,6 @@
 				width: 422px;
 			}
 
-			#couch1 {
-				opacity: 0
-			}
-
-			#couch2 {
-				opacity: 0
-			}
-
-			#couch3 {
-				opacity: 0
-			}
-
 			#host {
 				display: flex;
 				align-items: flex-end;
@@ -124,6 +116,9 @@
 				position: absolute;
 				top: 561px;
 				right: 0;
+
+				/* Prep for animation */
+				transform: translateY(300px);
 				opacity: 0;
 			}
 
@@ -179,15 +174,31 @@
 
 		<div id="couch">
 			<div id="couch-names" class="name">
-				<div id="couch1-name" class="couch-name couch-column">{{couch1.name}}</div>
-				<div id="couch2-name" class="couch-name couch-column">{{couch2.name}}</div>
-				<div id="couch3-name" class="couch-name couch-column">{{couch3.name}}</div>
+				<template is="dom-if" if="[[couch1]]">
+					<div id="couch1-name" class="couch-name couch-column">{{couch1.name}}</div>
+				</template>
+
+				<template is="dom-if" if="[[couch2]]">
+					<div id="couch2-name" class="couch-name couch-column">{{couch2.name}}</div>
+				</template>
+
+				<template is="dom-if" if="[[couch3]]">
+					<div id="couch3-name" class="couch-name couch-column">{{couch3.name}}</div>
+				</template>
 			</div>
 
 			<div id="couch-infos" class="info">
-				<div id="couch1-info" class="couch-info couch-column">{{couch1.info}}</div>
-				<div id="couch2-info" class="couch-info couch-column">{{couch2.info}}</div>
-				<div id="couch3-info" class="couch-info couch-column">{{couch3.info}}</div>
+				<template is="dom-if" if="[[couch1]]">
+					<div id="couch1-info" class="couch-info couch-column">{{couch1.info}}</div>
+				</template>
+
+				<template is="dom-if" if="[[couch1]]">
+					<div id="couch2-info" class="couch-info couch-column">{{couch2.info}}</div>
+				</template>
+
+				<template is="dom-if" if="[[couch1]]">
+					<div id="couch3-info" class="couch-info couch-column">{{couch3.info}}</div>
+				</template>
 			</div>
 		</div>
 
@@ -220,8 +231,8 @@
 		</div>
 
 		<div id="player2" class="player">
-			<div class="player-name">
-				<div class="player-name-content">
+			<div class="name">
+				<div class="name-content">
 					{{player2.name}}
 				</div>
 			</div>
@@ -234,8 +245,8 @@
 		</div>
 
 		<div id="player3" class="player">
-			<div class="player-name">
-				<div class="player-name-content">
+			<div class="name">
+				<div class="name-content">
 					{{player3.name}}
 				</div>
 			</div>
@@ -248,8 +259,8 @@
 		</div>
 
 		<div id="player4" class="player">
-			<div class="player-name">
-				<div class="player-name-content">
+			<div class="name">
+				<div class="name-content">
 					{{player4.name}}
 				</div>
 			</div>

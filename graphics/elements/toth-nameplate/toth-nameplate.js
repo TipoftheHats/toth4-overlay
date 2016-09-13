@@ -16,6 +16,8 @@
 		is: 'toth-nameplate',
 
 		ready() {
+			this.tl = new TimelineLite({autoRemoveChildren: true});
+
 			host.on('change', newVal => {
 				if (!newVal.name.trim() && !newVal.info.trim()) {
 					this.host = null;
@@ -141,99 +143,29 @@
 
 		couchVisibleChanged(newVal) {
 			if (newVal) {
-				// couch potatoes
-				if (this.couch1) {
-					TweenLite.to('#couch1', 0.5, {
-						width: '400px',
-						opacity: 1
-					});
-				}
+				this.tl.add('couchEnter');
 
-				if (this.couch2) {
-					TweenLite.to('#couch2', 0.5, {
-						width: '400px',
-						opacity: 1
-					});
-				}
-
-				if (this.couch3) {
-					TweenLite.to('#couch3', 0.5, {
-						width: '400px',
-						opacity: 1
-					});
-				}
-
-				// host
-				if (this.host) {
-					TweenLite.to('#host', 0.5, {
-						width: '400px',
-						opacity: 1
-					});
-				}
-
-				const t1 = new TimelineLite();
-				if (this.couch1 && this.couch2 && this.couch3) {
-					t1.to('#bignamebar', 0.4, {left: 0}, 0);
-					t1.to('#orangeline1', 0.4, {left: -1}, 0.2);
-					t1.to('#biginfobar', 0.3, {left: 0}, 0.7);
-					t1.to('#orangeline2', 0.3, {left: -7}, 0.9);
-				} else if ((this.couch1 && this.couch2 && !this.couch3) || (this.couch1 && !this.couch2 && this.couch3) || (!this.couch1 && this.couch2 && this.couch3)) {
-					t1.to('#bignamebar', 0.4, {left: -400}, 0);
-					t1.to('#orangeline1', 0.4, {left: -401}, 0.2);
-					t1.to('#biginfobar', 0.3, {left: -400}, 0.7);
-					t1.to('#orangeline2', 0.3, {left: -407}, 0.9);
-				} else if ((this.couch1 && !this.couch2 && !this.couch3) || (!this.couch1 && this.couch2 && !this.couch3) || (!this.couch1 && !this.couch2 && this.couch3)) {
-					t1.to('#bignamebar', 0.4, {left: -800}, 0);
-					t1.to('#orangeline1', 0.4, {left: -801}, 0.2);
-					t1.to('#biginfobar', 0.3, {left: -800}, 0.7);
-					t1.to('#orangeline2', 0.3, {left: -807}, 0.9);
+				if (this.couch1 || this.couch2 || this.couch3) {
+					this.tl.to(this.$.couch, 1, {
+						y: 0,
+						opacity: 1,
+						ease: Power3.easeOut
+					}, 'couchEnter');
 				}
 
 				if (this.host) {
-					t1.to('#hostnamebar', 0.4, {right: -1920}, 0);
-					t1.to('#orangehostline1', 0.4, {right: -1920}, 0.2);
-					t1.to('#hostinfobar', 0.3, {right: -1920}, 0.7);
-					t1.to('#orangehostline2', 0.3, {right: -1920}, 0.9);
+					this.tl.to(this.$.host, 1, {
+						y: 0,
+						opacity: 1,
+						ease: Power3.easeOut
+					}, 'couchEnter');
 				}
 			} else {
-				if (this.couch1) {
-					TweenLite.to('#couch1', 0.1, {
-						opacity: 0,
-						width: '0'
-					});
-				}
-
-				if (this.couch2) {
-					TweenLite.to('#couch2', 0.1, {
-						opacity: 0,
-						width: '0'
-
-					});
-				}
-
-				if (this.couch3) {
-					TweenLite.to('#couch3', 0.1, {
-						opacity: 0,
-						width: '0'
-					});
-				}
-
-				if (this.host) {
-					TweenLite.to('#host', 0.1, {
-						opacity: 0,
-						width: '0'
-					});
-				}
-
-				const t1 = new TimelineLite();
-				t1.to('#bignamebar', 0.3, {left: -1400}, 0.5);
-				t1.to('#orangeline1', 0.3, {left: -1400}, 0.4);
-				t1.to('#biginfobar', 0.3, {left: -1400}, 0.1);
-				t1.to('#orangeline2', 0.3, {left: -1400}, 0);
-				t1.to('#hostnamebar', 0.4, {right: -2920}, 0);
-				t1.to('#orangehostline1', 0.4, {right: -2920}, 0.2);
-				t1.to('#hostinfobar', 0.3, {right: -2920}, 0.7);
-				t1.to('#orangehostline2', 0.3, {right: -2920}, 0.9);
+				this.tl.to([this.$.couch, this.$.host], 1, {
+					y: 300,
+					opacity: 0,
+					ease: Power3.easeIn
+				});
 			}
 		},
 
@@ -262,13 +194,6 @@
 						opacity: 1
 					});
 				}
-
-				TweenLite.to([
-					'.littleinfobar',
-					'.littlenamebar'
-				], 0.5, {
-					opacity: 1
-				});
 			} else {
 				TweenLite.to([
 					'#player1',
@@ -277,14 +202,6 @@
 					'#player4'
 				], 0.5, {
 					opacity: 0
-				});
-
-				// TODO: This does nothing, because the elements in question are classes, not IDs.
-				TweenLite.to([
-					'#littleinfobar',
-					'#littlenamebar'
-				], 0.5, {
-					display: 'none'
 				});
 			}
 		}
