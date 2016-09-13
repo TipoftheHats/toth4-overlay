@@ -67,12 +67,12 @@
 			});
 		},
 
-		hideOverlay() {
-			this.visible = false;
+		hideCouch() {
+			this.couchVisible = false;
 		},
 
-		showOverlay() {
-			this.visible = true;
+		showCouch() {
+			this.couchVisible = true;
 			this.playersVisible = false;
 		},
 
@@ -81,7 +81,7 @@
 		},
 
 		showPlayers() {
-			this.visible = false;
+			this.couchVisible = false;
 			this.playersVisible = true;
 		},
 

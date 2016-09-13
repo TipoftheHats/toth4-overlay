@@ -27,8 +27,7 @@
 		<div class="horizontal layout">
 			<div class="flex talent-dropdown">
 				<vaadin-combo-box
-						id="host"
-						disabled="[[visible]]"
+						disabled="[[couchVisible]]"
 						label="Host"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -37,8 +36,7 @@
 				></vaadin-combo-box>
 
 				<vaadin-combo-box
-						id="couch1"
-						disabled="[[visible]]"
+						disabled="[[couchVisible]]"
 						label="Left"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -47,8 +45,7 @@
 				></vaadin-combo-box>
 
 				<vaadin-combo-box
-						id="couch2"
-						disabled="[[visible]]"
+						disabled="[[couchVisible]]"
 						label="Middle"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -57,8 +54,7 @@
 				></vaadin-combo-box>
 
 				<vaadin-combo-box
-						id="couch3"
-						disabled="[[visible]]"
+						disabled="[[couchVisible]]"
 						label="Right"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -68,26 +64,26 @@
 			</div>
 
 			<div class="flex-2 names">
-				<paper-input disabled="[[visible]]" label="name" value="{{host.name}}" always-float-label></paper-input>
-				<paper-input disabled="[[visible]]" label="name" value="{{couch1.name}}" always-float-label></paper-input>
-				<paper-input disabled="[[visible]]" label="name" value="{{couch2.name}}" always-float-label></paper-input>
-				<paper-input disabled="[[visible]]" label="name" value="{{couch3.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Name" value="{{host.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Name" value="{{couch1.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Name" value="{{couch2.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Name" value="{{couch3.name}}" always-float-label></paper-input>
 			</div>
 
 			<div class="flex-2 infos">
-				<paper-input disabled="[[visible]]" label="info" value="{{host.info}}" always-float-label></paper-input>
-				<paper-input disabled="[[visible]]" label="info" value="{{couch1.info}}" always-float-label></paper-input>
-				<paper-input disabled="[[visible]]" label="info" value="{{couch2.info}}" always-float-label></paper-input>
-				<paper-input disabled="[[visible]]" label="info" value="{{couch3.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Info" value="{{host.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Info" value="{{couch1.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Info" value="{{couch2.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[couchVisible]]" label="Info" value="{{couch3.info}}" always-float-label></paper-input>
 			</div>
 		</div>
 
 		<div class="horizontal layout">
-			<paper-button raised on-tap="showOverlay" disabled="{{visible}}" class="nodecg-success flex">
+			<paper-button raised on-tap="showCouch" disabled="{{visible}}" class="nodecg-success flex">
 				Show Couch
 			</paper-button>
 
-			<paper-button raised on-tap="hideOverlay" disabled="{{!visible}}" class="nodecg-danger flex">
+			<paper-button raised on-tap="hideCouch" disabled="{{!visible}}" class="nodecg-danger flex">
 				Hide Couch
 			</paper-button>
 		</div>
@@ -95,7 +91,7 @@
 		<div class="horizontal layout">
 			<div class="flex players-dropdown">
 				<vaadin-combo-box
-						id="topleft"
+						disabled="[[playersVisible]]"
 						label="Top Left"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -104,7 +100,7 @@
 				></vaadin-combo-box>
 
 				<vaadin-combo-box
-						id="bottomleft"
+						disabled="[[playersVisible]]"
 						label="Bottom Left"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -113,7 +109,7 @@
 				></vaadin-combo-box>
 
 				<vaadin-combo-box
-						id="topright"
+						disabled="[[playersVisible]]"
 						label="Top Right"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -122,7 +118,7 @@
 				></vaadin-combo-box>
 
 				<vaadin-combo-box
-						id="bottomright"
+						disabled="[[playersVisible]]"
 						label="Bottom Right"
 						items="[[talentRoster]]"
 						on-selected-item-changed="_handleSelectedItemChanged"
@@ -132,31 +128,31 @@
 			</div>
 
 			<div class="flex-2 names">
-				<paper-input label="name" value="{{player1.name}}" always-float-label></paper-input>
-				<paper-input label="name" value="{{player2.name}}" always-float-label></paper-input>
-				<paper-input label="name" value="{{player3.name}}" always-float-label></paper-input>
-				<paper-input label="name" value="{{player4.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Name" value="{{player1.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Name" value="{{player2.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Name" value="{{player3.name}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Name" value="{{player4.name}}" always-float-label></paper-input>
 			</div>
 
 			<div class="flex-2 infos">
-				<paper-input label="info" value="{{player1.info}}" always-float-label></paper-input>
-				<paper-input label="info" value="{{player2.info}}" always-float-label></paper-input>
-				<paper-input label="info" value="{{player3.info}}" always-float-label></paper-input>
-				<paper-input label="info" value="{{player4.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Info" value="{{player1.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Info" value="{{player2.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Info" value="{{player3.info}}" always-float-label></paper-input>
+				<paper-input disabled="[[playersVisible]]" label="Info" value="{{player4.info}}" always-float-label></paper-input>
 			</div>
 		</div>
 
 		<div class="horizontal layout">
 			<paper-button raised on-tap="showPlayers" disabled="{{playersVisible}}" class="nodecg-success flex">
-				Show Couch
+				Show Players
 			</paper-button>
 
 			<paper-button raised on-tap="hidePlayers" disabled="{{!playersVisible}}" class="nodecg-danger flex">
-				Hide Couch
+				Hide Players
 			</paper-button>
 		</div>
 
-		<nodecg-replicant replicant-name="couchVisible" value="{{visible}}"></nodecg-replicant>
+		<nodecg-replicant replicant-name="couchVisible" value="{{couchVisible}}"></nodecg-replicant>
 		<nodecg-replicant replicant-name="playerVisible" value="{{playersVisible}}"></nodecg-replicant>
 	</template>
 
