@@ -150,7 +150,7 @@
 						y: 0,
 						opacity: 1,
 						ease: Power3.easeOut
-					}, 'couchEnter');
+					}, 'couchEnter+=0.1');
 				}
 
 				if (this.host) {
@@ -161,7 +161,7 @@
 					}, 'couchEnter');
 				}
 			} else {
-				this.tl.to([this.$.couch, this.$.host], 1, {
+				this.tl.to([this.$.couch, this.$.host], 0.8, {
 					y: 300,
 					opacity: 0,
 					ease: Power3.easeIn
