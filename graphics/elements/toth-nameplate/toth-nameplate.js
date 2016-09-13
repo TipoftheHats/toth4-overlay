@@ -17,8 +17,12 @@
 
 		ready() {
 			host.on('change', newVal => {
-				this.host = {};
-				this.host = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.host = null;
+				} else {
+					this.host = {};
+					this.host = newVal;
+				}
 
 				if (!this._hostReady) {
 					this._hostReady = true;
@@ -27,8 +31,12 @@
 			});
 
 			couch1.on('change', newVal => {
-				this.couch1 = {};
-				this.couch1 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.couch1 = null;
+				} else {
+					this.couch1 = {};
+					this.couch1 = newVal;
+				}
 
 				if (!this._couch1Ready) {
 					this._couch1Ready = true;
@@ -37,8 +45,12 @@
 			});
 
 			couch2.on('change', newVal => {
-				this.couch2 = {};
-				this.couch2 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.couch2 = null;
+				} else {
+					this.couch2 = {};
+					this.couch2 = newVal;
+				}
 
 				if (!this._couch2Ready) {
 					this._couch2Ready = true;
@@ -47,8 +59,12 @@
 			});
 
 			couch3.on('change', newVal => {
-				this.couch3 = {};
-				this.couch3 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.couch3 = null;
+				} else {
+					this.couch3 = {};
+					this.couch3 = newVal;
+				}
 
 				if (!this._couch3Ready) {
 					this._couch3Ready = true;
@@ -57,8 +73,12 @@
 			});
 
 			player1.on('change', newVal => {
-				this.player1 = {};
-				this.player1 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.player1 = null;
+				} else {
+					this.player1 = {};
+					this.player1 = newVal;
+				}
 
 				if (!this._player1Ready) {
 					this._player1Ready = true;
@@ -67,8 +87,12 @@
 			});
 
 			player2.on('change', newVal => {
-				this.player2 = {};
-				this.player2 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.player2 = null;
+				} else {
+					this.player2 = {};
+					this.player2 = newVal;
+				}
 
 				if (!this._player2Ready) {
 					this._player2Ready = true;
@@ -77,8 +101,12 @@
 			});
 
 			player3.on('change', newVal => {
-				this.player3 = {};
-				this.player3 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.player3 = null;
+				} else {
+					this.player3 = {};
+					this.player3 = newVal;
+				}
 
 				if (!this._player3Ready) {
 					this._player3Ready = true;
@@ -87,8 +115,12 @@
 			});
 
 			player4.on('change', newVal => {
-				this.player4 = {};
-				this.player4 = newVal;
+				if (!newVal.name.trim() && !newVal.info.trim()) {
+					this.player4 = null;
+				} else {
+					this.player4 = {};
+					this.player4 = newVal;
+				}
 
 				if (!this._player4Ready) {
 					this._player4Ready = true;
@@ -108,8 +140,6 @@
 		},
 
 		couchVisibleChanged(newVal) {
-			console.log('couchVisibleChanged, newVal:', newVal);
-
 			if (newVal) {
 				// couch potatoes
 				if (this.couch1) {

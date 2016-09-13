@@ -6,39 +6,103 @@
 		<style>
 			:host {
 				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 1920px;
+				height: 1080px;
+				line-height: 1;
 			}
+
+			/*
+			 * Styles shared between couch and player nameplates.
+			 */
+
+			.name {
+				height: 79px;
+				background-color: #d3c9c9;
+				border-bottom: 8px solid #f47425;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0 20px;
+			}
+
+			.name-content {
+				/* cheat down vertically a bit to improve apparent centering */
+				position: relative;
+				top: 5px;
+
+				color: black;
+				font-family: 'proxima-nova-condensed';
+				font-weight: 800;
+				font-size: 80px;
+				text-transform: uppercase;
+			}
+
+			.info {
+				display: flex;
+				align-items: center;
+				height: 57px;
+				background-color: #151515;
+				border-bottom: 2px solid #f47425;
+				box-sizing: border-box;
+				padding: 0 20px;
+			}
+
+			.info-content {
+				color: white;
+				font-family: 'proxima-nova';
+				font-size: 32px;
+				font-weight: 400;
+			}
+
+			/*
+			 * Couch & Host nameplate styles.
+			 */
 
 			#couch {
 				position: absolute;
-				width: 1344px;
-				top: 225px;
-				font-size: 48px;
-				padding-left: 40px;
-				overflow: hidden;
+				top: 561px;
+				left: 0;
 			}
 
-			#couch-display {
-				position: relative;
-				top: 300px;
+			#couch-names {
+				width: 1342px;
+				justify-content: flex-start;
+				padding: 0;
 			}
 
-			.couch-display-plate {
-				display: inline-block;
-				margin: 10px;
+			#couch-infos {
+				width: 1266px;  /* 422 * 3, the width of each couch column */
+				justify-content: flex-start;
+				padding: 0;
 			}
 
-			#couch1 h2,
-			#couch2 h2,
-			#couch3 h2 {
-				margin-bottom: 8px;
+			.couch-name {
+				color: black;
+				font-family: ProximaNovaCond;
+				font-size: 60px;
+				font-family: 'proxima-nova-condensed';
+				font-weight: 800;
+				text-transform: uppercase;
+				padding-left: 80px;
+				box-sizing: border-box;
 			}
 
-			#couch1 span,
-			#couch2 span,
-			#couch3 span {
+			.couch-info {
 				color: white;
-				position: relative;
-				top: -5px;
+				font-family: 'proxima-nova';
+				font-size: 32px;
+				font-weight: 400;
+				padding-left: 80px;
+				box-sizing: border-box;
+			}
+
+			.couch-column {
+				width: 422px;
 			}
 
 			#couch1 {
@@ -53,260 +117,146 @@
 				opacity: 0
 			}
 
-			#bignamebar {
-				position: absolute;
-				top: 300px;
-				left: -1400px;
-			}
-
-			#biginfobar {
-				position: absolute;
-				top: 387px;
-				left: -1400px;
-			}
-
-			#hostnamebar {
-				position: absolute;
-				top: 300px;
-				right: -2920px;
-			}
-
 			#host {
+				display: flex;
+				align-items: flex-end;
+				flex-direction: column;
 				position: absolute;
-				width: 300px;
-				font-size: 48px;
-				left: 1550px;
-				top: 225px;
-				margin: 10px;
+				top: 561px;
+				right: 0;
 				opacity: 0;
 			}
 
-			#host h2 {
-				margin-bottom: 8px;
+			#host .name {
+				width: 465px;
 			}
 
-			#host span {
-				color: white;
-				position: relative;
-				top: -5px;
+			#host .info {
+				width: 415px;
 			}
 
-			#hostinfobar {
+			/*
+			 * Player nameplate styles.
+			 */
+
+			.player {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 				position: absolute;
-				top: 387px;
-				right: -2920px;
-			}
-
-			#orangeline1 {
-				position: absolute;
-				top: 379px;
-				left: -1400px;
-			}
-
-			#orangeline2 {
-				position: absolute;
-				top: 442px;
-				left: -1400px;
-			}
-
-			#orangehostline1 {
-				position: absolute;
-				top: 379px;
-				right: -2920px;
-			}
-
-			#orangehostline2 {
-				position: absolute;
-				top: 442px;
-				right: -2920px;
-			}
-
-			#computers {
-				height: 400px;
-			}
-
-			#player-display {
-				width: 1920px;
-				position: absolute;
-				top: 300px;
-				font-size: 48px;
-				overflow: hidden;
-			}
-
-			#top-players {
-				width: 500px;
-				display: inline-block;
-				text-align: center;
-			}
-
-			#bottom-players {
-				width: 500px;
-				float: right;
-				display: inline-block;
-				text-align: center;
-			}
-
-			.littleinfobar {
-				position: relative;
-				z-index: -4;
-				top: -64px;
 				opacity: 0;
 			}
 
-			.littlenamebar {
-				position: relative;
-				z-index: -5;
-				opacity: 0;
-
+			.player .name {
+				width: 468px;
 			}
 
-			.playerorange1 {
-				position: relative;
-				top: -50px;
-
-			}
-
-			.playerorange2 {
-				position: relative;
-				top: -122px;
-			}
-
-			.players {
-				position: relative;
-				top: -350px;
+			.player .info {
+				justify-content: center;
+				width: 418px;
 			}
 
 			#player1 {
-				position: relative;
-				left: 250px;
-				opacity: 0;
-				top: 150px;
-
+				top: 560px;
+				left: 35px;
 			}
 
 			#player3 {
-				position: relative;
-				right: 250px;
-				opacity: 0;
-				top: 150px;
-
+				top: 401px;
+				left: 324px;
 			}
 
 			#player2 {
-				position: relative;
-				margin-top: 30px;
-				opacity: 0;
-				top: -150px;
-
+				top: 560px;
+				right: 35px;
 			}
 
 			#player4 {
-				position: relative;
-				margin-top: 30px;
-				opacity: 0;
-				top: -150px;
-
-			}
-
-			#player1 h2,
-			#player2 h2,
-			#player3 h2,
-			#player4 h2 {
-				margin-bottom: 10px;
-				position: relative;
-				top: 5px;
-			}
-
-			#player1 span,
-			#player2 span,
-			#player3 span,
-			#player4 span {
-				color: white;
-				position: relative;
-				top: -5px;
+				top: 401px;
+				right: 324px;
 			}
 		</style>
 
-		<div id="couch-display">
-			<img id="bignamebar" src="./img/bignamebar.png">
-			<img id="orangeline1" src="./img/bigorangeline.png">
-			<img id="biginfobar" src="./img/biginfobar.png">
-			<img id="orangeline2" src="./img/bigskinnyorangeline.png">
-
-			<div id="couch">
-				<div class="couch-display-plate" id="couch1">
-					<h2>{{couch1.name}}</h2>
-					<span>{{couch1.info}} </span>
-				</div>
-				<div class="couch-display-plate" id="couch2">
-					<h2>{{couch2.name}}</h2>
-					<span>{{couch2.info}} </span>
-				</div>
-				<div class="couch-display-plate" id="couch3">
-					<h2>{{couch3.name}}</h2>
-					<span>{{couch3.info}}</span>
-				</div>
+		<div id="couch">
+			<div id="couch-names" class="name">
+				<div id="couch1-name" class="couch-name couch-column">{{couch1.name}}</div>
+				<div id="couch2-name" class="couch-name couch-column">{{couch2.name}}</div>
+				<div id="couch3-name" class="couch-name couch-column">{{couch3.name}}</div>
 			</div>
 
-			<img id="hostnamebar" src="./img/hostnamebar.png">
-			<img id="orangehostline1" src="./img/hostorangebar1.png">
-			<img id="hostinfobar" src="./img/hostinfobar.png">
-			<img id="orangehostline2" src="./img/hostorangebar2.png">
-
-			<div id="host">
-				<h2>{{host.name}}</h2>
-				<span>{{host.info}} </span>
+			<div id="couch-infos" class="info">
+				<div id="couch1-info" class="couch-info couch-column">{{couch1.info}}</div>
+				<div id="couch2-info" class="couch-info couch-column">{{couch2.info}}</div>
+				<div id="couch3-info" class="couch-info couch-column">{{couch3.info}}</div>
 			</div>
 		</div>
 
-		<div id="player-display">
-			<div id="computers">
-				<div id="top-players">
-					<div class="player-display-plate" id="player1">
-						<img class="littlenamebar" src="./img/littlenamebar.png">
-						<img class="playerorange1" src="./img/playerorange1.png">
-						<img class="littleinfobar" src="./img/littleinfobar.png">
-						<img class="playerorange2" src="./img/playerorange2.png">
-
-						<div class="players">
-							<h2>{{player1.name}}</h2>
-							<span>{{player1.info}}</span>
-						</div>
-					</div>
-
-					<div class="player-display-plate" id="player2">
-						<img class="littlenamebar" src="./img/littlenamebar.png">
-						<img class="playerorange1" src="./img/playerorange1.png">
-						<img class="littleinfobar" src="./img/littleinfobar.png">
-						<img class="playerorange2" src="./img/playerorange2.png">
-						<div class="players">
-							<h2>{{player2.name}}</h2>
-							<span>{{player2.info}}</span>
-						</div>
-					</div>
+		<div id="host">
+			<div class="name">
+				<div class="name-content">
+					{{host.name}}
 				</div>
-				<div id="bottom-players">
-					<div class="player-display-plate" id="player3">
-						<img class="littlenamebar" src="./img/littlenamebar.png">
-						<img class="playerorange1" src="./img/playerorange1.png">
-						<img class="littleinfobar" src="./img/littleinfobar.png">
-						<img class="playerorange2" src="./img/playerorange2.png">
-						<div class="players">
-							<h2>{{player3.name}}</h2>
-							<span>{{player3.info}}</span>
-						</div>
-					</div>
+			</div>
 
-					<div class="player-display-plate" id="player4">
-						<img class="littlenamebar" src="./img/littlenamebar.png">
-						<img class="playerorange1" src="./img/playerorange1.png">
-						<img class="littleinfobar" src="./img/littleinfobar.png">
-						<img class="playerorange2" src="./img/playerorange2.png">
-						<div class="players">
-							<h2>{{player4.name}}</h2>
-							<span>{{player4.info}}</span>
-						</div>
-					</div>
+			<div class="info">
+				<div class="info-content">
+					{{host.info}}
+				</div>
+			</div>
+		</div>
+
+		<div id="player1" class="player">
+			<div class="name">
+				<div class="name-content">
+					{{player1.name}}
+				</div>
+			</div>
+
+			<div class="info">
+				<div class="info-content">
+					{{player1.info}}
+				</div>
+			</div>
+		</div>
+
+		<div id="player2" class="player">
+			<div class="player-name">
+				<div class="player-name-content">
+					{{player2.name}}
+				</div>
+			</div>
+
+			<div class="info">
+				<div class="info-content">
+					{{player2.info}}
+				</div>
+			</div>
+		</div>
+
+		<div id="player3" class="player">
+			<div class="player-name">
+				<div class="player-name-content">
+					{{player3.name}}
+				</div>
+			</div>
+
+			<div class="info">
+				<div class="info-content">
+					{{player3.info}}
+				</div>
+			</div>
+		</div>
+
+		<div id="player4" class="player">
+			<div class="player-name">
+				<div class="player-name-content">
+					{{player4.name}}
+				</div>
+			</div>
+
+			<div class="info">
+				<div class="info-content">
+					{{player4.info}}
 				</div>
 			</div>
 		</div>
