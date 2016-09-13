@@ -14,9 +14,6 @@
 			}
 			this.initialized = true;
 			if (!oldVal && newVal) {
-				console.log(this.name1);
-				console.log(this.name2);
-				console.log(this.name3);
 				// couch potatoes
 				if (this.name2) {
 					TweenLite.to('#couch1', 0.5, {
