@@ -86,23 +86,30 @@
 		},
 
 		_handleSelectedItemChanged(e) {
+			if (this.isDebouncerActive('_handleSelectedItemChanged')) {
+				return;
+			}
+
 			const target = e.target;
 			const slot = target.getAttribute('data-slot');
-			const selectedItem = e.detail.value;
 			const replicant = REPLICANTS[slot];
 
-			// Clear out the target's selected item once we have it.
-			e.target.value = null;
-
-			if (!selectedItem || !replicant) {
+			if (!e.detail.value || !replicant) {
 				return;
 			}
 
 			// Copy the values out individually, to avoid object reference problems down the line.
-			replicant.value = {
-				name: selectedItem.name,
-				info: selectedItem.info
+			const selectedItem = {
+				name: e.detail.value.name,
+				info: e.detail.value.info
 			};
+
+			// Clear out the target's selected item once we have it.
+			e.target.value = null;
+
+			this.debounce('_handleSelectedItemChanged', () => {
+				replicant.value = selectedItem;
+			});
 		}
 	});
 })();
