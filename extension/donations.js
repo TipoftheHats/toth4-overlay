@@ -45,7 +45,7 @@ module.exports = function (nodecg) {
 			json: true
 		}).then(response => {
 			latestScrapDonationTime = response.latest_donation;
-			setInterval(fetchNewScrapDonations, 60 * 1000);
+			setInterval(fetchNewScrapDonations, 10 * 1000);
 		}).catch(err => {
 			nodecg.log.warn('Failed to initialize latestDonationTime from Scrap.tf:', err);
 		});
