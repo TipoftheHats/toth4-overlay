@@ -69,18 +69,24 @@ module.exports = function (nodecg) {
 				return;
 			}
 
+			if (typeof response !== 'object') {
+				return;
+			}
+
 			// latest_donation is zero if the response contains no donations
 			if (response.latest_donation) {
 				latestScrapDonationTime = response.latest_donation;
 			}
 
-			response.donations.forEach(donation => {
-				nodecg.sendMessage('donation', formatDonation({
-					name: donation.user.name,
-					rawAmount: donation.cash_value,
-					type: 'item'
-				}));
-			});
+			if (response.donations) {
+				response.donations.forEach(donation => {
+					nodecg.sendMessage('donation', formatDonation({
+						name: donation.user.name,
+						rawAmount: donation.cash_value,
+						type: 'item'
+					}));
+				});
+			}
 		}).catch(err => {
 			nodecg.log.error('Failed to fetch Scrap.tf donations:', err);
 		});
