@@ -39,10 +39,7 @@
 	});
 
 	show.addEventListener('click', () => {
-		texts.value = {
-			title: title.value,
-			body: body.value
-		};
+		take();
 		lowerthirdShowing.value = true;
 	});
 
@@ -54,7 +51,15 @@
 	fifteen.addEventListener('click', handlePulseClick);
 	thirty.addEventListener('click', handlePulseClick);
 
+	function take() {
+		texts.value = {
+			title: title.value,
+			body: body.value
+		};
+	}
+
 	function handlePulseClick(e) {
+		take();
 		nodecg.sendMessage('pulseLowerthird', parseInt(e.target.getAttribute('data-duration'), 10));
 	}
 })();
