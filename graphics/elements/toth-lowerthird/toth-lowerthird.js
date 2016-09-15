@@ -64,12 +64,20 @@
 			}
 		},
 
-		ready() {
+		attached() {
 			texts.on('change', newVal => {
 				this.titleMsg = newVal.title;
 				this.bodyMsg = newVal.body;
-			});
 
+				if (!this._textsReady) {
+					this._textsReady = true;
+					this._onTextsReady();
+				}
+			});
+		},
+
+		// Only declare the "showing" replicant once all the "texts" replicant is ready.
+		_onTextsReady() {
 			lowerthirdShowing.on('change', newVal => {
 				if (newVal) {
 					this.show();
