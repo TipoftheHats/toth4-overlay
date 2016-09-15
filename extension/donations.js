@@ -36,7 +36,7 @@ module.exports = function (nodecg) {
 	if (nodecg.bundleConfig && nodecg.bundleConfig.scraptf) {
 		// Initialize latestDonationTime
 		request({
-			uri: 'https://scrap.tf/api/fundraisers/getdonations.php',
+			uri: 'https://dev.scrap.tf/api/fundraisers/getdonations.php',
 			qs: {
 				fundraiser: nodecg.bundleConfig.scraptf.fundraiserId,
 				key: nodecg.bundleConfig.scraptf.apiKey,
@@ -57,7 +57,7 @@ module.exports = function (nodecg) {
 
 	function fetchNewScrapDonations() {
 		request({
-			uri: 'https://scrap.tf/api/fundraisers/getdonations.php',
+			uri: 'https://dev.scrap.tf/api/fundraisers/getdonations.php',
 			qs: {
 				fundraiser: nodecg.bundleConfig.scraptf.fundraiserId,
 				key: nodecg.bundleConfig.scraptf.apiKey,
