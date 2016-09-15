@@ -13,11 +13,17 @@ module.exports = function (nodecg) {
 		socket.on('connect', () => {
 			nodecg.log.info('Connected to cash donation socket', nodecg.bundleConfig.donationSocketUrl);
 		});
+		socket.on('connect_error', err => {
+			nodecg.log.error('Donation socket connect_error:', err);
+		});
 		socket.on('donation', data => {
 			nodecg.sendMessage('donation', formatDonation(data));
 		});
 		socket.on('disconnect', () => {
 			nodecg.log.error('Disconnected from cash donation socket, can not receive cash donations!');
+		});
+		socket.on('error', err => {
+			nodecg.log.error('Donation socket error:', err);
 		});
 	} else {
 		nodecg.log.error(`cfg/${nodecg.bundleName}.json is missing the "donationSocketUr" property.` +
