@@ -54,6 +54,6 @@
 	thirty.addEventListener('click', handlePulseClick);
 
 	function handlePulseClick(e) {
-		nodecg.sendMessage('pulsetweet', parseInt(e.target.getAttribute('data-duration'), 10));
+		nodecg.sendMessage('pulseTweet', parseInt(e.target.getAttribute('data-duration'), 10));
 	}
 })();
