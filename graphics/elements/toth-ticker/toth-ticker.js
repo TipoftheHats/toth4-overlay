@@ -135,7 +135,7 @@
 
 		showChallenges() {
 			if (challenges.value.length <= 0) {
-				this.tl.call(this.showWars, null, this);
+				this.tl.call(this.showWars, null, this, '+=0.1');
 				return;
 			}
 
@@ -183,7 +183,7 @@
 
 		showWars() {
 			if (wars.value.length <= 0) {
-				this.tl.call(this.showCTA, null, this);
+				this.tl.call(this.showCTA, null, this, '+=0.1');
 				return;
 			}
 
