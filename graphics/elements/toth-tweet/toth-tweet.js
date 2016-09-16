@@ -114,9 +114,7 @@
 			this.tl.to(this.$.tweetBody, 0.5, {
 				onStart() {
 					if (self.images.length > 0) {
-						const imageIn = nodecg.playSound('image_in');
-						imageIn.pan = 0.000001;
-						imageIn.volume = 0.75;
+						nodecg.playSound('image_in');
 					}
 				},
 				y: '0%',
@@ -138,9 +136,7 @@
 			nodecg.playSound('tweet_out');
 
 			if (this.images.length > 0) {
-				const imageOut = nodecg.playSound('image_out');
-				imageOut.pan = 0.000001;
-				imageOut.volume = 0.75;
+				nodecg.playSound('image_out');
 			}
 
 			this.tl.to(this.$.image, 1, {
