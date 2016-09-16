@@ -72,6 +72,11 @@
 		},
 
 		show(artist, song, cover) {
+			if (!this._ignoredFirst) {
+				this._ignoredFirst = true;
+				return;
+			}
+
 			if (this.showing) {
 				return;
 			}
