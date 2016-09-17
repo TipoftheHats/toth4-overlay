@@ -56,8 +56,6 @@
 			const contentWidth = this.$.content.clientWidth;
 			const delta = contentWidth - maxWidth;
 			if (delta > 1) {
-				console.log('contentWidth: %s, maxWidth: %s, delta: %s', contentWidth, maxWidth, delta);
-				console.log('scaling #content to:', maxWidth / contentWidth);
 				TweenLite.set(this.$.content, {scaleX: maxWidth / contentWidth});
 			} else {
 				TweenLite.set(this.$.content, {scaleX: 1});
@@ -135,7 +133,7 @@
 
 		showChallenges() {
 			if (challenges.value.length <= 0) {
-				this.tl.call(this.showWars, null, this, '+=0.1');
+				this.tl.call(this.showWars, null, this, '+=0.33');
 				return;
 			}
 
@@ -183,7 +181,7 @@
 
 		showWars() {
 			if (wars.value.length <= 0) {
-				this.tl.call(this.showCTA, null, this, '+=0.1');
+				this.tl.call(this.showCTA, null, this, '+=0.33');
 				return;
 			}
 
