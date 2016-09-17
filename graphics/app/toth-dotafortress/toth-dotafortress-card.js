@@ -73,7 +73,7 @@
 				return '';
 			}
 
-			return 'app/toth-dotafortress/class_icons/${playerClass}.png';
+			return `app/toth-dotafortress/class_icons/${playerClass}.png`;
 		},
 
 		computePortraitUrl(playerClass, index, team) {
