@@ -8,7 +8,7 @@ const _PLAYERS = [
 	{name: 'evilmrmuffinz', playerClass: 'scout', index: 2, state: 'available'},
 	{name: 'vand', playerClass: 'scout', index: 3, state: 'available'},
 	{name: 'corsa', playerClass: 'scout', index: 4, state: 'available'},
-	{name: 'cyzer', playerClass: 'scout', index: 5, state: 'available'},
+	{name: 'thalash', playerClass: 'scout', index: 5, state: 'available'},
 	{name: 'auzzie', playerClass: 'scout', index: 6, state: 'available'},
 	{name: 'smaka', playerClass: 'scout', index: 7, state: 'available'},
 	{name: 'herr_p', playerClass: 'scout', index: 8, state: 'available'},
