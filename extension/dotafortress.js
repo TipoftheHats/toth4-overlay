@@ -10,7 +10,7 @@ const _PLAYERS = [
 	{name: 'corsa', playerClass: 'scout', index: 4, state: 'available'},
 	{name: 'cyzer', playerClass: 'scout', index: 5, state: 'available'},
 	{name: 'auzzie', playerClass: 'scout', index: 6, state: 'available'},
-	{name: 'sigafoo', playerClass: 'scout', index: 7, state: 'available'},
+	{name: 'smaka', playerClass: 'scout', index: 7, state: 'available'},
 	{name: 'herr_p', playerClass: 'scout', index: 8, state: 'available'},
 
 	// Soldiers
@@ -41,7 +41,7 @@ const _PLAYERS = [
 	{name: 'Karl', playerClass: 'heavy', index: 1, state: 'available'},
 
 	// Engineer
-	{name: 'Spamfest', playerClass: 'engineer', index: 0, state: 'available'},
+	{name: 'Sigafoo', playerClass: 'engineer', index: 0, state: 'available'},
 	{name: 'Ender', playerClass: 'engineer', index: 1, state: 'available'},
 
 	// Medic
