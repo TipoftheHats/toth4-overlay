@@ -4,13 +4,13 @@
 const _PLAYERS = [
 	// Scouts
 	{name: 'sezco', playerClass: 'scout', index: 0, state: 'available'},
-	{name: 'b4nny', playerClass: 'scout', index: 1, state: 'available'},
+	{name: 'shrugger', playerClass: 'scout', index: 1, state: 'available'},
 	{name: 'evilmrmuffinz', playerClass: 'scout', index: 2, state: 'available'},
 	{name: 'vand', playerClass: 'scout', index: 3, state: 'available'},
 	{name: 'corsa', playerClass: 'scout', index: 4, state: 'available'},
 	{name: 'thalash', playerClass: 'scout', index: 5, state: 'available'},
 	{name: 'auzzie', playerClass: 'scout', index: 6, state: 'available'},
-	{name: 'smaka', playerClass: 'scout', index: 7, state: 'available'},
+	{name: 'clockwork', playerClass: 'scout', index: 7, state: 'available'},
 	{name: 'herr_p', playerClass: 'scout', index: 8, state: 'available'},
 
 	// Soldiers
@@ -20,7 +20,7 @@ const _PLAYERS = [
 	{name: 'dave_ac', playerClass: 'soldier', index: 3, state: 'available'},
 	{name: 'deathy', playerClass: 'soldier', index: 4, state: 'available'},
 	{name: 'blaze', playerClass: 'soldier', index: 5, state: 'available'},
-	{name: 'marmadukegrylls', playerClass: 'soldier', index: 6, state: 'available'},
+	{name: 'smaka', playerClass: 'soldier', index: 6, state: 'available'},
 	{name: 'silentes', playerClass: 'soldier', index: 7, state: 'available'},
 	{name: 'sideshow', playerClass: 'soldier', index: 8, state: 'available'},
 
@@ -30,7 +30,7 @@ const _PLAYERS = [
 
 	// Demomen
 	{name: 'Rikachu', playerClass: 'demoman', index: 0, state: 'available'},
-	{name: 'Paulsen', playerClass: 'demoman', index: 1, state: 'available'},
+	{name: 'b4nny', playerClass: 'demoman', index: 1, state: 'available'},
 	{name: 'Bdonski', playerClass: 'demoman', index: 2, state: 'available'},
 	{name: 'habib', playerClass: 'demoman', index: 3, state: 'available'},
 	{name: 'pharaoh', playerClass: 'demoman', index: 4, state: 'available'},
