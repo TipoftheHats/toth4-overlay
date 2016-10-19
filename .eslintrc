@@ -2,9 +2,6 @@
 	"extends": "xo/esnext",
 	"rules": {
 		"new-cap": [
-			0
-		],
-		"babel/new-cap": [
 			2,
 			{
 				"capIsNewExceptions": [

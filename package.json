@@ -22,10 +22,8 @@
     "twitter": "^1.2.5"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "eslint": "^2.12.0",
-    "eslint-config-xo": "^0.15.0",
-    "eslint-plugin-babel": "^3.2.0"
+    "eslint": "^3.8.1",
+    "eslint-config-xo": "^0.17.0"
   },
   "nodecg": {
     "compatibleRange": "~0.8.0",
