@@ -26,7 +26,7 @@ module.exports = function (nodecg) {
 			nodecg.log.error('Donation socket error:', err);
 		});
 	} else {
-		nodecg.log.error(`cfg/${nodecg.bundleName}.json is missing the "donationSocketUr" property.` +
+		nodecg.log.error(`cfg/${nodecg.bundleName}.json is missing the "donationSocketUrl" property.` +
 			'\n\tThis means that we cannot receive new incoming PayPal donations from the tracker,' +
 			'\n\tand that donation notifications will not be displayed as a result.' +
 			'\n\tThe total will still be displayed.');
